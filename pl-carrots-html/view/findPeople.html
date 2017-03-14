@@ -1,0 +1,142 @@
+<div>
+    <div>
+        <div class="m-banner">
+            <img src="{{vm.src}}">
+        </div>
+
+        <div>
+            <div class="container m-int">
+        <div class="m-int-text">
+            <h1>0预付，无风险</h1>
+            <p>入职付一半，转正付一半</p>
+            <P>普通猎头是三个月的薪水。非一般的我们只收一个月的薪水。如果试用期不通过，免费推荐另一个</P>
+        </div>
+        <div class="m-int-img">
+            <img src="images/zjy-0fengxian.png">
+        </div>
+        </div>
+        </div>
+
+        <div class="bg-grey">
+            <div class="container m-int ">
+            <div class="m-int-img">
+                <img src="images/zjy-zhuanzhu.png">
+            </div>
+            <div class="m-int-text">
+                <h1>专注于</h1>
+                <p>最新最热门的IT互联网运人才</p>
+                <P>萝卜多自己开发了一套强大的IT互联网人才库系统，有业界最新最活跃最有效的人才库，这里有最新最热门的IT互联网运营和技术人才，在各大互联网公司都有足够强的人脉圈。</P>
+            </div>
+        </div>
+        </div>
+
+        <div>
+            <div class="container m-int">
+            <div class="m-int-text">
+                <h1>1-3天推荐首批候选人</h1>
+                <p>入职付一半，转正付一半</p>
+                <P>甄选人才 简历脱水 推荐人才</P>
+                <P> 3-5天安排候选人面试</P>
+                <p>安排面试 协助客户选人用人</p>
+            </div>
+            <div class="m-int-img">
+                <img src="images/zjy-youxuan.png">
+            </div>
+
+        </div>
+        </div>
+
+    </div>
+
+    <div class="bg-grey">
+        <div class="container m-server-step" >
+            <div class="m-title">
+                <p>
+                    萝卜多，服务流程
+                </p>
+                <div></div>
+            </div>
+            <div class="row ">
+                <div class="col-md-2 col-md-offset-5">
+                    <img src="images/zjy-liucheng-1.png">
+                </div>
+                <div class="col-md-3   col-sm-12">
+                        <p>意向洽谈、深入评审 确认合作、签订合同 提出需求、提供jd 确立招聘标准</p>
+                </div>
+
+            </div>
+            <div class="m-image">
+                <img src="images/zjy-next.png">
+            </div>
+            <div class="row m-wrap" >
+                <div class="col-md-3 col-md-offset-2 col-sm-12">
+                    <p>意向洽谈、深入评审 确认合作、签订合同 提出需求、提供jd 确立招聘标准</p>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <img src="images/zjy-liucheng-2.png">
+                </div>
+            </div>
+            <div class="m-image">
+                <img src="images/zjy-next.png">
+            </div>
+            <div class="row ">
+                <div class="col-md-2 col-md-offset-5">
+                    <img src="images/zjy-liucheng-3.png">
+                </div>
+                <div class="col-md-3">
+                    <p>发送聘请通知候选人上岗付款、转入售后服务
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="container">
+        <div class="m-title">
+            <p>
+                我们的优势
+            </p>
+            <div></div>
+        </div>
+        <div class="row m-good">
+            <div class="col-md-3  col-sm-6 ">
+                <img src="images/zjy-ys-1.png">
+                <p>30%的行业标准收费水平</p>
+            </div>
+
+            <div class="col-md-3 col-sm-6 ">
+                <img src="images/zjy-ys-2.png">
+                <p>一半一半无风险的收费模式</p>
+            </div>
+            <div class="col-md-3 col-sm-6 ">
+                <img src="images/zjy-ys-3.png">
+                <p>试用期内不满重推的推荐制度</p>
+            </div>
+            <div class="col-md-3 col-sm-6 ">
+            <img src="images/zjy-ys-4.png">
+            <p>高价值高数量的人才储备机制</p>
+        </div>
+
+        </div>
+        </div>
+    </div>
+
+    <div class="bg-grey">
+        <div class="container">
+            <div class="row m-title">
+                <p>成功案例</p>
+                <div></div>
+                <span>SERVICE FLOW</span>
+            </div>
+            <div class="row" >
+                <div class="col-md-3 col-sm-6 col-xs-12 " ng-repeat="logo in vm.tt" >
+                <div class="bg-white cursor"  ng-click="vm.go(this)"    style="text-align: center;margin: 20px;height: 178px;line-height: 178px;border: 1px solid grey">
+                    <img ng-src="{{logo.logo}}" style="width: 106px;height: 106px;display: inline-block">
+                </div>
+                </div>
+                <button class="m-more-com" ng-click="vm.goMoreCompany()">更多合作公司</button>
+            </div>
+        </div>
+    </div>
+</div>

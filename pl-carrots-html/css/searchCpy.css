@@ -1,0 +1,97 @@
+.m-swh {
+  margin-top: 30px;
+  font-size: 1.7rem;
+  border-bottom: 1px solid #e85662;
+}
+.m-swh .srh-item {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+}
+.m-swh .active3 {
+  background-color: #e85662;
+  font-weight: bold;
+  color: white;
+}
+.g-mn-job {
+  background-color: white;
+  font-size: 1.5rem;
+}
+.g-mn-job .f-schkey {
+  margin: 10px ;
+}
+.g-mn-job .f-schkey span {
+  color: #969696;
+}
+.g-mn-job .m-idst {
+  margin: 15px auto;
+}
+.g-mn-job .m-idst .idt-lb {
+  display: inline-block;
+  min-width: 70px;
+  vertical-align: super;
+  margin-left: 15px;
+  font-weight: bold;
+}
+.g-mn-job .m-idst ul {
+  display: inline-block;
+}
+.g-mn-job .m-idst ul li {
+  float: left;
+  min-width: 50px;
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.g-mn-job .submit {
+  text-align: center;
+}
+.g-mn-job .submit .clr {
+  display: inline-block;
+  width: 60px;
+  cursor: pointer;
+}
+.g-mn-job .submit .sch {
+  display: inline-block;
+  width: 60px;
+  background-color: #e85662;
+  cursor: pointer;
+}
+.g-mn-cpyinfo {
+  margin-top: 20px;
+  background-color: white;
+}
+.g-mn-cpyinfo .cpy-box {
+  width: 90%;
+  margin: 20px auto;
+  border: 1px solid darkgrey;
+}
+.g-mn-cpyinfo .cpy-box .top-logo {
+  display: inline-block;
+  margin-left: 10px;
+}
+.g-mn-cpyinfo .cpy-box .top-logo img {
+  width: 100px;
+  height: 100px;
+}
+.g-mn-cpyinfo .cpy-box .top-info {
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 10px;
+  vertical-align: top;
+  line-height: 2rem;
+}
+.g-mn-cpyinfo .cpy-btm {
+  margin: 0 auto;
+  background-color: lightgray;
+  line-height: 2rem;
+  text-align: center;
+}
+.g-mn-cpyinfo .cpy-btm .info-tab {
+  display: inline-block;
+  width: 32%;
+}
+.active4 {
+  background-color: #e85662;
+}

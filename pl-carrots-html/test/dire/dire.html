@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+
+    <link href="../../neew/bootstrap.min.css" rel="stylesheet">
+    <script src="../../neew/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.6.1/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.6.1/angular-animate.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.6.1/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+
+    <script src="dire.js"></script>
+    <script src="gg.js"></script>
+
+</head>
+<body>
+
+<div ng-controller="con">
+
+  <select  ng-options="s.ProID for s in p"  ng-model="selected"></select>
+
+</div>
+</body>
+</html>
+
+

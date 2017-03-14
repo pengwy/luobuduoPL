@@ -1,0 +1,64 @@
+<div class="bg-grey padding">
+
+    <div class="container">
+        <div class="row">
+            <img src="images/companyList-img.png" class="u-companyList">
+        </div>
+    </div>
+
+    <div class="container bg-white m-choice">
+        <div class="row">
+            <form class="col-sm-12  m-form">
+                <div class="form-group">
+                    <label style="display: inline-block">所在地区: </label><a ng-repeat="s in vm.option.province" ng-click="vm.choice($index,vm.option.province,vm.com.province)" ng-class="{true: 'bg-pink'}[s.choose]">{{s.name}}</a>
+                </div>
+                <div class="form-group">
+                    <label style="display: inline-block">所属行业：</label><a ng-repeat="s in vm.option.industry" ng-click="vm.choice($index,vm.option.industry,vm.com.industry)" ng-class="{true: 'bg-pink'}[s.choose]">{{s.name}}</a>
+                </div>
+                <div class="form-group">
+                    <label style="display: inline-block">融资规模：</label><a ng-repeat="s in vm.option.financing" ng-click="vm.choice($index,vm.option.financing,vm.com.financing)" ng-class="{true:'bg-pink'}[s.choose]" >{{s.name}}</a>
+                </div>
+            </form>
+
+        </div>
+        <div class="row bg-grey" style="height: 30px"></div>
+        <div class="row" ng-class="{true:'he'}[!vm.no]">
+            <div class="col-md-4 col-sm-6 " ng-repeat="s in vm.list " style="padding: 20px">
+                <div class="border-1 cursor" ng-click="vm.company(s)">
+                    <div class="m-com-top">
+                        <img src="{{s.logo}}" class="border-1">
+                        <div>
+                            <p class="col-warp">{{s.name}}</p>
+                            <p class="col-warp">{{s.slogan}}</p>
+                            <p><span class="font-pink big-font">{{s.professionNum}}</span>人在招</p>
+                        </div>
+                    </div>
+                    <div class="m-com-bot">
+                      <span class="col-warp" style="padding: 0"><img src="images/phone-url.png">
+                          <span ng-repeat="b in s.industryList track by $index" style="display: inline-block ;padding: 0;">
+                              <span style="display: inline-block; ">{{b|industrytype}}</span>
+                          </span>
+                           </span>
+                        <span><img src="images/shangshi.png">{{s.financing|financingtype}}</span>
+                        <span><img src="images/location-company.png">{{s.province-0|province}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="vm.no" class=" m-no">
+
+            <img src="images/404.png">
+            <div>
+                <p class="big-font">暂时没有符合该搜索条件的内容</p>
+                <p>请重新修改搜索条件后再次进行搜索</p>
+            </div>
+
+        </div>
+
+        <div ng-show="!vm.no">
+            <ul uib-pagination  items-per-page="9"   ng-model="vm.com.page"  boundary-links="true"   total-items="vm.totalItems"  class="pagination-sm" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页" rotate='true' ></ul>
+        </div>
+    </div>
+
+</div>

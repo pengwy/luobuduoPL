@@ -1,0 +1,70 @@
+<!--导航栏-->
+<nav class="navbar navbar-default bg-white "  >
+    <div class="container">
+        <!--按钮-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed bg-pink" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--图片部分-->
+            <div class="m-nav">
+                <a  ui-sref="app.home"><img src="images/nave-logo.png"></a>
+                <span></span>
+                <p><img src="images/location-logo.png">北京站</p>
+            </div>
+        </div>
+        <!--列表-->
+        <div class="collapse navbar-collapse  right m-change" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav m-nav-icon big-font">
+                <li><a ui-sref="app.home" ng-class="{active: $state.includes('app.home')}">主页</a>
+                    <span class="under-line" ui-sref="app.home" ng-class="{active2: $state.includes('app.home')}"></span>
+                </li>
+                <li><a ui-sref="app.findJob" ng-class="{active: $state.includes('app.findJob')||$state.includes('app.searchCpy')||$state.includes('app.searchJob')
+                ||$state.includes('app.moreCompany')||$state.includes('app.companyDetail')
+                ||$state.includes('app.jobDetail')}"  >找职位</a>
+                    <span class="under-line" ui-sref=".findJob"  ></span>
+                </li>
+                <li><a ui-sref="app.findPeople" ng-class="{active: $state.includes('app.findPeople')}">找精英</a>
+                    <span class="under-line" ui-sref=".findPeople"  ui-sref-active="active2"></span>
+                </li>
+                <li><a ui-sref="app.aboutUs"  ui-sref-active="active">关于我们</a>
+                    <span class="under-line" ui-sref=".aboutUs"  ui-sref-active="active2"> </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--路由视图-->
+<div ui-view=""/>
+
+<!--底部-->
+<div class="g-ft font-brown" >
+    <div class="container">
+        <div class="row" style="padding:20px 0">
+            <div class="col-md-4 col-xs-12 u-about">
+                <p><a ui-sref=".aboutUs" ng-click="vm.goUs()">关于我们</a></p>
+                <p>萝卜多——知根知底的社群招聘</p>
+            </div>
+            <div class="col-md-5 col-xs-12 u-contact">
+                <p><a ui-sref=".aboutUs" ng-click="vm.goCon()">联系我们</a></p>
+                <ul>
+                    <li><img src="images/i-phone.jpg"><span class="u-center">联系电话</span><span>(010)59478634</span></li>
+                    <li><img src="images/i-email.jpg"><span class="u-center">邮箱支持</span><span>kefu@ptteng.com</span></li>
+                    <li><img src="images/i-address.png"><span class="u-center">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</span><span>北京市海淀区翠微路甲10#225室</span></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-xs-12 u-wei">
+                <img src="images/erweima.jpg">
+                <P>微信号：葡萄藤IT技术孵化</P>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-blue">
+    <p >
+        Copyright © 2015 北京葡萄藤信息技术有限公司 All Rights Reserved | 京ICP备15035574号-3
+    </p>
+</div>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+
+    <link href="../../neew/bootstrap.min.css" rel="stylesheet">
+
+    <script src="//cdn.bootcss.com/angular.js/1.6.1/angular.min.js"></script>
+
+    <script src="//cdn.bootcss.com/angular.js/1.6.1/angular-animate.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.6.1/angular-sanitize.min.js"></script>
+
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+
+<!--
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+-->
+
+
+
+
+   <!--<link href="bootstrap.css" rel="stylesheet">-->
+
+   <script src="carousel.js"></script>
+
+   <!-- <style>
+
+        .carousel-inner > .item.next,
+        .carousel-inner > .item.active.right {
+            left: 0;
+            -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+        }
+        .carousel-inner > .item.prev,
+        .carousel-inner > .item.active.left {
+            left: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+
+    </style>
+    -->
+
+
+
+</head>
+<body>
+
+
+
+<div ng-controller="CarouselDemoCtrl">
+    <div style="height: 305px">
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="slide in $scope.slides track by slide.id" index="slide.id">
+                <img ng-src="{{slide.image}}" style="margin:auto;">
+                <div class="carousel-caption">
+                    <h4>Slide {{slide.id}}</h4>
+                    <p>{{slide.text}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

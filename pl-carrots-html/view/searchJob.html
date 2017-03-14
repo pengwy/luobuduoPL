@@ -1,0 +1,104 @@
+<div ng-controller="searchJobCtrl" style="background-color: rgb(240,240,240)">
+    <div class="container">
+        <div class="m-swh">
+            <span  ui-sref="app.searchCpy" class="srh-item cursor">公司</span>
+            <span class="active3 srh-item cursor"  ui-sref="app.searchJob ">职位</span>
+        </div>
+        <div class="row g-mn-job">
+            <div class="form-group form-inline f-schkey">
+                <label for="keyword">关键字</label>
+                <input type="text" class="form-control" id="keyword" ng-model="vm.name"  style="width: 50%"><span>关键词：{{vm.name}} </span>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 地区:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgCity[$index]}" ng-click="vm.schCity($index)" ng-repeat="x in vm.cityOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 职位类别:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgCate[$index]}" ng-click="vm.schCate($index)" ng-repeat="x in vm.categoryOpt">{{x}}</li>
+                </ul>
+                <ul style="height: 20px;display:block;margin-left: 90px" ng-show="vm.flev">
+                    <li  ng-class="{'active4':vm.jdgOpt[$index]}" ng-click="vm.schOpt($index)" ng-repeat="x in  vm.subCategoryOpt1">{{x}}</li>
+                </ul>
+                <ul style="height: 20px;display:block;margin-left: 90px" ng-show="vm.slev">
+                    <li  ng-class="{'active4':vm.jdgOpt[$index]}" ng-click="vm.schOpt($index)" ng-repeat="x in  vm.subCategoryOpt2">{{x}}</li>
+                </ul>
+                <ul style="height: 20px;display:block;margin-left: 90px" ng-show="vm.thlev">
+                    <li  ng-class="{'active4':vm.jdgOpt[$index]}" ng-click="vm.schOpt($index)" ng-repeat="x in  vm.subCategoryOpt3">{{x}}</li>
+                </ul>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 所属行业:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgInd[$index]}" ng-click="vm.schIndu($index)" ng-repeat="x in vm.industryOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 学历要求:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgEdu[$index]}" ng-click="vm.schEdu($index)" ng-repeat="x in vm.eduOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 工作经验:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgExp[$index]}" ng-click="vm.schExp($index)" ng-repeat="x in vm.expOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 薪资水平:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgCompen[$index]}" ng-click="vm.schCompen($index)" ng-repeat="x in vm.compenOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 发布时间:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgUpdate[$index]}" ng-click="vm.schUpdate($index)" ng-repeat="x in vm.updateOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="submit">
+                <button class="pull right sch" ng-click="vm.submit()">搜索</button>
+                <span class="pull right clr" ng-click="vm.clearAll()">清空</span>
+            </div>
+        </div>
+        <div class=" g-mn-list">
+            <div ng-repeat="one in vm.res" class="row ">
+                <div class="col-xs-6 f-listjb" >
+                    <div>{{one.name}}<span>发布时间：{{one.updateAt|date:"MM/dd/yyyy"}}</span></div>
+                    <div class="font-pink">{{one.compensation|compensation}}</div>
+                    <div>{{one.city}}/{{one.education|education}}/{{one.experience|experience}}</div>
+                </div>
+                <div class="col-xs-6 row f-jbdata">
+                    <div class="col-xs-9 outer">
+                        <div >{{one.companyName}}</div>
+                        <div>
+                            <span ng-repeat="(x,y) in one.industryList track by $index">{{x|industrytype}}&nbsp;|</span>
+                        </div>
+                        <div>
+                            <span ng-repeat="(x,y) in one.tags track by $index">{{x|}}&nbsp;|</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 cpylogo">
+                        <img style="width: 100px;height: 120px" ng-src="{{one.logo}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="vm.no" class=" m-no">
+
+            <img src="images/404.png">
+            <div>
+                <p class="big-font">暂时没有符合该搜索条件的内容</p>
+                <p>请重新修改搜索条件后再次进行搜索</p>
+            </div>
+        </div>
+        <div ng-show="!vm.no" >
+            <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" ng-change="vm.pageChanged()" class="pull-right"></ul>
+        </div>
+
+    </div>
+</div>

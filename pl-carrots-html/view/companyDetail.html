@@ -1,0 +1,79 @@
+
+<div class="bg-grey padding">
+    <div class="container ">
+        <div class="row m-flex">
+
+                <div class="m-comDe-logo bg-white">
+                    <img ng-src={{vm.company.company.logo}}>
+                </div>
+              <div class="m-comDe-text bg-white">
+                    <h2>{{vm.company.company.name}}
+                        <span ng-show="{{vm.company.company.approved}}===1"><img src="images/company-home-2.png">萝卜多认证</span>
+                    </h2>
+                    <p>{{vm.company.company.slogan}}</p>
+                    <p>{{vm.company.List.name}}</p>
+                </div>
+        </div>
+    </div>
+   <div class="padding">
+    <div class="container bg-white ">
+
+
+            <div class=" m-con-bu">
+                <span ng-click="vm.chan()" ng-class="{true:'m-con-active'}[!vm.show]" class="cursor">公司详情</span>
+                <span ng-click="vm.chan()" ng-class="{true:'m-con-active'}[vm.show]" class="cursor">在招职位</span>
+            </div>
+
+            <div class="col-md-9">
+                <div ng-show="!vm.show" style="border-top:1px solid grey;border-right:1px solid grey; ">
+                <p class="u-title big-font">公司产品</p>
+                <div>
+                    <img ng-src="{{vm.company.productList.logo}}">
+                    <h1>{{vm.company.productList.summary}}</h1>
+                </div>
+                <div >
+                    <p class="u-title big-font">公司介绍</p>
+                    <p class="u-warp">{{vm.company.company.summary}}</p>
+                </div>
+            </div>
+
+                <div ng-show="vm.show" style="border-top:1px solid grey;border-right:1px solid grey; ">
+                <P class="u-title big-font">在招职位{{vm.companyJob.length}}个</P>
+                <ul>
+                    <li ng-repeat=" s in vm.companyJob" class="u-detail-job cursor" ng-click="vm.goJob(this)">
+                        <div class="md-col-3  col-sm-3 col-xs-4 limit">{{s.name}}{{s.province-0|province}}</div>
+                        <div class="md-col-2 col-sm-3 col-xs-2 limit">{{s.compensation|compensation}}</div>
+                        <div class="md-col-2 col-sm-3 col-xs-2 limit">{{s.experience|experience}}/{{s.education|education}}</div>
+                        <span class="md-col-3 col-sm-3 col-xs-4 limit">{{s.updateAt|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                    </li>
+                </ul>
+            </div>
+
+            </div>
+
+
+            <div class="col-md-3 col-sm-12">
+            <div >
+                <p >公司信息<span class="u-line" ></span></p>
+                <p><img src="images/people.png">{{vm.company.company.totalNum}}</p>
+                <p>
+                    <img src="images/company-home-3.png">
+                    <span ng-repeat="s in vm.company.industryList">
+                  {{s.industry|industrytype}}
+                    </span>
+                </p>
+                <p><img src="images/location.png">{{vm.company.company.province-0|province}}</p>
+            </div>
+            <div>
+                <p >公司标签<span class="u-line" ></span></p>
+                <div class="m-tag">
+                    <span ng-repeat="s in vm.company.tagList " class="u-tag">{{s.tag}}</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>

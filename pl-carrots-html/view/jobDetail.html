@@ -1,0 +1,59 @@
+
+<div class="bg-grey padding ">
+
+    <div class="container bg-white  small-font">
+        <div class="col-md-9 col-sm-12" >
+            <div class="row u-line-p" style="padding: 20px">
+                <P class="big-font">
+                    {{vm.inf.name}}
+                </P>
+                <p>{{vm.inf.companyName}}</p>
+                <p>
+                    <span class="font-pink">{{vm.inf.compensation|compensation}}</span>
+                    <span><img src="images/location-jobdescripe.png">{{vm.inf.province}}</span>
+                    <span><img src="images/description-2.png"> {{vm.inf.education|education}}</span>
+                    <span><img src="images/description-1.png"> {{vm.inf.experience|experience}}</span>
+                </p>
+                <p> <img src="images/date.png"><span>{{vm.inf.updateAt|date:'yyyy-MM-dd'}}</span></p>
+            </div>
+            <div class="row u-line-p">
+                <p class="u-title">职位描述</p>
+                <p>岗位职责</p>
+                <p class="u-warp">{{vm.inf.responsibility}}</p>
+                <p>必要条件：</p>
+                <p class="u-warp">{{vm.inf.requisite}}</p>
+                <p>公司福利</p>
+                <p class="u-warp">{{vm.inf.boon}}</p>
+            </div>
+            <div class="row">
+
+            <div class="m-job-ft">
+                <p><img src="images/sharing.png">分享</p>
+                <div class="u-icon">
+                    <a class="u-icon-wei"></a>
+                    <a class="u-icon-qq"></a>
+                    <a class="u-icon-weibo"></a>
+                </div>
+                <button ng-click="vm.bootBox()" class="m-bootbox bg-pink">我感兴趣</button>
+            </div>
+
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12" style="padding: 40px">
+            <div class="m-jobD-logo">
+                <img src={{vm.inf.logo}}>
+                <p ng-click="vm.goBack()" class="cursor">{{vm.inf.companyName}}<img src="images/company-home-1.png"></p>
+            </div>
+            <div class="m-jobD-inf">
+                <p>基本信息<span class="u-line"></span></p>
+                <p><img src="images/people.png">
+                    <span>{{vm.inf.totalNum}}</span>
+                  </p>
+                <p><img src="images/company-home-3.png">
+                    <span ng-repeat="s in vm.inf.industryList" style="margin-right: 5px;display: inline-block">{{s.industry|industrytype}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

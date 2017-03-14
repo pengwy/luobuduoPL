@@ -1,0 +1,173 @@
+
+
+/*颜色*/
+@pink:#e85662;/*粉红*/
+@grey:#f6f7f8;/*灰色*/
+@white:#ffffff;/*白色*/
+@brown:#c6c6c6;/*棕色*/
+@blue:#37485a;/*蓝色*/
+@black:#000;
+/*字体*/
+@base:16px;
+@small:@base - 2px;
+@smalls:@base - 4px;
+@big: @base + 4px;
+
+//body字体
+body{
+  font-size: @base;
+}
+//小号字体
+.small-font{
+  font-size: @small;
+}
+
+
+//字体加粗
+.big-font{
+  font-weight: 700;
+}
+//背景颜色
+.bg-white{
+  background-color: @white;
+}
+.bg-grey{
+  background-color: @grey;
+}
+.bg-blue{
+  padding: 3px 0 ;
+  font-size: @smalls;
+  color: @brown;
+  text-align: center;
+  background-color:@blue;
+  p{
+    margin: 0;
+  }
+
+}
+.bg-pink{
+  background-color:@pink;
+}
+//字体颜色
+.font-brown{
+  color: @brown;
+}
+
+.font-pink{
+  color: @pink;
+}
+
+//浮动
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+//文字下的线
+.under-line{
+    display: inherit;
+    height: 3px;
+    width: 100%;
+    background-color: @white;
+
+}
+//模块的容器
+
+.m-title{
+  padding: 80px 0 50px;
+  text-align: center;
+  p,span{
+    margin-bottom: 5px;
+  }
+  p{
+    font-size: @big;
+    font-weight: 700;
+  }
+  span{
+    font-size: @base;
+  }
+  div{
+    margin: 4px auto;
+    width: 30px ;
+    height: 2px;
+    background-color: @pink;
+  }
+}
+//路由状态
+.active{
+  color: red !important;
+}
+.active2{
+  background-color: red !important;
+}
+//大图
+.m-banner{
+  height: 50vh;
+  overflow: hidden;
+  img{
+    width: 100%;
+  }
+}
+//改变换行顺序
+.m-wrap{
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+@media (max-width: 993px) {
+  .m-wrap{
+    justify-content: center;
+  }
+}
+
+//margin
+.padding{
+  padding: 20px 0;
+}
+//显示省略
+.col-warp{
+  width: 98px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//灰边框
+.border-1{
+  border: 1px solid @grey;
+}
+//404
+.m-no{
+  text-align: center;
+img,div{
+  display:inline-block;
+}
+}
+
+//限制
+.limit{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.u-title{
+  border-left: 5px solid @pink;
+  padding-left:10px;
+}
+.u-warp{
+  margin-left: 10px;
+  white-space: pre-wrap;
+  line-height: 2;
+}
+//基本信息
+.u-line{
+  display: inline-block;
+  width: 60%;
+  height: 1px;
+  margin-left: 2%;
+  margin-bottom: 6px;
+  background-color: @grey;
+}
+//光标样式
+.cursor{
+  cursor:pointer;
+}

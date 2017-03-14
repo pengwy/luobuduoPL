@@ -1,0 +1,70 @@
+<div ng-controller="searchCpyCtrl" style="background-color: rgb(240,240,240)">
+    <div class="container">
+        <div class="m-swh">
+            <span  ui-sref="app.searchCpy" class="srh-item active3 ">公司</span>
+            <span class="srh-item" ui-sref="app.searchJob">职位</span>
+        </div>
+        <div class="row g-mn-job">
+            <div class="form-group form-inline f-schkey">
+                <label for="keyword">关键字</label>
+                <input type="text" class="form-control" id="keyword" ng-model="vm.name"  style="width: 50%"><span>关键词：{{vm.name}} </span>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 地区:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgCity[$index]}" ng-click="vm.schCity($index)" ng-repeat="x in vm.cityOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 所属行业:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgInd[$index]}" ng-click="vm.schIndu($index)" ng-repeat="x in vm.industryOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="m-idst">
+                <span class="idt-lb" > 融资规模:</span>
+                <ul>
+                    <li  ng-class="{'active4':vm.jdgFin[$index]}" ng-click="vm.schFin($index)" ng-repeat="x in vm.financeOpt">{{x}}</li>
+                </ul>
+            </div>
+            <div class="submit">
+                <button class="pull right sch" ng-click="vm.submit()">搜索</button>
+                <span class="pull right clr" ng-click="vm.clearAll()">清空</span>
+            </div>
+        </div>
+        <div class="row g-mn-cpyinfo ">
+            <div class="col-sm-4 col-xs-12" ng-repeat="x in vm.res">
+                <div class="cpy-box">
+                    <div class="cpy-top">
+                        <div class="top-logo">
+                            <img  ng-src="{{x.logo}}" alt="#">
+                        </div>
+                        <div class="top-info">
+                            <div>{{x.name}}</div>
+                            <div>{{x.slogan}}</div>
+                            <div>{{x.professionNum}}个职位在招</div>
+                        </div>
+                    </div>
+
+                    <div class="cpy-btm">
+                        <span class="limit info-tab"><span ng-repeat="y in x.industryList" style="background-color: #2e6da4">{{y|industrytype}}</span></span>
+                        <span class="info-tab">{{x.financing|financingtype}}</span>
+                        <span class="info-tab">{{x.city-0|province}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div ng-show="vm.no" class=" m-no">
+            <img src="images/404.png">
+            <div>
+                <p class="big-font">暂时没有符合该搜索条件的内容</p>
+                <p>请重新修改搜索条件后再次进行搜索</p>
+            </div>
+        </div>
+        <div ng-show="!vm.no" >
+            <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" ng-change="vm.pageChanged()" class="pull-right"></ul>
+        </div>
+
+    </div>
+</div>
