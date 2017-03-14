@@ -3,7 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>萝卜多后台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="neew/bootstrap.min.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/public.css">
+    <!--js文件-->
+    <script src="neew/jquery.min.js"></script>
+    <script src="neew/bootstrap.min.js"></script>
+    <script src="neew/angular.min.js"></script>
+    <!--<script src="neew/angular-ui-router.min.js"></script>-->
+
+    <!--<script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>-->
+    <!--<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+    <!--<script src="//cdn.bootcss.com/angular.js/1.6.1/angular.min.js"></script>-->
+
+    <script src="//cdn.bootcss.com/angular-ui-router/0.2.16/angular-ui-router.min.js"></script>
+
+
+    <!--
+    <script src="//cdn.bootcss.com/angular-ui-router/1.0.0-beta.3/angular-ui-router.min.js"></script>
+-->
+
+    <script src="js/ocLazyLoad.min.js"></script>
+    <script src="neew/angular-animate.js"></script>
+    <script src="neew/angular-sanitize.js"></script>
+
+    <script src="neew/ui-bootstrap-tpls-2.5.0.js"></script>
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>-->
+
+    <!--bootbox-->
+<!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+-->
+
+    <!-- oclazyload -->
+    <script src="js/app/app.config.js"></script>
+    <script src="js/app/app.router.js"></script>
 </head>
-<body>
+<body ng-app = "app">
+<div ui-view></div>
 </body>
 </html>

@@ -3,7 +3,10 @@
  */
 
 'use strict';
-app.mouder('login',function () {
-    var vm =this
+app.controller('login',function ($state) {
+    var vm =this;
+    vm.go=function () {
+        $state.go('app.dashboard')
+    }
 
 });

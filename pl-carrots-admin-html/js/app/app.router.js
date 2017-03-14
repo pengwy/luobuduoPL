@@ -3,34 +3,44 @@
  */
 'use strict';
 
-
 app.config(["$stateProvider","$urlRouterProvider",routeFn]);
 function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
     //加载文件的方法
 
     //文件配置
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/dashboard");
     $stateProvider
+
         .state("app",{
             url:"",
             templateUrl:"view/main.html",
-            controller:"mainCtrl",
+            controller:"main",
             controllerAs:"vm",
             abstract: true,
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/main.js','js/controllers/home.js','css/home.css',"js/constant/constant.js"]})
+                    files:['js/controllers/main.js',"js/constant/constant.js","css/main.css"]})
             }]}
         })
-        //首页
-        .state("app.home",{
-            url:"/home",
-            templateUrl:"view/home.html",
-            controller:"homeCtrl",
+        .state('app.dashboard', {
+            url: '/dashboard',
+            templateUrl: 'view/dashboard.html',
+            controller:"dashboard",
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/home.js','css/home.css',"js/constant/constant.js"]})
+                    files:['js/controllers/dashboard.js']})
+            }]}
+        })
+        //登录
+        .state("login",{
+            url:"/login",
+            templateUrl:"view/login.html",
+            controller:"login",
+            controllerAs:"vm",
+            resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files:['js/controllers/login.js','css/login.css',"js/constant/constant.js"]})
             }]}
         })
         .state("app.findJob",{
