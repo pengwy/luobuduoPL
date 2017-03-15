@@ -43,24 +43,24 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
                     files:['js/controllers/login.js','css/login.css',"js/constant/constant.js"]})
             }]}
         })
-        .state("app.findJob",{
-            url:"/findJob",
-            templateUrl:"view/findJob.html",
-            controller:"findJobCtrl",
+        .state("app.jobList",{
+            url:"/jobList",
+            templateUrl:"view/jobList.html",
+            controller:"jobList",
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/findJob.js',"js/constant/constant.js",'css/findjob.css','js/filter/filter.js']})
+                    files:['js/controllers/jobList.js',"js/constant/constant.js",'css/jobList.css','js/filter/filter.js']})
             }]}
         })
-        .state("app.findPeople",{
-            url:"/findPeople",
-            templateUrl:"view/findPeople.html",
-            controller:"findPeopleCtrl",
+        .state("app.comList",{
+            url:"/comList",
+            templateUrl:"view/comList.html",
+            controller:"comList",
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/findPeople.js','js/factory/factory.js','js/service/service.js','css/findPeople.css']})
+                    files:['js/controllers/comList.js','js/factory/factory.js','js/service/service.js','css/comList.css']})
             }]}
         })
         .state("app.aboutUs",{

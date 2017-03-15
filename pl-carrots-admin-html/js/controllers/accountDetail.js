@@ -3,7 +3,7 @@
  */
 
 'use strict';
-app.mouder('accountDetail',function () {
+app.controller('accountDetail',function () {
     var vm =this
 });
 

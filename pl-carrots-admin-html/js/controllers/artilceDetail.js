@@ -4,6 +4,6 @@
 
 
 'use strict';
-app.mouder('artilceDetail',function () {
+app.controller('artilceDetail',function () {
     var vm =this
 });

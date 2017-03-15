@@ -4,7 +4,7 @@
 
 'use strict';
 
-app.mouder('pwdAmend',function () {
+app.controller('pwdAmend',function () {
     var vm = this
 
 });

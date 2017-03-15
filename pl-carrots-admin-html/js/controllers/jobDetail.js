@@ -3,6 +3,6 @@
  */
 
 'use strict';
-app.mouder('jobDetail',function () {
+app.controller('jobDetail',function () {
     var vm =this
 });

@@ -1,6 +1,6 @@
 .panel-heading {
   padding: 0;
-height: 59px;
+  height: 59px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px
 }
@@ -21,4 +21,30 @@ height: 59px;
   padding: 0;
   -webkit-overflow-scrolling: touch;
   border-top: 1px solid transparent;
+}
+.navbar{
+  float: left;
+  display: inline-block;
+  width: 250px;
+}
+@media (max-width: 768px) {
+  .navbar{
+    float: none;
+    display:block;
+    width: auto;
+  }
+}
+
+.m-hd{
+  display: flex;
+  justify-content: space-between;
+  line-height: 50px;
+  .u-luobuduo,.m-out{
+height: 50px;
+  }
+}
+
+.u-luobuduo{
+  width: 250px;
+  text-align: center;
 }

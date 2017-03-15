@@ -4,7 +4,7 @@
 
 'use strict';
 
-app.controller('main',function () {
+app.controller('main',function ($state) {
     var vm = this;
 
     vm.oneAtATime = true;
@@ -32,8 +32,11 @@ app.controller('main',function () {
         isFirstOpen: true,
         isFirstDisabled: false
     };
-    
-    
+
+    vm.ha=function () {
+        $state.go('app.comList')
+    }
+
     
     
 });

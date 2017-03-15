@@ -4,7 +4,7 @@
 
 'use strict';
 
-app.mouder('moduleDetail',function () {
+app.controller('moduleDetail',function () {
     var vm = this
 
 });

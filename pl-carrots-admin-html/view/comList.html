@@ -1,1 +1,13 @@
-<div>comList</div>
+<div>
+
+<form>
+
+        <label>公司名称<input type="text" ng-model="vm.company.name"></label>
+        <label>公司行业<select ng-options="s.name for s in vm.se.industry" ng-model="vm.company.industry" ></select></label>
+        <label>融资规模<select ng-options="s.name for s in vm.se.financing" ng-model="vm.company.financing"></select></label>
+</form>
+
+
+
+
+</div>

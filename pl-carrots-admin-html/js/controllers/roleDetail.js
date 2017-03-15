@@ -5,6 +5,6 @@
 
 'use strict';
 
-app.mouder('roleDetail',function () {
+app.controller('roleDetail',function () {
     var vm = this
 });

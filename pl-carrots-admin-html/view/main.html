@@ -1,5 +1,11 @@
 <div>
-    <nav class="navbar navbar-default bg-white col-sx-2" style="width: 250px" >
+    <nav class="m-hd">
+        <div class="u-luobuduo">萝卜多后台管理系统</div>
+        <div class="m-out"><p>ikyujrhygtrfwe</p></div>
+    </nav>
+
+
+    <nav class="navbar navbar-default "  >
             <!--按钮-->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed bg-pink" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -12,8 +18,8 @@
 
             </div>
             <!--列表-->
-        <div >萝卜多后台管理系统</div>
-            <div class="collapse navbar-collapse  right m-change" id="bs-example-navbar-collapse-1">
+
+            <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
                 <script type="text/ng-template" id="group-template.html">
                     <div class="panel-heading">
                         <h4 class="panel-title" style="color:#fa39c3">
@@ -31,19 +37,26 @@
                 <uib-accordion >
                     <div uib-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
                         <uib-accordion-heading>
-                            Custom template with custom header template
+                            <span>罗卜多后台管理系统</span>
                             <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
                         </uib-accordion-heading>
-                        <span>World</span>
+                        <span ng-click="vm.ha()">World</span>
                     </div>
                 </uib-accordion>
             </div>
+
+
+
     </nav>
 
-<div></div>
+
+<div class="detail">
 
     <!--路由视图-->
 
     <div ui-view=""/>
+
+</div>
+
 
 </div>

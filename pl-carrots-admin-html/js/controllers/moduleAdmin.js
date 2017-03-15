@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.mouder('moduleAdmin',function () {
+app.controller('moduleAdmin',function () {
     var vm = this
 
 });

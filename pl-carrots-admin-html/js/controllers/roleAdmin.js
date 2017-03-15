@@ -3,6 +3,6 @@
  */
 'use strict';
 
-app.mouder('roleAdmin',function () {
+app.controller('roleAdmin',function () {
     var vm = this
 });
