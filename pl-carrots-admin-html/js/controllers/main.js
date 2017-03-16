@@ -4,39 +4,36 @@
 
 'use strict';
 
-app.controller('main',function ($state) {
+app.controller('main',function ($scope,$state) {
     var vm = this;
+    vm.statu =sessionStorage.getItem("statu");
+    console.log("hi"+vm.statu);
 
-    vm.oneAtATime = true;
 
-    vm.groups = [
-        {
-            title: 'Dynamic Group Header - 1',
-            content: 'Dynamic Group Body - 1'
-        },
-        {
-            title: 'Dynamic Group Header - 2',
-            content: 'Dynamic Group Body - 2'
-        }
-    ];
-
-    vm.items = ['Item 1', 'Item 2', 'Item 3'];
-
-    vm.addItem = function() {
-        var newItemNo = vm.items.length + 1;
-        vm.items.push('Item ' + newItemNo);
-    };
-
-    vm.status = {
+    /*侧边栏面板*/
+    $scope.oneAtATime = true;
+    $scope.status = {
         isCustomHeaderOpen: false,
         isFirstOpen: true,
         isFirstDisabled: false
     };
-
-    vm.ha=function () {
-        $state.go('app.comList')
+    /*获取本地存储*/
+    //读取
+    var str = sessionStorage.modules;
+    //重新转换为对象
+    vm.modules = JSON.parse(str);
+    /*console.log(vm.modules);*/
+    vm.mainTab=[];
+    vm.childTab = [];
+    for(var i=0;i<vm.modules.length;i++){
+        if (vm.modules[i].parentID==0){
+            vm.mainTab.unshift(vm.modules[i])
+        }
     }
+   /* console.log(vm.mainTab);*/
 
-    
-    
+
+
+
+
 });

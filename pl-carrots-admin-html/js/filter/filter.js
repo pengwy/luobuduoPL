@@ -56,3 +56,10 @@ app.filter('education',function (educationtype) {
             }}
     }});
 //省
+app.filter('moduleurl',function (moduleType) {
+    return function (id) {
+        for(var i=0;i<moduleType.length;i++){
+            if(id ===  moduleType[i].id){
+                return moduleType[i].url
+            }}
+    }});

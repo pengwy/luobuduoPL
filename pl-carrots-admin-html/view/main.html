@@ -1,62 +1,41 @@
-<div>
-    <nav class="m-hd">
-        <div class="u-luobuduo">萝卜多后台管理系统</div>
-        <div class="m-out"><p>ikyujrhygtrfwe</p></div>
-    </nav>
-
-
-    <nav class="navbar navbar-default "  >
-            <!--按钮-->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed bg-pink" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!--图片部分-->
-
+<div ng-controller="main">
+    <div class="container-fluid row">
+        <nav class="m-hd col-xs-12">
+            <div class="m-tt">萝卜多后台管理系统</div>
+            <div>
+                <button class="btn btn-danger" ui-sref="login">注销登录 </button>
+                <span>超级管理员</span>
             </div>
-            <!--列表-->
-
-            <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+        </nav>
+        <div class="row g-mn">
+            <div class="col-xs-2 f-sdtab">
                 <script type="text/ng-template" id="group-template.html">
                     <div class="panel-heading">
                         <h4 class="panel-title" style="color:#fa39c3">
                             <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
-          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
-            {{heading}}
-          </span>
+                              <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+                                {{heading}}
+                              </span>
                             </a>
                         </h4>
                     </div>
                     <div class="panel-collapse collapse" uib-collapse="!isOpen">
-                        <div class="panel-body" style="text-align: center" ng-transclude></div>
+                        <div class="panel-body" style="text-align: right" ng-transclude></div>
                     </div>
                 </script>
-                <uib-accordion >
-                    <div uib-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
-                        <uib-accordion-heading>
-                            <span>罗卜多后台管理系统</span>
-                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
-                        </uib-accordion-heading>
-                        <span ng-click="vm.ha()">World</span>
+                <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group class="panel-default" heading="{{module.name}}" ng-if="module.parentID==0" ng-repeat="module in vm.modules">
+                        <ul>
+                            <li class="tab-item" ng-repeat="x in vm.modules" ng-if="x.parentID==module.id" >{{x.name}}</li>
+                        </ul>
                     </div>
                 </uib-accordion>
             </div>
+            <div ui-view="" class="col-xs-10" style="background-color: #5bc0de;padding: 0"></div>
+        </div>
+    </div>
 
 
-
-    </nav>
-
-
-<div class="detail">
-
-    <!--路由视图-->
-
-    <div ui-view=""/>
-
-</div>
 
 
 </div>

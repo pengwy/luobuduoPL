@@ -1,7 +1,16 @@
-<div>
-<h1>login</h1>
 
-    <button ng-click="vm.go()">去后台</button>
-
-
+<div class="login">
+<div class="g-mn">
+    <div class="m-tt">后台登录</div>
+    <form>
+        <span> <img src="images/log3.png" ></span>
+        <input class="ipt" type="text" id="user" value="{{vm.name}}" ng-model="vm.name" placeholder="请输入账号">
+    </form>
+    <form class="verify">
+        <span> <img src="images/log7.png" ></span>
+        <input class="ipt" type="text" id="pwd" value="{{vm.pwd}}" ng-model="vm.pwd" placeholder="请输入密码">
+    </form>
+    <button class="btn-ft"  ng-click="vm.login()" type="submit">登录</button>
 </div>
+</div>
+
