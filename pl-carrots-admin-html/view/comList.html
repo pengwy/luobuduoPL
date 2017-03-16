@@ -1,11 +1,80 @@
 <div>
 
-<form>
+<form name="form" ng-submit="vm.gg();vm.kk()">
 
         <label>公司名称<input type="text" ng-model="vm.company.name"></label>
         <label>公司行业<select ng-options="s.name for s in vm.se.industry" ng-model="vm.company.industry" ></select></label>
         <label>融资规模<select ng-options="s.name for s in vm.se.financing" ng-model="vm.company.financing"></select></label>
+        <label>认证状态<select ng-options="s.name for s in vm.se.approvedStatus" ng-model="vm.company.approvedStatus"></select></label>
+        <label>冻结状态<select ng-options="s.name for s in vm.se.freezedStatus" ng-model="vm.company.freezedStatus"></select></label>
+        <label>地区<select ng-options="s.proName for s in vm.se.province" ng-model="vm.company.province"></select></label>
+        <label><select ng-options="s.cityName for s in vm.se.city" ng-model="vm.company.city"></select></label>
+        <!--注意这里的countyName是小写-->
+        <label><select ng-options="s.countryName for s in vm.se.country" ng-model="vm.company.country"></select></label>
+
+
+<button type="button" ng-click="vm.restting()">清除</button>
+<button type="submit">搜索</button>
 </form>
+  <!--<div>
+  <div><span>公司列表</span><button type="button" ng-click="vm.newCom()">新增</button></div>
+    <table style="width: 100%">
+        <tr>
+            <th>序号</th>
+            <th>公司名称</th>
+            <th>公司行业</th>
+            <th>地区</th>
+            <th>融资规模</th>
+            <th>操作状态</th>
+            <th>冻结状态</th>
+            <th>操作</th>
+        </tr>
+        <tr ng-repeat="s in vm.comList">
+            <td>{{$index+1}}</td>
+            <td>{{s.name}}</td>
+            &lt;!&ndash;<td ng-repeat="g in s.industryList"></td>&ndash;&gt;
+            <td><span ng-repeat="g in s.industryList track by $index">{{g|industrytype}}</span></td>
+            <td>{{s.city-0|city}}{{s.couty}}</td>
+            <td>{{s.financing|financingtype}}</td>
+            <td>{{s.approved|approved}}</td>
+            <td>{{s.freezed|freezed}}</td>
+            <td>{{}}</td>
+        </tr>
+    </table>
+      <q></q>
+  </div>-->
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <span>公司列表</span>
+            <button type="button" ng-click="vm.newCom()">新增</button>
+        </div>
+        <!-- Table -->
+        <table class="table">
+            <tr>
+                <th>序号</th>
+                <th>公司名称</th>
+                <th>公司行业</th>
+                <th>地区</th>
+                <th>融资规模</th>
+                <th>操作状态</th>
+                <th>冻结状态</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="s in vm.comList">
+                <td>{{$index+1}}</td>
+                <td>{{s.name}}</td>
+                <td><span ng-repeat="g in s.industryList track by $index">{{g|industrytype}}</span></td>
+                <td>{{s.city-0|city}}{{s.couty}}</td>
+                <td>{{s.financing|financingtype}}</td>
+                <td>{{s.approved|approved}}</td>
+                <td>{{s.freezed|freezed}}</td>
+                <td>{{}}</td>
+            </tr>
+        </table>
+        <q></q>
+    </div>
 
 
 

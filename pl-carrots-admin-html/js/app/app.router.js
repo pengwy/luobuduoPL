@@ -60,30 +60,17 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/comList.js','js/factory/factory.js','js/service/service.js','css/comList.css']})
+                    files:['js/controllers/comList.js',"js/constant/district.js",'js/service/service.js','js/filter/filter.js','css/comList.css','js/directive/directive.js']})
             }]}
         })
-        .state("app.aboutUs",{
-            url:"/aboutUs",
-            templateUrl:"view/aboutUs.html",
-            controller:"aboutUsCtrl",
+        .state("app.comDetail",{
+            url:"/comDetail",
+            templateUrl:"view/comDetail.html",
+            controller:"comDetail",
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/aboutUs.js','css/aboutUs.css']})
-            }]},
-            onExit: function(){
-                localStorage.hehe=3
-            }
-        })
-        .state("app.jobDetail",{
-            url:"/jobDetail/:id",
-            templateUrl:"view/jobDetail.html",
-            controller:"jobDetailCtrl",
-            controllerAs:"vm",
-            resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                    files:['js/controllers/jobDetail.js',"js/constant/constant.js",'js/service/service.js','js/filter/filter.js','css/jobDetail.css']})
+                    files:['js/controllers/comDetail.js',"js/constant/district.js","js/constant/constant.js"]})
             }]}
         })
         .state("app.searchJob",{
