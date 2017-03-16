@@ -1,1 +1,38 @@
-<div>comDetail</div>
+<div>
+    <form>
+        <div><p>详细信息</p>
+            <label><select ng-model="vm.company.approved"  ng-options="s.name for s in vm.se.approved" required></select></label>
+        </div>
+        <div>
+            <label>*公司名称<input type="text"  ng-model="vm.company.name"  required ></label>
+            <label>*公司slogan<input type="text"  ng-model="vm.company.solgan"  required></label>
+            <label>*公司人数<input   ng-model="vm.company.totalNum"  required></label>
+
+            <label>*行业<select   ng-model="vm.company.industry" ng-options="s.name for s in vm.se.industry" required></select></label>
+
+
+            <label>*融资规模<select   ng-model="vm.company.financing" ng-options="s.name for s in vm.se.financing" required></select></label>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </form>
+
+
+
+
+
+</div>

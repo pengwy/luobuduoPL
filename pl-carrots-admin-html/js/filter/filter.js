@@ -27,16 +27,14 @@ app.filter('financingtype',function (financingtype) {
 
 app.filter('industrytype',function (industrytype) {
     return function (type) {
-
             for(var i=0;i<industrytype.length;i++){
                 if(type ===  industrytype[i].type){
                     return industrytype[i].name
-
             }
         }
 
     }
-})
+});
 
 
 //经验
@@ -55,6 +53,57 @@ app.filter('education',function (educationtype) {
                 return educationtype[i].name
             }}
     }});
+//city
+app.filter('city',function (city) {
+    return function (type) {
+        for(var i=0;i<city.length;i++){
+            if(type ===  city[i].cityId){
+                return city[i].cityName
+            }}
+    }});
+//认证状态
+app.filter('approved',function (approvedStatus) {
+    return function (type) {
+        for(var i=0;i<approvedStatus.length;i++){
+            if(type ===  approvedStatus[i].type){
+                return approvedStatus[i].name
+            }}
+    }});
+
+
+
+
+
+
+
+//冻结状态freezed
+app.filter('freezed',function (freezedStatus) {
+    return function (type) {
+        for(var i=0;i<freezedStatus.length;i++){
+            if(type ===  freezedStatus[i].type){
+                return freezedStatus[i].name
+            }}
+    }});
+
+//去重数组
+app.filter('same',function () {
+    return function (type){
+        var style=[];
+        if(style.length==0){
+            style.push(type);
+            return type
+        }
+        else{
+            if(style.indexOf(type)==-1){
+                style.push(type);
+                return type
+            }
+        }
+    }
+});
+
+
+
 //省
 app.filter('moduleurl',function (moduleType) {
     return function (id) {
