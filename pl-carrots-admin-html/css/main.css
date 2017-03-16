@@ -1,12 +1,12 @@
-.m-hd {
-  background-color: #4d5b76;
-  display: flex;
-  justify-content: space-between;
-  line-height: 50px;
+.hd-nav {
+  margin-bottom: 0;
 }
-.m-hd .m-tt {
-  margin-left: 5px;
-  font-size: 2rem;
+.lft-btn li {
+  display: inline-block;
+  margin-top: 10px;
+  line-height: 40px;
+  font-size: 1.5rem;
+  margin-left: 20px;
 }
 .g-mn {
   width: 100%;
@@ -14,7 +14,6 @@
 }
 .g-mn .f-sdtab {
   padding: 0;
-  min-height: 800px;
   border-right: 1px solid lightgray;
 }
 .g-mn .f-sdtab .tab-item {
@@ -22,4 +21,9 @@
   font-size: 1.5rem;
   line-height: 2.5rem;
   cursor: pointer;
+}
+.g-mn .g-mn-view {
+  padding: 0;
+  min-height: 800px;
+  border-left: 1px solid gray;
 }

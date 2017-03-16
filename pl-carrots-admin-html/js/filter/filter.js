@@ -61,6 +61,14 @@ app.filter('city',function (city) {
                 return city[i].cityName
             }}
     }});
+//模块管理
+app.filter('moduleurl',function (moduleType) {
+    return function (input) {
+        for(var i=0;i<moduleType.length;i++){
+            if(input===  moduleType[i].id){
+                return moduleType[i].url
+            }}
+    }});
 //认证状态
 app.filter('approved',function (approvedStatus) {
     return function (type) {
@@ -105,10 +113,3 @@ app.filter('same',function () {
 
 
 //省
-app.filter('moduleurl',function (moduleType) {
-    return function (id) {
-        for(var i=0;i<moduleType.length;i++){
-            if(id ===  moduleType[i].id){
-                return moduleType[i].url
-            }}
-    }});

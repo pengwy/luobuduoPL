@@ -26,7 +26,7 @@ app.constant('financingtype', [
     {type: 6, name: '上市公司'}
 ]);
 /*模块跳转管理*/
-qpp.constant ('moduleType',[
+app.constant('moduleType',[
     {id:1,url:''},
     {id:2,url:'app.moduleAdmin'},
     {id:3,url:'app.roleAdmin'},
@@ -36,9 +36,7 @@ qpp.constant ('moduleType',[
     {id:65,url:'app.comList'},
     {id:66,url:'app.jobList'},
     {id:67,url:''},
-    {id:68,url:'app.articleList'},
-
-
+    {id:68,url:'app.articleList'}
 ]);
 //认证状态
 app.constant('approvedStatus',

@@ -8,8 +8,7 @@ app.controller('main',function ($scope,$state) {
     var vm = this;
     vm.statu =sessionStorage.getItem("statu");
     console.log("hi"+vm.statu);
-
-
+    
     /*侧边栏面板*/
     $scope.oneAtATime = true;
     $scope.status = {
@@ -31,6 +30,9 @@ app.controller('main',function ($scope,$state) {
         }
     }
    /* console.log(vm.mainTab);*/
+   vm.goto = function () {
+       
+   }
 
 
 

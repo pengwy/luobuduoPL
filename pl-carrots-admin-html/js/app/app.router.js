@@ -19,7 +19,7 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             abstract: true,
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/main.js',"js/constant/constant.js","css/main.css"]})
+                    files:['js/controllers/main.js',"js/constant/constant.js","css/main.css","js/filter/filter.js"]})
             }]}
         })
         .state('app.dashboard', {

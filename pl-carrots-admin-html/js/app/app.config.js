@@ -3,7 +3,6 @@
  */
 
 'use strict';
-
 var app = angular.module('app', ["ui.router", "oc.lazyLoad",'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 app.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider",
     function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
