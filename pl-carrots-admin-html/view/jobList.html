@@ -1,24 +1,92 @@
-<div class="container">
-    <h2>joblist</h2>
-    <form action="" class="row">
-        <div class="col-sm-4 col-xs-12">
-            <label for="cpyname">公司名称&nbsp;</label>
-            <input type="text" id="cpyname" name="cpyname">
+<div class="container-fluid" ng-controller="jobList" style="background-color: #f5f5f5 ">
+    <form action=""  novalidate="novalidate" class="row m-sch-job">
+        <div class="col-sm-4 col-xs-12 f-condi">
+            <label for="cpyname">在招公司&nbsp;</label>
+            <input type="text" id="cpyname" ng-model="vm.companyName" name="cpyname">
         </div>
-        <div class="col-sm-4 col-xs-12">
+        <div class="col-sm-4 col-xs-12 f-condi">
             <label for="jobname">职位名称&nbsp;</label>
-            <input type="text" id="jobname" name="jobname">
+            <input type="text" ng-model="vm.name" id="jobname" name="jobname">
         </div>
-        <div class="col-sm-4 col-xs-12">
+        <div class="col-sm-4 col-xs-12 f-condi">
             <label for="exp">工作经验&nbsp;</label>
-            <select name="" id="exp">
-                <option value="">全部</option>
-                <option value="">全部</option>
-                <option value="">全部</option>
-                <option value="">全部</option>
+            <select name="" ng-model="vm.exp"  id="exp">
+                <option ng-repeat=" x in vm.expType"  value="{{x.type}}">{{x.name}}</option>
             </select>
         </div>
-
+        <div class="col-sm-4 col-xs-12 f-condi datepick">
+                <label for="stt">开始日期&nbsp;</label>
+                <input  type="text" id="stt"   uib-datepicker-popup="{{format}}" ng-model="vm.startAt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                <button type="button" class="btn btn-default"  ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </div>
+        <div class="col-sm-4 col-xs-12 f-condi datepick">
+                <label for="end">结束日期&nbsp;</label>
+                <input type="text" id="end"  uib-datepicker-popup ng-model="vm.endAt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+        </div>
+        <div class="col-sm-4 col-xs-12 f-condi">
+            <label for="edu">学历要求&nbsp;</label>
+            <select name="" ng-model="vm.edu" id="edu">
+                <option ng-repeat="x in vm.eduType" value="{{x.type}}">{{x.name}}</option>
+            </select>
+            <span>{{vm.edu}}</span>
+        </div>
+        <div class="col-sm-4 col-xs-12 f-condi">
+            <label for="jobClass">职业类别&nbsp;</label>
+            <select name="" ng-model="vm.cate"  id="jobClass">
+                <option ng-repeat="x in vm.cateType" value="{{x.type}}">{{x.name}}</option>
+            </select>
+        </div>
+        <div class="col-sm-4 col-xs-12 f-condi">
+            <label for="jobChild">职业子类&nbsp;</label>
+            <select name="" ng-model="vm.subcate"  id="jobChild">
+                <option ng-repeat="x in vm.subcateType" value="{{x.type}}">{{x.name}}</option>
+            </select>
+        </div>
+        <div class="col-sm-4 col-xs-12 f-condi">
+            <label for="compen">薪&nbsp;资&nbsp;</label>
+            <select name="" ng-model="vm.compen"  id="compen">
+                <option ng-repeat="x in vm.compenType" value="{{x.type}}">{{x.name}}</option>
+            </select>
+        </div>
+        <div class="col-sm-4 col-xs-12 f-condi">
+            <label for="onOff">状态&nbsp;</label>
+            <select name="" ng-model="vm.sta"  id="onOff">
+                <option ng-repeat="x in vm.staType" value="{{x.type}}">{{x.name}}</option>
+            </select>
+        </div>
+        <div class="col-xs-12">
+            <button class="btn  pull-right btn-success" ng-click="vm.submit()">搜索</button>
+            <button class="btn  pull-right btn-danger" ng-click="vm.clearAll()">清除</button>
+        </div>
     </form>
-    
+    <div class=" row m-tbl">
+        <table class="col-xs-12">
+            <tr>
+                <th>序号</th>
+                <th>在招公司</th>
+                <th>职位名称</th>
+                <th>职业类别</th>
+                <th>薪资</th>
+                <th>学历要求</th>
+                <th>工作经验</th>
+                <th>发布时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="x in vm.res">
+                <td>{{$index +1}}</td>
+                <td>{{ x.companyName}}</td>
+                <td>{{ x.category }}</td>
+                <td>{{ x.subCategory }}</td>
+                <td>{{ x.compensation}}</td>
+                <td>{{ x.education| education }}</td>
+                <td>{{ x.experience }}</td>
+                <td>{{ x.updateAt|date:"yy-MM-dd"}}</td>
+                <td>{{ x.status }}</td>
+                <td>12344444444444444444444444444444444</td>
+            </tr>
+        </table>
+
+    </div>
 </div>

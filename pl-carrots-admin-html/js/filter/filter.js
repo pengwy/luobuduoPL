@@ -46,11 +46,11 @@ app.filter('experience',function (experiencetype) {
             }}
     }});
 //学历
-app.filter('education',function (educationtype) {
+app.filter('education',function (educationType) {
     return function (type) {
-        for(var i=0;i<educationtype.length;i++){
-            if(type ===  educationtype[i].type){
-                return educationtype[i].name
+        for(var i=0;i<educationType.length;i++){
+            if(type ===  educationType[i].type){
+                return educationType[i].name
             }}
     }});
 //city

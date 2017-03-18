@@ -50,7 +50,7 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/jobList.js',"js/constant/constant.js",'css/jobList.css','js/filter/filter.js']})
+                    files:['js/controllers/jobList.js','js/directive/directive.js',"js/constant/constant.js",'css/jobList.css','js/filter/filter.js']})
             }]}
         })
         .state("app.comList",{

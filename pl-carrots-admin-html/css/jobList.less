@@ -1,0 +1,60 @@
+.m-sch-job {
+  width: 96%;
+  background-color: white;
+  margin: 20px auto;
+  font-size: 1.5rem;
+  .f-condi{
+      min-height: 50px;
+    line-height: 50px;
+     label{
+       min-width: 70px;
+     }
+     input {
+       border-radius: 5px;
+       height: 35px;
+     }
+    select {
+      width: 177px;
+      border-radius: 5px;
+      height: 35px;
+    }
+  }
+  .datepick {
+    display: flex;
+    flex-wrap:nowrap;
+    line-height: 50px;
+    button{
+      height: 35px;
+    }
+  }
+}
+.m-tbl {
+  width: 96%;
+  margin:20px auto;
+  background-color: white;
+  font-size: 1.5rem;
+  table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+    height: 4rem;
+  }
+  table tr:nth-child(odd)	{
+    background-color: #f1f1f1;
+
+  }
+  table tr:nth-child(even) {
+    background-color: #ffffff;
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .f-condi input{
+    width: 80%;
+  }
+  .f-condi select {
+    width: 80%!important;
+  }
+}
