@@ -73,6 +73,16 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
                     files:['js/controllers/comDetail.js',"js/constant/district.js","js/constant/constant.js"]})
             }]}
         })
+        .state("app.jobDetail",{
+            url:"/jobDetail?info",
+            templateUrl:"view/jobDetail.html",
+            controller:"jobDetail",
+            controllerAs:"vm",
+            resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files:['js/controllers/jobDetail.js',"js/constant/district.js","js/constant/constant.js"]})
+            }]}
+        })
         .state("app.searchJob",{
             url:"/searchJob?category?subCategory",
             templateUrl:"view/searchJob.html",

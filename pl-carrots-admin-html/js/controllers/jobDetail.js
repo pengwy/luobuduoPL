@@ -3,6 +3,7 @@
  */
 
 'use strict';
-app.controller('jobDetail',function () {
-    var vm =this
+app.controller('jobDetail',function ($scope,$stateParams,$http) {
+    var vm =this;
+    console.log($stateParams.info);
 });

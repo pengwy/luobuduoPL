@@ -102,6 +102,17 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
 
     /*------------------form-------------------------------------------------------*/
     /*category:0  compensation:1   education:1  endAt:1489679999999 experience:1 name:456 page:1 size:10 startAt:1488297600000 status:1  subCategory:1*/
+    vm.a = function () {
+        return $http({
+            url:"/carrots-admin-ajax/a/u/role/1",
+            method:'get'
+        }).then(function (respo) {
+            console.log(respo.data.data.role.permissionsSet[66]);
+            vm.respo = respo.data.data.role.permissionsSet[66];
+
+
+        })
+    };
      vm.companyName = '';
      vm.name = '';
      vm.expType = experienceType;
@@ -120,7 +131,7 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
      vm.endAt ='';
      //搜索和清空
     vm.submit = function () {
-        console.log(vm.startAt.valueOf());
+       /* console.log(vm.startAt.valueOf());*/
         return $http({
             url:"/carrots-admin-ajax/a/profession/search",
             method:'get',
@@ -130,7 +141,7 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
                 companyName:vm.companyName,
                 education:vm.edu,
                 experience:vm.exp,
-                page: 1,
+                page:vm.currentPage,
                 subCategory:vm.subcate,
                 startAt:vm.startAt.valueOf(),
                 endAt:vm.endAt.valueOf(),
@@ -141,10 +152,20 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
         }).then(function (response) {
             vm.res = response.data.data;
             vm.resp = response.data.total;
-            console.log(vm.resp);
+            vm.a();
+            console.log(vm.res);
+            vm.totalItems = vm.resp
         })
     };
-    vm.clearall = function () {
+   /* vm.totalItems = vm.resp;*/
+    vm.currentPage = 1;
+    vm.setPage = function (pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    vm.pageChanged = function () {
+        vm.submit();
+    }
+    vm.clearAll = function () {
         vm.companyName = '';
         vm.name = '';
         vm.exp = '';
@@ -157,4 +178,64 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
         vm.endAt ='';
     };
     vm.submit();
+
+    //增删改查
+    vm.operate=function (e) {
+        console.log(e)
+    };
+    vm.changeStatus=function (x) {
+        bootbox.confirm({
+            message: "下架后将不在前台展示，是否执行操作？",
+            buttons: {
+                confirm: {
+                    label: '确定',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: '取消操作',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+              if(result==true){
+                  return $http({
+                      url:"/carrots-admin-ajax/a/u/profession",
+                      method:'delete',
+                      params:{id:x.id,status:x.status}
+                  }).then(function (re) {
+                          console.log(re);
+                      }
+                  )
+              }
+            }
+        });
+    }
+    vm.deleteJob = function (x) {
+        bootbox.confirm({
+            message: "确认删除吗？",
+            buttons: {
+                confirm: {
+                    label: '确定',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: '取消操作',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+                if(result==true){
+                    return $http({
+                        url:"/carrots-admin-ajax/a/u/profession/status",
+                        method:'put',
+                        params:{id:x.id}
+                    }).then(function (re) {
+                            console.log(re);
+                        }
+                    )
+                }
+            }
+        });
+    }
+
 });

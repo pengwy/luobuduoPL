@@ -31,9 +31,4 @@ app.controller('main',function ($scope,$state) {
         }
     }
    /* console.log(vm.mainTab);*/
-
-
-
-
-
 });

@@ -2,12 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="http://cdn.bootcss.com/angular.js/1.3.0/angular.min.js"></script>
+    <title>萝卜多后台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="neew/bootstrap.min.css" rel="stylesheet">-->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--js文件-->
+    <script src="../../neew/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="f.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.js"></script>
+
 </head>
 <body>
-
+<div>
+<button class="one" >hello</button>
+</div>
+<script>
+    $(document).ready(function() {7
+        function a() {
+            bootbox.confirm({
+                message: "This is a confirm with custom button text and color! Do you like it?",
+                buttons: {
+                    confirm: {
+                        label: 'Yes',
+                        className: 'btn-success'
+                    },
+                    cancel: {
+                        label: 'No',
+                        className: 'btn-danger'
+                    }
+                },
+                callback: function (result) {
+                    console.log('This was logged in the callback: ' + result);
+                }
+            });
+        }
+       $(".one").click(function () {
+            bootbox.alert({
+                title:'<p style="text-align: center" class="bg-pink">我感兴趣</p>',
+                message: "<p>模式介绍：萝卜多先技术面试-再推荐给用人单位</p>" +
+                "<p>萝卜多是一个知根知底的社群招聘。萝卜多的合作企业和候选人，都是萝卜多精心筛选，认证，陪伴多年的伙伴。在萝卜多找工作快，工作有保障。值得您信任的招聘网站。</p>" +
+                "<p>您将感兴趣的职位、公司名称以及您的个人信息发送到我们的邮箱，我们会尽快帮您安排。</p>" +
+                "<p>邮箱地址：hr@ptteng.com</p>",
+                size: 'middle'
+            })
+        })
+    })
+</script>
 </body>
 </html>

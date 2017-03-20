@@ -25,4 +25,4 @@ app.controller('jobDetailCtrl',function ($stateParams,information,$state,$rootSc
             size: 'middle'
         })
     }
-})
+});

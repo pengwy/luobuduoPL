@@ -96,6 +96,6 @@ app.constant('compensationType', [
 //上下架
 app.constant('statusType', [
     {type: '', name: '全部'},
-    {type: 0, name: '上架'},
-    {type: 1, name: '下架'}
+    {type:1, name: '上架'},
+    {type: 0, name: '下架'}
 ]);
