@@ -109,8 +109,6 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
         }).then(function (respo) {
             console.log(respo.data.data.role.permissionsSet[66]);
             vm.respo = respo.data.data.role.permissionsSet[66];
-
-
         })
     };
      vm.companyName = '';
@@ -131,7 +129,7 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
      vm.endAt ='';
      //搜索和清空
     vm.submit = function () {
-       /* console.log(vm.startAt.valueOf());*/
+        console.log(vm.startAt.valueOf());
         return $http({
             url:"/carrots-admin-ajax/a/profession/search",
             method:'get',
@@ -141,7 +139,7 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
                 companyName:vm.companyName,
                 education:vm.edu,
                 experience:vm.exp,
-                page:vm.currentPage,
+                page: 1,
                 subCategory:vm.subcate,
                 startAt:vm.startAt.valueOf(),
                 endAt:vm.endAt.valueOf(),

@@ -43,7 +43,7 @@ $scope.$watch('vm.com',function (n,o) {
 },true)
 
     //点击跳转
-    vm.company=function (gg) {
+    vm.goCompany=function (gg) {
         $state.go('app.companyDetail',{id:gg.id});
     }
 

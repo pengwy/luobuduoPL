@@ -1,1 +1,59 @@
-<div>accountAdmin</div>
+<div>
+    <div class="m-search-font">
+
+        <div class="f-condi">
+            <label>角色<select ng-model="vm.role" ng-options=" s.name for s in  vm.roleList" ng-focus="vm.on()"></select>{{vm.ee}}</label>
+        </div>
+
+        <div class="f-condi">
+            <label>用户名<input ng-model=" vm.artic.title">{{vm.ee}}</label>
+        </div>
+        <div class="m-search">
+            <button ng-click="vm.restting()" class="u-restting" type="button">清空</button>
+            <button ng-click="vm.sleep()" type="button" class="u-search">搜索</button>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <span>账户管理</span>
+            <button type="button" ng-click="vm.goArticleDetail()">新增</button>
+        </div>
+        <!-- Table -->
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>登录名</th>
+                <th>角色</th>
+                <th>创建者</th>
+                <th>创建时间</th>
+                <th>更新人</th>
+                <th>跟新时间</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="s in vm.managerList track by $index">
+                <td>{{s.id}}</td>
+                <td>{{s.name}}</td>
+                <td>{{s.roleID|roleName}}</td>
+                <td>&nbsp;</td>
+                <td>{{s.createAt|date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                <td>{{s.createBy}}</td>
+                <td>{{s.updateAt|date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                <td class="u-operate">
+                    <button ng-click="vm.artE(this)">编辑</button>
+                    <button ng-click='vm.articleDelete(this)'>删除</button>
+                </td>
+            </tr>
+        </table>
+        <q></q>
+    </div>
+
+
+
+
+
+
+
+</div>

@@ -11,7 +11,7 @@ app.controller('companyDetailCtrl',function ($stateParams,information,$state) {
     vm.id=$stateParams.id;
     //获取公司详情
 
-    var company=information.companyDetail(vm.id).then(function (res) {
+    var getCompany=information.companyDetail(vm.id).then(function (res) {
         vm.company=res.data.data;
 
     });

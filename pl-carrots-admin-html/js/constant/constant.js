@@ -99,3 +99,18 @@ app.constant('statusType', [
     {type:1, name: '上架'},
     {type: 0, name: '下架'}
 ]);
+
+//上下线
+app.constant('statusTypeA', [
+    {type: '', name: '全部'},
+    {type:1, name: '草稿'},
+    {type: 2, name: '上线'}
+]);
+//article类型
+app.constant('typeA', [
+    {type:'', name: '全部'},
+    {type:0, name: '首页Banner'},
+    {type:1, name: '找职位Banner'},
+    {type:2, name: '找精英Banner'},
+    {type:3, name: '行业大图'}
+]);

@@ -1,1 +1,12 @@
-<div>pwdAmend</div>
+<div>
+    <form  name="form" ng-submit="vm.changePwd(vm.pwd)" novalidate="novalidate">
+
+    <label>旧密码<input type="password" ng-model="vm.pwd.oldPwd" ng-minlength="6"  ng-maxlength="16" required autofocus></label>
+
+    <label>新密码<input  type="password" ng-model="vm.pwd.newPwd" ng-minlength="6"  ng-maxlength="16" ng-blur="vm.go()" required></label>
+
+    <label>确认密码<input type="password" ng-model="vm.pwd.newPwdAgain" ng-minlength="6"  ng-maxlength="16" ng-blur="vm.go()" required></label>
+    <P ng-show="vm.g">新密码不一致</P>
+    <button type="submit" ng-disabled="!form.$valid||vm.g" >保存</button>
+    </form>
+</div>

@@ -1,1 +1,78 @@
-<div>articleList</div>
+<div>
+<form class="m-search-font">
+    <div class="f-condi"> <label>标题<input ng-model=" vm.artic.title">{{vm.ee}}</label></div>
+    <div class="f-condi"> <label>创建者<input ng-model=" vm.artic.author"></label> </div>
+    <div class="col-sm-4 col-xs-12 f-condi datepick">
+        <label for="stt">开始日期&nbsp;</label>
+        <input  type="text" id="stt"   uib-datepicker-popup="{{format}}" ng-model="vm.artic.startAt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <button type="button" class="btn btn-default"  ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+    </div>
+    <div class="col-sm-4 col-xs-12 f-condi datepick">
+        <label for="end">结束日期&nbsp;</label>
+        <input type="text" id="end"  uib-datepicker-popup ng-model="vm.artic.endAt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+        <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+    </div>
+    <div class="f-condi"><label>状态<select ng-options="s.name for s in vm.articInf.status" ng-model="vm.artic.status"></select></label></div>
+    <div class="f-condi"><label>类型<select ng-options="s.name for s in vm.articInf.type" ng-model="vm.artic.type"></select></label></div>
+</form>
+<div class="m-search">
+    <button ng-click="vm.restting()" class="u-restting" type="button">清空</button>
+    <button ng-click="vm.inf();vm.search();" type="button" class="u-search">搜索</button>
+</div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <span>Article管理</span>
+            <button type="button" ng-click="vm.goArticleDetail()">新增</button>
+        </div>
+        <!-- Table -->
+        <table class="table">
+            <tr>
+                <th>序号</th>
+                <th>图片</th>
+                <th>标题</th>
+                <th>类型</th>
+                <th>创建者</th>
+                <th>创建时间</th>
+                <th>修改时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="s in vm.show">
+                <td >{{$index+1}}</td>
+                <td><div style="width: 300px;height: 200px"><img src="{{s.img}}"  style="max-width: 100%"></div></td>
+                <td>{{s.title}}</td>
+                <td>{{s.type|articleType}}</td>
+                <td>{{s.author}}</td>
+                <td>{{s.createAt|date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                <td>{{s.updateAt|date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                <td>{{s.status|articleTypeA}}</td>
+
+                <td class="u-operate">
+                    <button ng-click="vm.artA(this)">{{s.status|articleTypeA|articleAtatusT}}</button>
+                    <button ng-click="vm.artE(this)">编辑</button>
+                    <button ng-click='vm.articleDelete(this)'>删除</button>
+                </td>
+            </tr>
+        </table>
+        <q></q>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

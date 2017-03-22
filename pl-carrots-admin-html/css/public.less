@@ -5,4 +5,66 @@
 padding: 30px;
 }
 
+.m-flex{
+  display: flex;
+}
+.m-content{
+  justify-content: space-between;
+}
 
+//搜索面板
+.m-search-font {
+  width: 96%;
+  background-color: white;
+  margin: 20px auto;
+  font-size: 1.5rem;
+  .f-condi{
+    display: inline-block;
+    min-height: 50px;
+    line-height: 50px;
+    label{
+      line-height: 50px;
+      min-width: 70px;
+    }
+    input {
+      border-radius: 5px;
+      height: 35px;
+    }
+    select {
+      width: 177px;
+      border-radius: 5px;
+      height: 35px;
+    }
+  }
+  .datepick {
+    display: flex;
+    align-items: center;
+    flex-wrap:nowrap;
+    line-height: 50px;
+    button{
+      height: 35px;
+    }
+  }
+}
+
+//清除和搜索按钮
+.m-search{
+  display: flex;
+  justify-content: flex-end;
+  button{
+    height: 20px;
+    width: 54px;
+    font-size: 14px;
+    border: none;
+    margin: 0 10px;
+  }
+  .u-restting{
+    color: white;
+    background-color: #d9534f;
+  }
+  .u-search{
+    color: white;
+    background-color: #5cb85c;
+  }
+
+}

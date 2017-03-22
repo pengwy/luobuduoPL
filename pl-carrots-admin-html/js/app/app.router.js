@@ -60,8 +60,9 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/comList.js',"js/constant/district.js",'js/service/service.js','js/filter/filter.js','css/comList.css','js/directive/directive.js']})
-            }]}
+                    files:['js/controllers/comList.js',"js/constant/district.js",'js/service/service.js','js/filter/filter.js','js/directive/directive.js','css/comList.css']})
+            }]},
+
         })
         .state("app.comDetail",{
             url:"/comDetail",
@@ -70,7 +71,7 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/comDetail.js',"js/constant/district.js","js/constant/constant.js"]})
+                    files:['js/controllers/comDetail.js',"js/constant/district.js","js/constant/constant.js",'js/directive/directive.js','css/comDetail.css']})
             }]}
         })
         .state("app.jobDetail",{
@@ -83,46 +84,44 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
                     files:['js/controllers/jobDetail.js',"js/constant/district.js","js/constant/constant.js"]})
             }]}
         })
-        .state("app.searchJob",{
-            url:"/searchJob?category?subCategory",
-            templateUrl:"view/searchJob.html",
-            controller:"searchJobCtrl",
+        .state("app.articleList",{
+            url:"/articleList",
+            templateUrl:"view/articleList.html",
+            controller:"articleList",
             controllerAs:"vm",
-            params:{category:null,subCategory:null},
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/searchJobCtrl.js','css/searchJob.css',"js/constant/constant.js",'js/filter/filter.js']})
+                    files:['js/controllers/articleList.js',"js/constant/district.js","js/constant/constant.js",'js/service/service.js','js/filter/filter.js','js/directive/directive.js']})
             }]}
         })
-        .state("app.searchCpy",{
-            url:"/findJob/searchCpy/?name",
-            templateUrl:"view/searchCpy.html",
-            controller:"searchCpyCtrl",
+        .state("app.articleDetail",{
+            url:"/articleDetail",
+            templateUrl:"view/articleDetail.html",
+            controller:"articleDetail",
             controllerAs:"vm",
-            params:{name:null},
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/searchCpyCtrl.js','css/searchCpy.css',"js/constant/constant.js",'js/filter/filter.js']})
+                    files:['js/controllers/articleDetail.js',"js/constant/district.js","js/constant/constant.js",'js/service/service.js','js/filter/filter.js','js/directive/directive.js']})
             }]}
         })
-        .state("app.moreCompany",{
-            url:"/moreCompany",
-            templateUrl:"view/moreCompany.html",
-            controller:"moreCompanyCtrl",
+        .state("app.pwdAmend",{
+            url:"/pwdAmend",
+            templateUrl:"view/pwdAmend.html",
+            controller:"pwdAmend",
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/moreCompany.js','css/moreCompany.css',"js/constant/constant.js",'js/filter/filter.js','js/service/service.js']})
+                    files:['js/controllers/pwdAmend.js',"js/constant/constant.js",'js/service/service.js','js/filter/filter.js']})
             }]}
         })
-        .state("app.companyDetail",{
-            url:"/companyDetail/:id",
-            templateUrl:"view/companyDetail.html",
-            controller:"companyDetailCtrl",
+        .state("app.accountAdmin",{
+            url:"/accountAdmin",
+            templateUrl:"view/accountAdmin.html",
+            controller:"accountAdmin",
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/companyDetail.js','css/companyDetail.css',"js/constant/constant.js",'js/filter/filter.js','js/service/service.js']})
+                    files:['js/controllers/accountAdmin.js',"js/constant/constant.js",'js/service/service.js','js/filter/filter.js']})
             }]}
         })
 }

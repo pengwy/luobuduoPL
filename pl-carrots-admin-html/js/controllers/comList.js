@@ -2,7 +2,7 @@
  * Created by py on 2017/3/14.
  */
 'use strict';
-app.controller('comList',function ($state,industrytype,financingtype,$scope,approvedStatus,freezedStatus,province,city,country,tt) {
+app.controller('comList',function ($http,$state,industrytype,financingtype,$scope,approvedStatus,freezedStatus,province,city,country,tt) {
     var vm =this;
     //搜索面板值
     vm.se={
@@ -35,6 +35,7 @@ app.controller('comList',function ($state,industrytype,financingtype,$scope,appr
         angular.forEach(city,function (data) {
             if(vm.company.province.proId==data.proId){
                 vm.se.city.push(data);
+
             }
             vm.company.city=vm.se.city[0]
         });
@@ -71,7 +72,7 @@ app.controller('comList',function ($state,industrytype,financingtype,$scope,appr
     //新增公司跳转
     vm.newCom=function () {
         $state.go('app.comDetail')
-    }
+    };
 
 
     //将搜索值转为数字
@@ -100,27 +101,31 @@ app.controller('comList',function ($state,industrytype,financingtype,$scope,appr
                 var set = new Set(arr);
                 return Array.from(set);
             }
-            /*angular.forEach(vm.comList,function (data) {
-                 var n = [data.industryList[0]]; //结果数组
-                    //从第二项开始遍历
-                    for(var i = 1; i < data.industryList.length; i++) {
-                        //如果当前数组的第i项在当前数组中第一次出现的位置不是i，
-                        //那么表示第i项是重复的，忽略掉。否则存入结果数组
-                        if (data.industryList.indexOf(data.industryList[i]) == i) n.push(data.industryList[i]);
-                    }
-                data.industryList = n;
-            })*/
             angular.forEach(vm.comList,function (data) {
                 data.industryList= unique(data.industryList)
-
             })
         })
-    }
+    };
 
+    vm.gg();
+    vm.kk();
     //翻页
     vm.pageChanged=function () {
         vm.gg();
         vm.kk();
     }
+    //删除
+    vm.comDelete=tt.comDelete;
+
+    //冻结
+    vm.comFreezed=tt.comFreezed;
+
+    //认证
+    vm.comApproved=tt.comApproved;
+
+    vm.statu =sessionStorage.getItem("statu");
+    console.log(vm.statu)
+
+
 });
 

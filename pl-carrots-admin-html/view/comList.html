@@ -2,48 +2,28 @@
 
 <form name="form" ng-submit="vm.gg();vm.kk()">
 
-        <label>公司名称<input type="text" ng-model="vm.company.name"></label>
-        <label>公司行业<select ng-options="s.name for s in vm.se.industry" ng-model="vm.company.industry" ></select></label>
-        <label>融资规模<select ng-options="s.name for s in vm.se.financing" ng-model="vm.company.financing"></select></label>
-        <label>认证状态<select ng-options="s.name for s in vm.se.approvedStatus" ng-model="vm.company.approvedStatus"></select></label>
-        <label>冻结状态<select ng-options="s.name for s in vm.se.freezedStatus" ng-model="vm.company.freezedStatus"></select></label>
-        <label>地区<select ng-options="s.proName for s in vm.se.province" ng-model="vm.company.province"></select></label>
-        <label><select ng-options="s.cityName for s in vm.se.city" ng-model="vm.company.city"></select></label>
-        <!--注意这里的countyName是小写-->
-        <label><select ng-options="s.countryName for s in vm.se.country" ng-model="vm.company.country"></select></label>
+       <div class="container">
 
+      <div class="row">
+          <label class="col-md-4">公司名称<input type="text" ng-model="vm.company.name"></label>
+          <label class="col-md-4">公司行业<select ng-options="s.name for s in vm.se.industry" ng-model="vm.company.industry" ></select></label>
+          <label class="col-md-4">融资规模<select ng-options="s.name for s in vm.se.financing" ng-model="vm.company.financing"></select></label>
+      </div>
+   <div class="row">
+       <label class="col-md-2">认证状态<select ng-options="s.name for s in vm.se.approvedStatus" ng-model="vm.company.approvedStatus"></select></label>
+       <label class="col-md-2">冻结状态<select ng-options="s.name for s in vm.se.freezedStatus" ng-model="vm.company.freezedStatus"></select></label>
+       <label class="col-md-5">地区<select ng-options="s.proName for s in vm.se.province" ng-model="vm.company.province"></select>
+      <select ng-options="s.cityName for s in vm.se.city" ng-model="vm.company.city"></select>
+       <!--注意这里的countyName是小写-->
+      <select ng-options="s.countryName for s in vm.se.country" ng-model="vm.company.country"></select></label>
+   </div>
+       </div>
+<div class="m-search">
+    <button type="button" ng-click="vm.restting()" class="u-restting">清除</button>
+    <button type="submit" class="u-search">搜索</button>
+</div>
 
-<button type="button" ng-click="vm.restting()">清除</button>
-<button type="submit">搜索</button>
 </form>
-  <!--<div>
-  <div><span>公司列表</span><button type="button" ng-click="vm.newCom()">新增</button></div>
-    <table style="width: 100%">
-        <tr>
-            <th>序号</th>
-            <th>公司名称</th>
-            <th>公司行业</th>
-            <th>地区</th>
-            <th>融资规模</th>
-            <th>操作状态</th>
-            <th>冻结状态</th>
-            <th>操作</th>
-        </tr>
-        <tr ng-repeat="s in vm.comList">
-            <td>{{$index+1}}</td>
-            <td>{{s.name}}</td>
-            &lt;!&ndash;<td ng-repeat="g in s.industryList"></td>&ndash;&gt;
-            <td><span ng-repeat="g in s.industryList track by $index">{{g|industrytype}}</span></td>
-            <td>{{s.city-0|city}}{{s.couty}}</td>
-            <td>{{s.financing|financingtype}}</td>
-            <td>{{s.approved|approved}}</td>
-            <td>{{s.freezed|freezed}}</td>
-            <td>{{}}</td>
-        </tr>
-    </table>
-      <q></q>
-  </div>-->
-
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -70,13 +50,15 @@
                 <td>{{s.financing|financingtype}}</td>
                 <td>{{s.approved|approved}}</td>
                 <td>{{s.freezed|freezed}}</td>
-                <td>{{}}</td>
+                <td class="u-operate">
+                    <button ui-sref="app.jobList">职位</button>
+                    <button ng-click="vm.comApproved(this)">{{s.approved|approved|approvText}}</button>
+                    <button ng-click="">编辑</button>
+                    <button ng-click="vm.comFreezed(this)">{{s.freezed|freezed|freezText}}</button>
+                    <button ng-click='vm.comDelete(this)'>删除</button>
+                </td>
             </tr>
         </table>
         <q></q>
     </div>
-
-
-
-
 </div>
