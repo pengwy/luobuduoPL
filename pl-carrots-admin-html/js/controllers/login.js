@@ -8,9 +8,6 @@ app.controller('login',function ($state,$scope,$http) {
     vm.name="admin";
     vm.pwd = "123456";
     vm.statu = false;
-    vm.go=function () {
-        $state.go('app.dashboard')
-    };
     vm.module = function () {
         return $http({
             url:"/carrots-admin-ajax/a/u/multi/module",
@@ -20,7 +17,7 @@ app.controller('login',function ($state,$scope,$http) {
           /*  console.log(respon);*/
             $state.go('app.dashboard');
            vm.modules = respon.data.data.moduleList;
-           console.log(vm.modules);
+        /*   console.log(vm.modules);*/
             vm.statu = true;
             sessionStorage.statu = vm.statu;
             sessionStorage.setItem("statu", vm.statu);

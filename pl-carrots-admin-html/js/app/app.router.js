@@ -75,13 +75,13 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             }]}
         })
         .state("app.jobDetail",{
-            url:"/jobDetail?info",
+            url:"/jobDetail?id",
             templateUrl:"view/jobDetail.html",
             controller:"jobDetail",
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/jobDetail.js',"js/constant/district.js","js/constant/constant.js"]})
+                    files:['js/controllers/jobDetail.js',"js/constant/district.js","css/jobDetail.css","js/constant/constant.js"]})
             }]}
         })
         .state("app.articleList",{
@@ -122,6 +122,26 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                     files:['js/controllers/accountAdmin.js',"js/constant/constant.js",'js/service/service.js','js/filter/filter.js']})
+            }]}
+        })
+        .state("app.moduleAdmin",{
+            url:"/moduleAdmin",
+            templateUrl:"view/moduleAdmin.html",
+            controller:"moduleAdminCtrl",
+            controllerAs:"vm",
+            resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files:['js/controllers/moduleAdmin.js','css/moduleAdmin.css',"js/constant/constant.js",'js/filter/filter.js','js/service/service.js']})
+            }]}
+        })
+        .state("app.moduleDetail",{
+            url:"/moduleDetail?id",
+            templateUrl:"view/moduleDetail.html",
+            controller:"moduleDetailCtrl",
+            controllerAs:"vm",
+            resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files:['js/controllers/moduleDetail.js','css/moduleDetail.css',"js/constant/constant.js",'js/filter/filter.js','js/service/service.js']})
             }]}
         })
 }

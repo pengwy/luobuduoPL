@@ -86,6 +86,113 @@ app.constant('subcategoryType', [
     {type: 6, name: 'UI设计'},
     {type: 7, name: '功能测试'}
 ]);
+app.constant('category',[
+    {type:'',name: '不限', choose: true},
+    {type: 1, name: '产品', choose: false},
+    {type: 2, name: 'UI', choose: false},
+    {type: 3, name: 'QA', choose: false},
+    {type: 4, name: 'Android', choose: false},
+    {type: 5, name: 'IOS', choose: false},
+    {type: 6, name: 'WEB', choose: false},
+    {type: 7, name: 'OP', choose: false},
+    {type: 8, name: 'Java', choose: false},
+    {type: 9, name: 'NLP', choose: false},
+    {type: 10, name: 'DM', choose: false},
+    {type: 11, name: 'DL', choose: false}
+]);
+app.constant('subcategory',[
+    {
+        name: "产品",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '助理', choose: false},
+            {type: 2, name: '初级', choose: false},
+            {type: 3, name: '中级', choose: false},
+            {type: 4, name: '高级', choose: false},
+            {type: 5, name: '总监', choose: false}]
+    },
+    {
+        name: "UI",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false},
+            {type: 4, name: '总监', choose: false}
+        ]
+    },
+    {
+        name: "QA",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false}
+        ]
+    },
+    {
+        name: "Android",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false}
+        ]
+    },
+    {
+        name: "IOS",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false}
+        ]
+    },
+    {
+        name: "WEB",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false}
+        ]
+    },
+    {
+        name: "OP",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false}
+        ]
+    },
+    {
+        name: "Java",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false},
+            {type: 4, name: '总监', choose: false}
+        ]
+    },
+    {
+        name: "NLP",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false}
+        ]
+    },
+    {
+        name: "DM",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false}
+        ]
+    },
+    {
+        name: "DL",
+        data: [{name: '不限', choose: true},
+            {type: 1, name: '初级', choose: false},
+            {type: 2, name: '中级', choose: false},
+            {type: 3, name: '高级', choose: false}
+        ]
+    }
+]);
 app.constant('compensationType', [
     {type: '', name: '全部'},
     {type: 0, name: '8k以下'},
