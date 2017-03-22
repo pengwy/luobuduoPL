@@ -1,1 +1,39 @@
-<div>moduleAdmin</div>
+<div class="panel panel-default" style="margin: 40px">
+    <div class="panel-heading">
+        模块管理
+    </div>
+    <div class="panel-body row m-mdlist">
+        <table class="col-xs-12">
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>模块对应的URL</th>
+                <th>父模块ID</th>
+                <th>模块类型</th>
+                <th>数据更新时间</th>
+                <th>更新人ID</th>
+                <th>数据创建时间</th>
+                <th>创建者ID</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="x in vm.modules">
+                <td>{{x.id}}</td>
+                <td>{{x.url}}</td>
+                <td>{{ x.name}}</td>
+                <td>{{ x.parentID}}</td>
+                <td>{{ x.type }}</td>
+                <td>{{ x.updateAt|date:"yy-MM-dd"}}</td>
+                <td>{{ x.updateBy}}</td>
+                <td>{{ x.createAt|date:"yy-MM-dd" }}</td>
+                <td>{{ x.createBy }}</td>
+                <td>
+                    <button ui-sref="app.moduleDetail({id:x.id})">编辑</button>
+                    <button ng-click="deleteMd(x)">删除</button>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <ul uib-pagination total-items="vm.totalItems"  previous-text="上一页" next-text="下一页" ng-model="vm.currentPage" ng-change="vm.pageChanged()" class="pull-right"></ul>
+        </div><!--pagigation-->
+    </div>
+</div>

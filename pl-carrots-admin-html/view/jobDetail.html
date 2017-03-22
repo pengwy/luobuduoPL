@@ -1,1 +1,112 @@
-<div>jobDetail</div>
+<div ng-controller="jobDetail">
+    <div class="container-fluid">
+        <div class="panel panel-default" style="margin-top: 20px">
+            <!-- Default panel contents -->
+            <div class="panel-heading">职位详细信息
+                <select  class="pull-right" name="" id="">
+                    <option>请选择</option>
+                    <option value="0">普通</option>
+                    <option value="1">推荐</option>
+                </select>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal row">
+                    <div class="col-sm-6" >
+                        <label for="jobName" class="control-label">职位名称</label>
+                        <div class="">
+                            <input type="email" class="form-control" ng-model="vm.name" id="jobName">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 " >
+                        <label for="cpyName" class=" control-label">在招公司</label>
+                        <div class="">
+                            <input type="text" ng-model="vm.companyName" disabled class="form-control" id="cpyName" >
+                        </div>
+                    </div>
+                    <div class="col-sm-6 sel" >
+                        <label class="control-label" for="exp">工作经验</label>
+                        <select class=" opt " ng-model="vm.exp"   id="exp">
+                            <option value="{{x.type}}" ng-selected="vm.exp==={{x.type}}"  ng-repeat="x in vm.expType" >{{x.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 sel" >
+                        <label class="control-label"  for="edu">学历要求</label>
+                        <select class="opt "  ng-model="vm.edu"  id="edu">
+                            <option style="padding: 0" value="{{x.type}}"  ng-selected="vm.edu==={{x.type}}"  ng-repeat="x in vm.eduType " >{{x.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 sel" >
+                        <label class=" control-label" for="compen">薪&nbsp;资&nbsp;</label>
+                        <select class="opt "  ng-model="vm.compen"  id="compen">
+                            <option value="{{x.type}}" ng-selected="vm.compen=={{x.type}}"  ng-repeat="x in vm.compenType" >{{x.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3 sel" style="margin-top: 25px" >
+                        <label class=" control-label" for="cate">职业分类</label>
+                        <select class="lopt "  ng-model="vm.cate"  id="cate">
+                            <option value="{{x.type}}"  ng-selected= "vm.cate=={{x.type}}"  ng-repeat="x in vm.cateType" >{{x.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3 sel" style="margin-top: 25px">
+                        <label class=" control-label" for="sub">-----</label>
+                        <select class="lopt " ng-model="subcate"  id="sub">
+                            <option value="{{x.type}}"  ng-selected="vm.subcate=={{x.type}}"  ng-repeat="x in vm.subcateType" >{{x.name}}</option>
+                        </select>
+                        <span>{{subcate}}</span>
+                    </div>
+                    <div class="col-sm-6 "  >
+                        <div class="input-group sel">
+                            <label for=""> 公司福利</label>
+                          <input type="text" ng-model="vm.newTag" class="form-control">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" style="margin-top: 25px" ng-click="vm.addTag()" type="button">确定</button>
+                          </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 sel" >
+                        <ul class="f-tags col-sm-12  ">
+                            <li ng-repeat="(x,y) in vm.temp">{{y}}<span type="button" ng-click="vm.delTag(y)" class="pull-right glyphicon glyphicon-remove"></span></li>
+                        </ul>
+                    </div>
+                </form>
+                <div class="panel panel-default" style="margin-top: 20px">
+                    <div class="panel-heading">职位描述
+                    </div>
+                    <div class="panel-body">
+                        <div class="row form-group textipt">
+                            <label class="control-label col-md-2">岗位职责 </label>
+                            <div class="col-md-10">
+                                <textarea class="form-control" rows="8" maxlength="1000" ng-model="vm.res.responsibility" required>
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group textipt">
+                            <label class="control-label col-md-2">必备条件</label>
+                            <div class="col-md-10">
+                                    <textarea class="form-control" rows="8"
+                                              maxlength="1000"
+                                              ng-model="vm.res.requisite"
+                                              required></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group textipt">
+                            <label class="control-label col-md-2">公司福利</label>
+                            <div class="col-md-10">
+                                    <textarea class="form-control" rows="8"
+                                              maxlength="1000"
+                                              ng-model="vm.boon"
+                                              required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <button class="btn btn-success pull-right" ng-click="vm.submiteJob()">保存</button>
+                            <button class="btn btn-default pull-right">取消</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
