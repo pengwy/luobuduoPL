@@ -4,18 +4,26 @@
 
 
 'use strict';
-app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,tt) {
+app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,tt,$filter) {
     var vm =this;
-
 
     //初始值
     vm.type=typeA.slice(1);
     vm.industry=industrytype.slice(1);
     //获取编辑的值
     if(localStorage.article!=undefined){
-        vm.article=JSON.parse(localStorage.article);
-        console.log(vm.article)
-        vm.text='编辑'
+        var article =JSON.parse(localStorage.article);
+        var typeNum =$filter('articleTypeNum')(article.type);
+        var industryNum =$filter('articleTypeNumIndustryNum')(article.industry);
+        vm.text='编辑Article';
+        vm.article={
+            url:article.url,
+            title:article.title,
+            type:vm.type[typeNum],
+            industry:vm.industry[industryNum],
+            img:article.img
+        }
+    console.log(vm.artic)
     }else {
         //绑定模板
         vm.article={
@@ -23,17 +31,14 @@ app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,
             industry:vm.industry[0],
             img:''
         };
-        vm.text='新增'
+        vm.text='新增Article';
     }
     //显示隐藏
     $scope.$watch('vm.article.type',function () {
-        console.log(vm.article.type.name)
         vm.show=false;
         if(vm.article.type.name=='行业大图'){
             vm.show=!vm.show;
             inf.industry=vm.article.industry.type
-        }else {
-            inf.industry=''
         }
     },true);
 
@@ -67,15 +72,51 @@ app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,
         };
     };
 
+
+
+
     //上传
     vm.promptly=function () {
         get();
-        console.log(inf);
+        inf.status=2;
+        tt.addArticle(inf)
+    };
+
+    //存为草稿
+    vm.waitTime=function () {
+        get();
+        inf.status=1;
         tt.addArticle(inf).then(function (res) {
-            localStorage.clear();
-            history.back(-1)
-        })
+            var text=res.data.message;
+            bootbox.alert({
+                title: "操作提示",
+                message:text,
+                callback: function () {
+                    if(text=='success'){
+                        history.back(-1);
+                        localStorage.clear();
+                    }
+                }
+            })});
+        }
+    //取消
+    vm.goBack=function (){
+        history.back(-1);
+        localStorage.clear();
     }
 
-
 });
+/*
+.then(function (res) {
+    var text=res.data.message;
+    bootbox.alert({
+        title: "操作提示",
+        message:text,
+        callback: function () {
+            if(text=='success'){
+                history.back(-1);
+                localStorage.clear();
+            }
+        }
+    })});
+*/

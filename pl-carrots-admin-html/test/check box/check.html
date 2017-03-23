@@ -13,16 +13,7 @@
 </head>
 <body ng-app="app" ng-controller="ObjectArrayCtrl">
 <label ng-repeat="fruit in fruits">
-    <!--
-      - Use `value="{{fruit.name}}"` to give the input a real value, in case the form gets submitted
-        traditionally
 
-      - Use `ng-checked="fruit.selected"` to have the checkbox checked based on some angular expression
-        (no two-way-data-binding)
-
-      - Use `ng-model="fruit.selected"` to utilize two-way-data-binding. Note that `.selected`
-        is arbitrary. The property name could be anything and will be created on the object if not present.
-    -->
     <input
             type="checkbox"
             ng-model="fruit.selected"

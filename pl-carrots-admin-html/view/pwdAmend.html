@@ -1,12 +1,22 @@
-<div>
-    <form  name="form" ng-submit="vm.changePwd(vm.pwd)" novalidate="novalidate">
 
-    <label>旧密码<input type="password" ng-model="vm.pwd.oldPwd" ng-minlength="6"  ng-maxlength="16" required autofocus></label>
+<div class="bg-grey padding-big" style="display: flex;align-items: center" >
 
-    <label>新密码<input  type="password" ng-model="vm.pwd.newPwd" ng-minlength="6"  ng-maxlength="16" ng-blur="vm.go()" required></label>
 
-    <label>确认密码<input type="password" ng-model="vm.pwd.newPwdAgain" ng-minlength="6"  ng-maxlength="16" ng-blur="vm.go()" required></label>
-    <P ng-show="vm.g">新密码不一致</P>
-    <button type="submit" ng-disabled="!form.$valid||vm.g" >保存</button>
+
+<div >
+    <form  name="form" ng-submit="vm.changePwd(vm.pwd)" novalidate="novalidate" class="m-accountDetail">
+
+    <label ><span>旧密码</span><input type="password" ng-model="vm.pwd.oldPwd" ng-minlength="6"  ng-maxlength="16" required autofocus></label>
+
+    <label><span>新密码</span><input  type="password" ng-model="vm.pwd.newPwd" ng-minlength="6"  ng-maxlength="16" ng-blur="vm.go()" required></label>
+
+    <label><span>确认密码</span><input type="password" ng-model="vm.pwd.newPwdAgain" ng-minlength="6"  ng-maxlength="16" ng-blur="vm.go()" required></label>
+    <P ng-show="vm.g" class="center">新密码不一致</P>
+<div class="center">
+    <button type="submit" ng-disabled="!form.$valid||vm.g" class="btn btn-success center" >保存</button>
+</div>
     </form>
+</div>
+
+
 </div>

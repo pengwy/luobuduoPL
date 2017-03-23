@@ -101,7 +101,7 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/articleDetail.js',"js/constant/district.js","js/constant/constant.js",'js/service/service.js','js/filter/filter.js','js/directive/directive.js']})
+                    files:['js/controllers/articleDetail.js',"js/constant/district.js","js/constant/constant.js",'js/service/service.js','js/filter/filter.js','js/directive/directive.js','css/articleDetail.css']})
             }]}
         })
         .state("app.pwdAmend",{
@@ -144,4 +144,17 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
                     files:['js/controllers/moduleDetail.js','css/moduleDetail.css',"js/constant/constant.js",'js/filter/filter.js','js/service/service.js']})
             }]}
         })
+        .state("app.accountDetail",{
+            url:"/accountDetail",
+            templateUrl:"view/accountDetail.html",
+            controller:"accountDetail",
+            controllerAs:"vm",
+            resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files:['js/controllers/accountDetail.js',"js/constant/constant.js","css/accountDetail.css",'js/filter/filter.js','js/service/service.js']})
+            }]}
+        })
+
+
+
 }

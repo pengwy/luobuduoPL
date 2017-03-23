@@ -1,5 +1,14 @@
 
 
+
+/*颜色*/
+@pink:#e85662;/*粉红*/
+@grey:#f6f7f8;/*灰色*/
+@white:#ffffff;/*白色*/
+@brown:#c6c6c6;/*棕色*/
+@blue:#37485a;/*蓝色*/
+@black:#000;
+
 .detail{
   display: inline-block;
 padding: 30px;
@@ -14,14 +23,21 @@ padding: 30px;
 
 //搜索面板
 .m-search-font {
-  width: 96%;
-  background-color: white;
   margin: 20px auto;
+  padding:15px;
   font-size: 1.5rem;
+  border:1px @grey solid;
+  background-color: white;
   .f-condi{
     display: inline-block;
+    margin: 0 20px;
     min-height: 50px;
     line-height: 50px;
+
+    span{
+      display: inline-block;
+      margin-right: 20px;
+    }
     label{
       line-height: 50px;
       min-width: 70px;
@@ -67,4 +83,61 @@ padding: 30px;
     background-color: #5cb85c;
   }
 
+}
+
+
+//居中
+.center{
+  text-align: center;
+}
+.m-accountDetail{
+  label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  span{
+    display: inline-block;
+    width: 100px;
+  }
+  input,select{
+    flex: 0.5;
+    padding: 6px 12px;
+    margin: 10px 0;
+    height: 34px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #555;
+    background-color: #fff;
+  }
+
+
+
+}
+
+
+.bg-grey{
+  background-color:@grey;
+}
+.bg-white{
+  background-color: @white;
+}
+.padding-sm{
+  padding: 15px;
+}
+.padding-big{
+  padding: 30px;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+th,td{
+  text-align: center;
+  vertical-align: middle !important;
+}
+.big-font{
+  font-weight: 700;
 }

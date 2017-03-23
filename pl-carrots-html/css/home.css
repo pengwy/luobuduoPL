@@ -89,6 +89,11 @@ body {
   display: flex;
   flex-wrap: wrap-reverse;
 }
+@media (max-width: 993px) {
+  .m-wrap {
+    justify-content: center;
+  }
+}
 .padding {
   padding: 20px 0;
 }
@@ -149,13 +154,10 @@ body {
 }
 .m-flex {
   display: flex;
-  height: 186px;
-  flex-direction: column;
-  justify-content: space-between;
+  /*height: 186px;*/
+  /*flex-direction: column;*/
+  /*justify-content: space-between;*/
   border-left: 1px solid #f6f7f8;
-}
-.m-flex div {
-  text-align: center;
 }
 .m-flex div span {
   text-align: center;
@@ -234,11 +236,11 @@ body {
     width: 80%;
   }
 }
-.carousel-control.left,
-.carousel-control.right {
+.home .carousel-control.left,
+.home .carousel-control.right {
   background-image: none!important;
 }
-.carousel-control {
+.home .carousel-control {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -252,6 +254,6 @@ body {
   filter: alpha(opacity=50);
   opacity: 0.5;
 }
-.carousel-indicators {
+.home .carousel-indicators {
   display: none;
 }

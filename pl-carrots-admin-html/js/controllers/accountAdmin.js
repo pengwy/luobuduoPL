@@ -9,6 +9,7 @@ app.controller('accountAdmin',function ($http,tt,$filter,$scope,$state) {
 
    vm.getManger=function () {
         $http.get("/carrots-admin-ajax/a/u/manager/").then(function (res) {
+                vm.total=res.data.data.total;
             $http.get("/carrots-admin-ajax/a/u/multi/manager",{params:{ids:res.data.data.ids}}).then(function (res) {
                 localStorage.managerList= JSON.stringify(res.data.data.managerList)
                vm.managerList=res.data.data.managerList
@@ -27,8 +28,6 @@ app.controller('accountAdmin',function ($http,tt,$filter,$scope,$state) {
     var roleList=JSON.parse(localStorage.roleList);
     var managerList=JSON.parse(localStorage.managerList);
 
-
-
     console.log(roleList,managerList)
     roleList.unshift({id:'',name:'全部'});
 
@@ -38,10 +37,6 @@ app.controller('accountAdmin',function ($http,tt,$filter,$scope,$state) {
     var pe =tt.parent
     pe()
     var id;
-
-   /* $scope.$watch('vm.role.id',function () {
-     id = $filter('managerList')(vm.role.id);
-    },true)*/
 
     //清空
     vm.restting=function () {
@@ -55,6 +50,23 @@ app.controller('accountAdmin',function ($http,tt,$filter,$scope,$state) {
             vm.managerList=res.data.data.managerList
         });
     }
+    //删除
+    vm.accountDelete=tt.accountDelete;
+
+    //编辑
+    vm.accountEdti=tt.accountEdti;
+
+//翻页
+    vm.pageChanged=function (g) {
+            $http.get("/carrots-admin-ajax/a/u/manager/",{params:{page:g}}).then(function (res) {
+                $http.get("/carrots-admin-ajax/a/u/multi/manager",{params:{ids:res.data.data.ids}}).then(function (res) {
+                    localStorage.managerList= JSON.stringify(res.data.data.managerList)
+                    vm.managerList=res.data.data.managerList
+                });
+            });
+    }
+
+
 
 
 });

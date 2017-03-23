@@ -6,9 +6,9 @@ app.controller('ObjectArrayCtrl', ['$scope', 'filterFilter', function ObjectArra
 
     // Fruits
     $scope.fruits = [
-        { name: 'apple',    type:0},
-        { name: 'orange',   type:1 },
-        { name: 'pear',     type:2 },
+        { name: 'apple',    type:0, selected:false},
+        { name: 'orange',   type:1, selected:true },
+        { name: 'pear',     type:2 ,selected:false},
         { name: 'naartjie', type:3 }
     ];
 

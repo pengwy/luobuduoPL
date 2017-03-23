@@ -167,18 +167,6 @@ app.filter('roleName',function () {
     }
 })
 
-//将类型转化为manager的id数组
-/*app.filter('managerList',function () {
-    var managerList=JSON.parse(localStorage.managerList);
-    var manager=[];
-    return function (type) {
-        for(var i=0;i<managerList.length;i++){
-            if(type ===  managerList[i].roleID){
-                manager.push(managerList[i].id)
-                return  manager
-            }}
-    }
-});*/
 app.filter('managerList',function () {
     var role=JSON.parse(localStorage.tt);
     return function (type) {
@@ -189,4 +177,45 @@ app.filter('managerList',function () {
     }
 });
 
+//更改account默认
+app.filter('accountNum',function () {
+    var  list = JSON.parse(localStorage.roleList);
+    return function (type) {
+        for(i=0;i<list.length;i++){
+            if(type===list[i].id){
+                return i
+            }
+
+        }
+    }
+});
+
+//更改aiticle默认设置
+
+app.filter('articleTypeNum',function (typeA) {
+    var arr =typeA.slice(1);
+    return function (type) {
+        for(i=0;i<arr.length;i++){
+            if(type===arr[i].type){
+                return i
+            }
+
+        }
+    }
+
+});
+
+
+app.filter('articleTypeNumIndustryNum',function (industrytype) {
+    var arr =industrytype.slice(1);
+    return function (type) {
+        for(i=0;i<arr.length;i++){
+            if(type===arr[i].type){
+                return i
+            }
+
+        }
+    }
+
+});
 

@@ -5,6 +5,10 @@
 app.controller('articleList',function (statusTypeA,typeA,tt,$scope,$state) {
     var vm =this;
 
+
+
+
+
     vm.articInf={
         status:statusTypeA,
         type:typeA
@@ -56,17 +60,13 @@ app.controller('articleList',function (statusTypeA,typeA,tt,$scope,$state) {
         $state.go('app.articleDetail')
     };
 
-
-
-
-
-
-
-
-
 //翻页事件
-vm.pageChanged=function () {
-    
+vm.pageChanged=function (g) {
+        vm.inf();
+        vm.searchArticle.page=g;
+        tt.getArticle(vm.searchArticle).then(function (res) {
+            vm.show=res.data.data.articleList;
+        })
 };
 
 //时间插件
@@ -172,4 +172,6 @@ vm.pageChanged=function () {
         localStorage.article=JSON.stringify(g.s)
         $state.go('app.articleDetail')
     }
+
+
 });

@@ -1,3 +1,9 @@
+/*颜色*/
+/*粉红*/
+/*灰色*/
+/*白色*/
+/*棕色*/
+/*蓝色*/
 .detail {
   display: inline-block;
   padding: 30px;
@@ -9,15 +15,21 @@
   justify-content: space-between;
 }
 .m-search-font {
-  width: 96%;
-  background-color: white;
   margin: 20px auto;
+  padding: 15px;
   font-size: 1.5rem;
+  border: 1px #f6f7f8 solid;
+  background-color: white;
 }
 .m-search-font .f-condi {
   display: inline-block;
+  margin: 0 20px;
   min-height: 50px;
   line-height: 50px;
+}
+.m-search-font .f-condi span {
+  display: inline-block;
+  margin-right: 20px;
 }
 .m-search-font .f-condi label {
   line-height: 50px;
@@ -59,4 +71,53 @@
 .m-search .u-search {
   color: white;
   background-color: #5cb85c;
+}
+.center {
+  text-align: center;
+}
+.m-accountDetail label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.m-accountDetail span {
+  display: inline-block;
+  width: 100px;
+}
+.m-accountDetail input,
+.m-accountDetail select {
+  flex: 0.5;
+  padding: 6px 12px;
+  margin: 10px 0;
+  height: 34px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #555;
+  background-color: #fff;
+}
+.bg-grey {
+  background-color: #f6f7f8;
+}
+.bg-white {
+  background-color: #ffffff;
+}
+.padding-sm {
+  padding: 15px;
+}
+.padding-big {
+  padding: 30px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+th,
+td {
+  text-align: center;
+  vertical-align: middle !important;
+}
+.big-font {
+  font-weight: 700;
 }

@@ -109,7 +109,6 @@ app.service('tt',function ($http,$state) {
                                 url: '/carrots-admin-ajax/a/u/company/status',
                                 params:{id:id, type:ty, status:0}
                             }).then(function () {
-
                               $state.reload('app.comList')
                             })
                         }
@@ -151,27 +150,71 @@ app.service('tt',function ($http,$state) {
                         url: '/carrots-admin-ajax/a/u/article/status',
                         params:{id:id,status:ty}
                     }).then(function () {
-                        $state.go('app.articleList')
-                        /*$state.reload('app.articleList')*/
+                        $state.reload('app.articleList')
                     })
                 }
-
             }
         });
     }
 //article 新增
     this.addArticle=function (params) {
-        return $http({
-            method:'POST',
-            url: '/carrots-admin-ajax/a/u/article',
-            params:params
-        })
+            if(localStorage.article==undefined){
+                return $http({
+                    method:'POST',
+                    url: '/carrots-admin-ajax/a/u/article',
+                    params:params
+                }).then(function (res) {
+                    var text
+                    if(res.data.message=='success'){
+                         text='新增成功';
+                    }else {
+                        text='新增失败';
+                    }
+                    bootbox.alert({
+                        title: "操作提示",
+                        message:text,
+                        callback: function () {
+                            if(text=='新增成功'){
+                                history.back(-1);
+                                localStorage.clear();
+                            }
+                        }
+                    })});
+            }else {
+                var article =JSON.parse(localStorage.article);
+                params.id=article.id;
+                params.createBy=article.createBy;
+                params.updateBy=article.updateBy;
+                params.updateAt=article.updateAt;
+                params.createAt=article.createAt;
+                return $http({
+                    method:'PUT',
+                    url: '/carrots-admin-ajax/a/u/article/'+article.id,
+                    params:params
+                }).then(function (res) {
+                    var text
+                    if(res.data.message=='success'){
+                        text='编辑成功';
+                    }else {
+                        text='编辑失败';
+                    }
+                    bootbox.alert({
+                        title: "操作提示",
+                        message:text,
+                        callback: function () {
+                            if(text=='编辑成功'){
+                                history.back(-1);
+                                localStorage.clear();
+                            }
+                        }
+                    })});
+            }
     };
 
 
 //article 删除
     this.articleDe=function (g) {
-        var id =g.s.id
+        var id =g.s.id;
         bootbox.confirm({
             title: "操作提示",
             message:  "<p style='text-align: center'>删除后该图将直接下架并在本地删除</p>"
@@ -192,7 +235,6 @@ app.service('tt',function ($http,$state) {
                         method: 'DELETE',
                         url: '/carrots-admin-ajax/a/u/article/'+id
                     }).then(function () {
-
                         $state.reload('app.articleList')
                     })
                 }
@@ -221,7 +263,7 @@ app.service('tt',function ($http,$state) {
                 }
             });
         })
-    }
+    };
 
 //获取role
     this.role=function () {
@@ -246,6 +288,100 @@ app.service('tt',function ($http,$state) {
             }
         });
         localStorage.tt=JSON.stringify(na)
+    };
+
+//返回上级页面
+    this.goBack=function () {
+        localStorage.account=''
+        history.go(-1)
+    };
+//提交Account
+    this.addAccount=function (params,id) {
+        console.log(id)
+        var text;
+        if(localStorage.account!=''){
+            $http({
+                method:'PUT',
+                url: '/carrots-admin-ajax/a/u/manager/'+id,
+                params:params
+            }).then(function (res) {
+                text=res.data.message;
+                bootbox.alert({
+                    title: "操作提示",
+                    message:text,
+                    callback: function () {
+                        if(text=='success'){
+                            localStorage.account=''
+                            history.back(-1)
+                        }
+                    }
+                });
+
+            })
+        }
+        else {
+            $http({
+                method:'POST',
+                url: '/carrots-admin-ajax/a/u/manager',
+                params:params
+            }).then(function (res) {
+                text=res.data.message;
+                bootbox.alert({
+                    title: "操作提示",
+                    message:text,
+                    callback: function () {
+                        if(text=='success'){
+                            history.back(-1)
+                        }
+                    }
+                });
+
+            })
+        }};
+
+//删除accountDelete
+    this.accountDelete=function (g) {
+        var id =g.s.id;
+        bootbox.confirm({
+            title: "操作提示",
+            message: "<p style='text-align: center'>你确定要删除吗？</p>",
+            buttons: {
+                confirm: {
+                    label: '确定',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: '取消',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+                if(result==true){
+                    $http({
+                        method: 'DELETE',
+                        url: '/carrots-admin-ajax/a/u/manager/'+id
+                    }).then(function (res) {
+                        text=res.data.message;
+                        bootbox.alert({
+                            title: "操作提示",
+                            message:text,
+                            callback: function () {
+                                if(text=='success'){
+                                    $state.reload('app.accountAdmin')
+                                }
+                            }
+                        });
+                    })
+                }
+            }
+        });
+
+
+}
+//编辑account
+    this.accountEdti=function (g) {
+       localStorage.account=JSON.stringify(g.s);
+        $state.go('app.accountDetail')
     }
 
 
