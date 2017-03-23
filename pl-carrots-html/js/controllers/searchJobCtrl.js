@@ -341,6 +341,7 @@ app.controller('searchJobCtrl',function ($scope,$http,$stateParams,$state,$rootS
 
             })
         };
+
         vm.submit();
         vm.clearAll = function () {
                     vm.industryArr = [];

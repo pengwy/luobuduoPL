@@ -16,6 +16,7 @@
 .g-mn-job {
   background-color: white;
   font-size: 1.5rem;
+  margin: 0;
 }
 .g-mn-job .f-schkey {
   margin: 10px ;
@@ -59,27 +60,44 @@
   cursor: pointer;
 }
 .g-mn-list {
-  margin-top: 20px;
+  margin: 20px 0;
   background-color: white;
 }
-.g-mn-list .f-listjb {
+.g-mn-list .job-item {
+  border: 1px solid lightgray;
+  margin: 10px 0 0 0;
+  cursor: pointer;
+}
+.g-mn-list .job-item .f-listjb {
   height: 150px;
   padding: 0;
   border-right: 1px solid grey;
   background-color: white;
+  overflow: hidden;
 }
-.g-mn-list .f-listjb div {
+.g-mn-list .job-item .f-listjb div {
   margin-left: 30px;
   height: 50px;
   line-height: 50px;
 }
-.g-mn-list .f-jbdata {
+.g-mn-list .job-item .f-jbdata {
   background-color: white;
+  height: 150px;
 }
-.g-mn-list .f-jbdata .outer div {
+.g-mn-list .job-item .f-jbdata .outer {
+  margin-top: 20px;
+}
+.g-mn-list .job-item .f-jbdata .outer div {
+  margin-left: 20px;
   height: 50px;
 }
-.g-mn-list .f-jbdata .cpylogo {
+.g-mn-list .job-item .f-jbdata .outer div span {
+  border-left: 1px solid gray;
+}
+.g-mn-list .job-item .f-jbdata .outer div span:first-child {
+  border-left: none;
+}
+.g-mn-list .job-item .f-jbdata .cpylogo {
   margin-top: 10px;
   border: 1px solid lightgray !important;
 }

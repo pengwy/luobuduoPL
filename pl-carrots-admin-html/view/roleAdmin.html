@@ -1,1 +1,27 @@
-<div>roleAdmin</div>
+<div class="panel panel-default" style="margin: 40px">
+    <div class="panel-heading panel-top">
+        角色列表
+        <span type="button" ui-sref="app.roleDetail" class="pull-right btn-newrole">新增角色</span>
+    </div>
+    <div class="panel-body row m-role ">
+        <table class="col-xs-12">
+            <tr>
+                <th>ID</th>
+                <th>角色</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="x in vm.roleList">
+                <td>
+                    {{x.id}}
+                </td>
+                <td>
+                  {{x.name}}
+                </td>
+                <td>
+                    <button ui-sref="app.roleDetail">编辑</button>
+                    <button class="btn btn-danger">删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -17,6 +17,7 @@
 .g-mn-job {
   background-color: white;
   font-size: 1.5rem;
+  margin: 0;
   .f-schkey {
     margin: 10px ;
     span{
@@ -60,31 +61,47 @@
   }
 }
 .g-mn-list {
-  margin-top:20px;
+  margin:20px 0;
   background-color: white;
-  .f-listjb{
-    height: 150px;
-    padding: 0;
-    border-right: 1px solid grey;
-    background-color: white;
-    div {
-      margin-left: 30px;
-      height: 50px;
-      line-height: 50px;
-    }
-  }
-  .f-jbdata{
-    background-color: white;
-    .outer {
+  .job-item{
+    border: 1px solid lightgray;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+    .f-listjb{
+      height: 150px;
+      padding: 0;
+      border-right: 1px solid grey;
+      background-color: white;
+      overflow: hidden;
       div {
+        margin-left: 30px;
         height: 50px;
+        line-height: 50px;
       }
     }
-    .cpylogo {
-      margin-top: 10px;
-       border: 1px solid lightgray !important;
+    .f-jbdata{
+      background-color: white;
+      height: 150px;
+      .outer {
+        margin-top: 20px;
+        div {
+          margin-left: 20px;
+          height: 50px;
+          span{
+            border-left: 1px solid gray;
+          }
+          span:first-child{
+            border-left: none;
+          }
+        }
+      }
+      .cpylogo {
+        margin-top: 10px;
+        border: 1px solid lightgray !important;
+      }
     }
   }
+
 }
 .active4 {
   background-color: #e85662;

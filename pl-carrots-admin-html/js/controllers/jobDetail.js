@@ -74,11 +74,17 @@ app.controller('jobDetail',function ($scope,$stateParams,$http,experienceType,ed
                     tags: tags,
                     profession:profession
                 };
-                console.log(params)
+                console.log(params);
                 var id = vm.id;
-                return $http.put("/carrots-admin-ajax/a/u/profession/"+id,params).then(function (resp) {
-                    console.log(resp)
-                })
+                return $http({
+                    url:"/carrots-admin-ajax/a/u/profession/"+id,
+                    method:"PUT",
+                    params:$.param(params),
+                    headers:{ 'contentType':'Application/json'}
+                }).then(function (res) {
+                      console.log(res)
+                  }
+                )
             };
         })
     };

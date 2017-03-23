@@ -5,9 +5,10 @@
                 <div class=" col-xs-3 m-sd">
                     <div class="m-prdt">
                         <ul class="m-ltab">
-                            <li><img src="#">产品类</li>
+                            <li><img id="icon1" src="images/zzz-jishu.png" height="18" width="21"/>产品类</li>
                             <li  ng-repeat = "(x,y) in vm.prdt" ng-click="vm.search(y)" >{{x}}</li>
                         </ul>
+
                         <div class="m-hvprdt">
                             <div>
                                 <span class="list-tt"> 产品</span>
@@ -31,7 +32,7 @@
                     </div>
                     <div class="m-tech">
                         <ul class="m-ltab">
-                            <li><img src="#">技术类</li>
+                            <li><img id="icon2" src="images/zzz-jishu.png" height="18" width="21"/>技术类</li>
                             <li ng-repeat ="(x,y) in vm.tech"   ng-click="vm.search(y)" >{{x}}</li>
                         </ul>
                         <div class="m-hvtech">
@@ -69,7 +70,7 @@
                     </div>
                     <div class="m-data">
                         <ul class="m-ltab">
-                            <li><img src="#">大数据</li>
+                            <li><img id="icon3" src="images/zzw-sheji.png" height="18" width="21"/>大数据</li>
                             <li ng-repeat="(x,y) in vm.bigData"  ng-click="vm.search(y)" >{{x}}</li>
                         </ul>
                         <div class="m-hvdata">
@@ -94,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="m-pic col-xs-9 " style="background-color: #4cae4c">
+                <div class="m-pic col-xs-9 ">
                     <div style="min-height: 305px">
                         <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                             <div uib-slide ng-repeat="slide in slides1 track by slide.id" index="slide.id">
@@ -113,16 +114,15 @@
                 </div>
             </div>
         </div>
-    </div>
+
     <!--推荐职位-->
-    <div class="container">
         <div class="g-mn-fj row">
             <div class="m-tt">
                 <span ng-click="vm.status=true" ng-class="{true:'active5'}[vm.status]">最新职位</span>
                 <span ng-click="vm.status=false"  ng-class="{true:'active5'}[!vm.status]">推荐职位</span>
-                <a class="pull-right">更多职位 ></a>
+                <span class="pull-right"  ui-sref="app.searchJob">更多职位 ></span>
             </div>
-            <div class="col-xs-12 col-sm-3 m-newjob" ng-show="vm.status"  ng-repeat =" x in vm.njob">
+            <div class="col-xs-12 col-sm-3 m-newjob"  ui-sref="app.jobDetail({id:x.id})" ng-show="vm.status"  ng-repeat =" x in vm.njob">
                 <div class="box-item">
                     <div class="logo">
                         <img src="{{x.logo}}" alt="">
@@ -134,7 +134,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-3 m-newjob"  ng-show="!vm.status" ng-repeat =" x in vm.rjob">
+            <div class="col-xs-12 col-sm-3 m-newjob"  ui-sref="app.jobDetail({id:x.id})" ng-show="!vm.status" ng-repeat =" x in vm.rjob">
                 <div class="box-item">
                     <div class="logo">
                         <img src="{{x.logo}}" alt="">
@@ -147,9 +147,9 @@
                 </div>
             </div>
         </div>
-    </div>
+
     <!--推荐公司-->
-    <div class="container">
+
         <div class="g-mn-fcpy">
             <div class="reco-tt">推荐公司</div>
         </div>
@@ -157,34 +157,36 @@
             <div class="fst-item col-xs-12 col-sm-4">
                 <div></div>
             </div>
-            <div class="cpy-pic col-xs-12 col-sm-2" ng-repeat="x in vm.rcpy">
+            <div class="cpy-pic col-xs-6 col-sm-2" ng-repeat="x in vm.rcpy" ui-sref="app.companyDetail({id:x.id})">
                 <img src="{{x.logo}}" alt="#">
             </div>
         </div>
         <div class="f-lb">
-            <div class="bannery" uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                <div class="banner-out row" uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                    <div class="col-xs-2 cpy-logo"><img ng-src="{{slide.image}}"></div>
-                    <div class="cpy-info col-xs-4">
-                        <p><b>{{slide.name}}</b> &nbsp;加入萝卜多俱乐部</p>
-                        <p>
-                            <span>{{slide.slogan}}</span>
-                            <span>{{slide.financing}}</span>
-                        </p>
-                    </div>
-                    <div class="cpy-jobs col-xs-6">
-                        <p><b>正在热招</b></p>
-                        <p>
-                            <span>产品经理</span>
-                            <span>UI</span>
-                            <span>WEB</span>
-                        </p>
-                    </div>
+        <div class="bannery" style="min-height: 180px" uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <div class="banner-out row" uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                <div class="col-sm-2 col-xs-4 cpy-logo"><img ng-src="{{slide.image}}"></div>
+                <div class="cpy-info col-xs-8 col-sm-4">
+                    <p>
+                        <b>{{slide.name}}</b> &nbsp;加入萝卜多俱乐部
+                    </p>
+                    <p>
+                        <span>{{slide.slogan}}</span>
+                        <span>{{slide.financing}}</span>
+                    </p>
+                </div>
+                <div class="cpy-jobs col-xs-12 col-sm-6">
+                    <p><b>正在热招</b></p>
+                    <p>
+                        <span>产品经理</span>
+                        <span>UI</span>
+                        <span>WEB</span>
+                    </p>
                 </div>
             </div>
-         </div>
+        </div>
+
     <!--介绍-->
-        <div class="container">
+
              <div class="row g-mn-intro">
             <div class="f-intro col-xs-12 row">
                 <div class="col-xs-12 col-sm-6" >
@@ -218,16 +220,8 @@
             </div>
     </div>
 </div>
-<div class="container">
-    <div style="height: 305px">
-        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-            <div uib-slide ng-repeat="slide in slides1 track by slide.id" index="slide.id">
-                <img ng-src="{{slide.image}}" style="margin:auto;">
-            </div>
-        </div>
-    </div>
 </div>
 
-</div>
+
 
 

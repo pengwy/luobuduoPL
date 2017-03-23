@@ -89,6 +89,11 @@ body {
   display: flex;
   flex-wrap: wrap-reverse;
 }
+@media (max-width: 993px) {
+  .m-wrap {
+    justify-content: center;
+  }
+}
 .padding {
   padding: 20px 0;
 }
@@ -234,7 +239,7 @@ body {
     width: 80%;
   }
 }
-.carousel-control.left,
+/*.carousel-control.left,
 .carousel-control.right {
   background-image: none!important;
 }
@@ -254,4 +259,4 @@ body {
 }
 .carousel-indicators {
   display: none;
-}
+}*/
