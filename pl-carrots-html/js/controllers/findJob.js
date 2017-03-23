@@ -42,7 +42,23 @@ app.controller('findJobCtrl',function ($scope,$http,$state,$location) {
         vm.ban = response.data.data.articleList[2].img;
         vm.banner = response.data.data.articleList;
         console.log(vm.banner.length)
+        $scope.myInterval = 5000;
+        $scope.noWrapSlides = false;
+        $scope.active = 0;
+        var slides1 = $scope.slides1= [];
+        var currIndex = 0;
+        $scope.randomize = function() {
+            var indexes = generateIndexesArray();
+            assignNewIndexesToSlides(indexes);
+        };
+        for(var i = 0; i <vm.banner.length; i++){
+            slides1.push({
+                image: vm.banner[i].img,
+                id:currIndex++
+            });
+        }
     });
+
     /*职业搜索数据绑定*/
     vm.search = function (e) {
         vm.category = e;
@@ -63,26 +79,36 @@ app.controller('findJobCtrl',function ($scope,$http,$state,$location) {
         console.log( "这是"+vm.subCategory);
         $state.go('app.searchJob',{category:vm.category,subCategory:vm.subCategory })
     };
-    $(".m-hvprdt").hover(function () {
-        $(".m-hvprdt").siblings("ul").css({"background":"white","color":"#e85662"})
-    },function () {
-        $(".m-hvprdt").siblings("ul").css({"background":"#e85662","color":"white"})
-    });
-    $(".m-hvtech").hover(function () {
-        $(".m-hvtech").siblings("ul").css({"background":"white","color":"#e85662"})
-    },function () {
-        $(".m-hvtech").siblings("ul").css({"background":"#e85662","color":"white"})
-    });
-    $(".m-hvdata").hover(function () {
-        $(".m-hvdata").siblings("ul").css({"background":"white","color":"#e85662"})
-    },function () {
-        $(".m-hvdata").siblings("ul").css({"background":"#e85662","color":"white"})
-    });
     $(".m-prdt").hover(function () {
-        $(".m-prdt.m-ltab").css({"background":"white","color":"#e85662"})
+        $(".m-prdt>.m-ltab").css({"background":"white","color":"#e85662"});
+        $(".m-prdt>.m-hvprdt").css({"background":"white","color":"black","display":"block"})
+        $("#icon1").attr('src','images/icon1.png');
     },function () {
-        $(".m-prdt.m-ltab").css({"background":"#e85662","color":"white"})
-        });
+        $(".m-prdt>.m-ltab").css({"background":"#e85662","color":"white"});
+        $(".m-prdt>.m-hvprdt").css({"background":"white","color":"black","display":"none"})
+        $("#icon1").attr('src','images/zzz-jishu.png');
+    });
+
+    $(".m-tech").hover(function () {
+        $(".m-tech>.m-ltab").css({"background":"white","color":"#e85662"});
+        $(".m-tech>.m-hvtech").css({"background":"white","color":"black","display":"block"})
+        $("#icon2").attr('src','images/zzz-chanpin-hov.png');
+    },function () {
+        $(".m-tech>.m-ltab").css({"background":"#e85662","color":"white"});
+        $(".m-tech>.m-hvtech").css({"background":"white","color":"black","display":"none"})
+        $("#icon2").attr('src','images/zzz-chanpin.png');
+    });
+
+    $(".m-data").hover(function () {
+        $(".m-data>.m-ltab").css({"background":"white","color":"#e85662"});
+        $(".m-data>.m-hvdata").css({"background":"white","color":"black","display":"block"})
+        $("#icon3").attr('src','images/zzw-sheji-hov.png');
+    },function () {
+        $(".m-data>.m-ltab").css({"background":"#e85662","color":"white"});
+        $(".m-data>.m-hvdata").css({"background":"white","color":"black","display":"none"})
+        $("#icon3").attr('src','images/zzw-sheji.png');
+    });
+
 
 
 
@@ -118,12 +144,12 @@ app.controller('findJobCtrl',function ($scope,$http,$state,$location) {
         return $http({
             url:"/carrots-ajax/a/company/search",
             method:'get',
-            params:{size:5,recommend:1}
+            params:{size:4,recommend:1}
         })
     };
     vm.getcpy().then(function (response) {
         vm.rcpy = response.data.data;
-       /* console.log(vm.rcpy[0]);*/
+        console.log(vm.rcpy);
     });
 /*竖向banner图*/
     vm.lbanner = function () {
@@ -138,7 +164,7 @@ app.controller('findJobCtrl',function ($scope,$http,$state,$location) {
         console.log(vm.lban);
         /*根据id获取职位信息*/
 
-        $scope.myInterval = 5000;
+        $scope.myInterval = 10000;
         $scope.noWrapSlides = false;
         $scope.active = 0;
         var slides = $scope.slides = [];
@@ -146,7 +172,6 @@ app.controller('findJobCtrl',function ($scope,$http,$state,$location) {
         /*获取职位信息*/
 
         $scope.addSlide = function() {
-            var newWidth = 600 + slides.length + 1;
             vm.id = vm.lban[i].id;
             vm.getjob = function () {
                 return $http({
@@ -176,25 +201,7 @@ app.controller('findJobCtrl',function ($scope,$http,$state,$location) {
         console.log(slides)
     });
 
-    $scope.myInterval = 5000;
-    $scope.noWrapSlides = false;
-    $scope.active = 0;
-    var slides1 = $scope.slides1= [];
-    var currIndex = 0;
-    $scope.randomize = function() {
-        var indexes = generateIndexesArray();
-        assignNewIndexesToSlides(indexes);
-    };
-
-    
-    for(var i = 0; i <vm.banner.length; i++){
-        slides1.push({
-            image: vm.banner[i].img,
-            id:currIndex++
-        });
-    }
-
-
+    /*----------------------------------------*/
 });
 
 

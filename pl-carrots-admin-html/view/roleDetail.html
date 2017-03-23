@@ -1,1 +1,111 @@
-<div>roleDetail</div>
+<div class="panel panel-default "  style="margin: 20px">
+    <div class="panel-heading">角色编辑
+    </div>
+    <div class="panel-body role-detail container">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">角色名</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="vm.name" class="form-control" id="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2" for="checkAll" style="text-align:right">权限</label>
+                <input id="checkAll" type="checkbox">
+                <label for="checkAll">全选/全不选</label>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-2" for="article" style="text-align: right">Article管理</label>
+                    <input id="article"  type="checkbox">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-3" for="articlelst" style="text-align: right">Article列表</label>
+                    <input id="articlelst"  type="checkbox">
+                    <label for="artCrt" class="col-sm-offset-1">新增</label>
+                    <input id="artCrt"  type="checkbox">
+                    <label for="artUpdt">编辑</label>
+                    <input id="artUpdt"  type="checkbox">
+                    <label for="artdlt" >删除</label>
+                    <input id="artdlt"  type="checkbox">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-2" for="information" style="text-align: right">信息管理</label>
+                    <input id="information"  type="checkbox">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-3" for="jobilst" style="text-align: right">职位列表</label>
+                    <input id="jobilst"  type="checkbox">
+                    <label for="jobCrt" class="col-sm-offset-1">新增</label>
+                    <input id="jobCrt"  type="checkbox">
+                    <label for="jobUpdt">编辑</label>
+                    <input id="jobUpdt"  type="checkbox">
+                    <label for="jobdlt" >删除</label>
+                    <input id="jobdlt"  type="checkbox">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-3" for="cpylst" style="text-align: right">公司列表</label>
+                    <input id="cpylst"  type="checkbox">
+                    <label for="cpyCrt" class="col-sm-offset-1">新增</label>
+                    <input id="cpyCrt"  type="checkbox">
+                    <label for="cpyUpdt">编辑</label>
+                    <input id="cpyUpdt"  type="checkbox">
+                    <label for="cpydlt" >删除</label>
+                    <input id="cpydlt"  type="checkbox">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-2" for="back" style="text-align: right">后台管理</label>
+                    <input id="back"  type="checkbox">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-3" for="acctlst" style="text-align: right">账户管理</label>
+                    <input id="acctlst"  type="checkbox">
+                    <label for="acctCrt" class="col-sm-offset-1">新增</label>
+                    <input id="acctCrt"  type="checkbox">
+                    <label for="acctUpdt">编辑</label>
+                    <input id="acctUpdt"  type="checkbox">
+                    <label for="acctdlt" >删除</label>
+                    <input id="acctdlt"  type="checkbox">
+                </div>
+                <div class="form-group">
+                <label class="col-sm-2 col-sm-offset-3" for="pwdlst" style="text-align: right">密码修改</label>
+                <input id="pwdlst"  type="checkbox">
+                <label for="pwdCrt" class="col-sm-offset-1">新增</label>
+                <input id="pwdCrt"  type="checkbox">
+                <label for="pwdUpdt">编辑</label>
+                <input id="pwdUpdt"  type="checkbox">
+                <label for="pwddlt" >删除</label>
+                <input id="pwddlt"  type="checkbox">
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-3" for="rolelst" style="text-align: right">角色修改</label>
+                    <input id="rolelst"  type="checkbox">
+                    <label for="roleCrt" class="col-sm-offset-1">新增</label>
+                    <input id="roleCrt"  type="checkbox">
+                    <label for="roleUpdt">编辑</label>
+                    <input id="roleUpdt"  type="checkbox">
+                    <label for="roledlt" >删除</label>
+                    <input id="roledlt"  type="checkbox">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-offset-3" for="modulst" style="text-align: right">模块管理</label>
+                    <input id="modulst"  type="checkbox">
+                    <label for="moduCrt" class="col-sm-offset-1">新增</label>
+                    <input id="moduCrt"  type="checkbox">
+                    <label for="moduUpdt">编辑</label>
+                    <input id="moduUpdt"  type="checkbox">
+                    <label for="modudlt" >删除</label>
+                    <input id="modudlt"  type="checkbox">
+                </div>
+            </div>
+            <div class="form-group row">
+                    <button class="btn col-xs-offset-5 btn-success" ui-sref="app.roleAdmin">保存</button>
+                    <button class="btn btn-default" ui-sref="app.roleAdmin">取消</button>
+                </div>
+        </form>
+    </div>
+</div>

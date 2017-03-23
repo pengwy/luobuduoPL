@@ -6,11 +6,9 @@
 app.config(["$stateProvider","$urlRouterProvider",routeFn]);
 function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
     //加载文件的方法
-
     //文件配置
     $urlRouterProvider.otherwise("/dashboard");
     $stateProvider
-
         .state("app",{
             url:"",
             templateUrl:"view/main.html",
@@ -142,6 +140,26 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                     files:['js/controllers/moduleDetail.js','css/moduleDetail.css',"js/constant/constant.js",'js/filter/filter.js','js/service/service.js']})
+            }]}
+        })
+        .state("app.roleAdmin",{
+            url:"/roleAdmin",
+            templateUrl:"view/roleAdmin.html",
+            controller:"roleAdmin",
+            controllerAs:"vm",
+            resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files:['js/controllers/roleAdmin.js','css/roleAdmin.css',"js/constant/constant.js",'js/filter/filter.js','js/service/service.js']})
+            }]}
+        })
+        .state("app.roleDetail",{
+            url:"/roleDetail?id",
+            templateUrl:"view/roleDetail.html",
+            controller:"roleDetail",
+            controllerAs:"vm",
+            resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files:['js/controllers/roleDetail.js','css/roleDetail.css',"js/constant/constant.js",'js/filter/filter.js','js/service/service.js']})
             }]}
         })
         .state("app.accountDetail",{

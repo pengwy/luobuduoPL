@@ -37,8 +37,7 @@ app.controller('moduleAdminCtrl',function ($scope,$http,$state) {
     };
     vm.pageChanged = function () {
         vm.a();
-    }
-
+    };
     /****************模态框**********************/
    /* vm.deleteMd = function (x) {
         bootbox.confirm({

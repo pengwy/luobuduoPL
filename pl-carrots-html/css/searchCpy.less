@@ -66,6 +66,7 @@
     width: 90%;
     margin: 20px auto;
     border: 1px solid darkgrey;
+    overflow: hidden;
     .top-logo{
       display: inline-block;
       margin-left: 10px;
@@ -74,12 +75,14 @@
         height: 100px;
       }
     }
-    .top-info{
+    .topinfo{
       display: inline-block;
       margin-top: 30px;
       margin-left: 10px;
+      max-width: 200px;
       vertical-align: top;
       line-height: 2rem;
+      overflow: hidden;
     }
 
   }
@@ -88,9 +91,13 @@
     background-color: lightgray;
     line-height: 2rem;
     text-align: center;
+    span{
+      vertical-align: middle;
+    }
     .info-tab{
       display: inline-block;
       width: 32%;
+
     }
 
   }

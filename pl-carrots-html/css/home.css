@@ -154,10 +154,13 @@ body {
 }
 .m-flex {
   display: flex;
-  /*height: 186px;*/
-  /*flex-direction: column;*/
-  /*justify-content: space-between;*/
+  height: 186px;
+  flex-direction: column;
+  justify-content: space-between;
   border-left: 1px solid #f6f7f8;
+}
+.m-flex div {
+  text-align: center;
 }
 .m-flex div span {
   text-align: center;

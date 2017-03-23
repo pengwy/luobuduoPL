@@ -78,12 +78,21 @@ body {
 .active2 {
   background-color: red !important;
 }
+.m-banner {
+  height: 50vh;
+  overflow: hidden;
+}
 .m-banner img {
   width: 100%;
 }
 .m-wrap {
   display: flex;
   flex-wrap: wrap-reverse;
+}
+@media (max-width: 993px) {
+  .m-wrap {
+    justify-content: center;
+  }
 }
 .padding {
   padding: 20px 0;

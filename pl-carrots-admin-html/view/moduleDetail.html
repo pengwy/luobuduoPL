@@ -1,1 +1,42 @@
-    <div>moduleDetail</div>
+<div class="panel panel-default container" ng-controller="moduleAdminCtrl" style="margin: 20px">
+    <div class="panel-heading">职位描述
+    </div>
+    <div class="panel-body md-detail">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">名称</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="vm.info.name" class="form-control" id="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="menu" class="col-sm-2 control-label">MenuId</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="vm.info.menuID" class="form-control" id="menu">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="url" class="col-sm-2 control-label">URL地址</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="vm.info.url" class="form-control" id="url">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="parentId" class="col-sm-2 control-label">父模块Id</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="vm.info.parentID" class="form-control" id="parentId">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="moduleClass" class="col-sm-2 control-label">模块类别</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="vm.info.type" class="form-control" id="moduleClass">
+                </div>
+            </div>
+            <div class="form-group row">
+               <button class="btn col-xs-offset-5 btn-success" ui-sref="app.moduleAdmin">保存</button>
+                <button class="btn btn-default" ui-sref="app.moduleAdmin">取消</button>
+            </div>
+        </form>
+    </div>
+</div>

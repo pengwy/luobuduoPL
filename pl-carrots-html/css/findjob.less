@@ -1,6 +1,6 @@
 .g-bn-fj {
   height: 450px;
-
+  margin: 0;
   .m-sd{
     position: relative;
     display: inline-block;
@@ -250,6 +250,7 @@
           text-align: center;
           background-color: #e85662;
           white-space:nowrap;
+          cursor: pointer;
 
         }
         .f-srhlb{
@@ -283,6 +284,7 @@
 
 .g-mn-fj{
   width: 100%;
+  margin: 0;
   .m-tt{
     display: block;
     width: 100%;
@@ -295,6 +297,7 @@
   }
   .m-newjob {
     background-color: white;
+    cursor: pointer;
     .box-item{
       white-space:nowrap; /*文本不换行*/
       text-overflow:ellipsis;/*设置超出部分显示...*/
@@ -334,6 +337,7 @@
   padding: 2%;
   min-height: 400px;
   background-color: white;
+  margin: auto 0;
   .fst-item {
     height: 217px;
     background: url(http://carrots.ks3-cn-beijing.ksyun.com/3/2b3a8c4e-32b6-4683-bfed-54365771ffa7.jpg)no-repeat center;
@@ -351,44 +355,54 @@
 }
 .f-lb{
   position: relative;
- border: 1px solid aqua;
- max-height: 200px;
+ border: 1px solid #e3e3e3;
+ height: 180px;
+  background-color: white;
   .banner-out {
     .cpy-logo {
       img {
-        width: 100%;
-        height:100%;
+        width:140px;
+        height: 140px;
+        margin: 20px;
       }
     }
     .cpy-info{
-      height: 200px;
+      height: 180px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333333!important;
       text-align: left;
-      border: 1px solid blue;
       p {
-        margin: 25px auto 0 2px;
+        margin: 40px auto 0 2px;
       }
     }
     .cpy-jobs{
-      height: 200px;
+      height: 180px;
       text-align: left;
-      border:1px solid greenyellow;
+      color: #333333;
+      border-left: 1px solid lightgray;
       p{
-        background-color: #66afe9;
         margin: 25px auto 0 2px;
         max-height: 50px;
       span {
         width: 30px;
         height: 15px;;
         margin: 20px 5px;
-        border:1px solid black;
+        border:1px solid #333333;
       }
       }
     }
   }
 }
+@media screen and (max-width: 768px) {
+ .f-lb{
+    height: 360px;
+  }
+}
 
 
 .footer-banner {
+  margin: 0;
   img {
     max-height: 500px;
     padding: 0;
@@ -398,7 +412,8 @@
 .g-mn-intro{
   text-align: center;
   background-color: white;
-  margin-top: 20px;
+  margin: 20px 0 0 0;
+  padding: 0;
   .f-intro {
     margin: 50px 0;
   }
@@ -411,9 +426,11 @@
     top: 70px;
     width: 20px;
     margin:0;
+    min-height: 180px!important;
     li{
       display: block!important;
       border: 1px solid #777;
+
     }
   }
   .carousel-inner > .item.next,

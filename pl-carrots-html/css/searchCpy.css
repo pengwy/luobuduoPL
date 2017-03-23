@@ -66,6 +66,7 @@
   width: 90%;
   margin: 20px auto;
   border: 1px solid darkgrey;
+  overflow: hidden;
 }
 .g-mn-cpyinfo .cpy-box .top-logo {
   display: inline-block;
@@ -75,18 +76,23 @@
   width: 100px;
   height: 100px;
 }
-.g-mn-cpyinfo .cpy-box .top-info {
+.g-mn-cpyinfo .cpy-box .topinfo {
   display: inline-block;
   margin-top: 30px;
   margin-left: 10px;
+  max-width: 200px;
   vertical-align: top;
   line-height: 2rem;
+  overflow: hidden;
 }
 .g-mn-cpyinfo .cpy-btm {
   margin: 0 auto;
   background-color: lightgray;
   line-height: 2rem;
   text-align: center;
+}
+.g-mn-cpyinfo .cpy-btm span {
+  vertical-align: middle;
 }
 .g-mn-cpyinfo .cpy-btm .info-tab {
   display: inline-block;

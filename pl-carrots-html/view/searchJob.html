@@ -61,29 +61,29 @@
                 </ul>
             </div>
             <div class="submit">
-                <button class="pull right sch" ng-click="vm.submit()">搜索</button>
+                <span class="pull right sch" ng-click="vm.submit()">搜索</span>
                 <span class="pull right clr" ng-click="vm.clearAll()">清空</span>
             </div>
         </div>
         <div class=" g-mn-list">
-            <div ng-repeat="one in vm.res" class="row ">
-                <div class="col-xs-6 f-listjb" >
-                    <div>{{one.name}}<span>发布时间：{{one.updateAt|date:"MM/dd/yyyy"}}</span></div>
+            <div ng-repeat="one in vm.res track by $index" ui-sref="app.jobDetail({id:one.id})" class="row job-item">
+                <div class="col-xs-12 f-listjb col-sm-6" >
+                    <div class="limit">{{one.name}}<span>发布时间：{{one.updateAt|date:"MM/dd/yyyy"}}</span></div>
                     <div class="font-pink">{{one.compensation|compensation}}</div>
                     <div>{{one.city}}/{{one.education|education}}/{{one.experience|experience}}</div>
                 </div>
-                <div class="col-xs-6 row f-jbdata">
+                <div class="col-xs-12 col-sm-6 row f-jbdata">
                     <div class="col-xs-9 outer">
                         <div >{{one.companyName}}</div>
                         <div>
-                            <span ng-repeat="(x,y) in one.industryList track by $index">{{x|industrytype}}&nbsp;|</span>
+                            <span ng-repeat="(x,y) in one.industryList track by $index">{{x|industrytype}}&nbsp;</span>
                         </div>
                         <div>
-                            <span ng-repeat="(x,y) in one.tags track by $index">{{x|}}&nbsp;|</span>
+                            <span ng-repeat="(x,y) in one.tags track by $index">{{x|}}&nbsp;</span>
                         </div>
                     </div>
                     <div class="col-xs-3 cpylogo">
-                        <img style="width: 100px;height: 120px" ng-src="{{one.logo}}">
+                        <img style="width: 80%;height: 120px;overflow: hidden" ng-src="{{one.logo}}">
                     </div>
                 </div>
             </div>
@@ -96,8 +96,8 @@
                 <p>请重新修改搜索条件后再次进行搜索</p>
             </div>
         </div>
-        <div>
-            <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" ng-change="vm.pageChanged()" class="pull-right"></ul>
+        <div ng-show="!vm.no" >
+            <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" previous-text="上一页" next-text="下一页" ng-change="vm.pageChanged()" class="pull-right"></ul>
         </div>
 
     </div>

@@ -33,27 +33,26 @@
             </div>
         </div>
         <div class="row g-mn-cpyinfo ">
-            <div class="col-sm-4 col-xs-12" ng-repeat="x in vm.res">
-                <div class="cpy-box">
+            <div class="col-sm-4 col-xs-12" ui-sref="app.companyDetail({id:x.id})" ng-repeat="x in vm.res">
+                <div class="cpy-box limit ">
                     <div class="cpy-top">
                         <div class="top-logo">
                             <img  ng-src="{{x.logo}}" alt="#">
                         </div>
-                        <div class="top-info">
-                            <div>{{x.name}}</div>
-                            <div>{{x.slogan}}</div>
-                            <div>{{x.professionNum}}个职位在招</div>
+                        <div class="topinfo">
+                            <div class="limit">{{x.name}}</div>
+                            <div class="limit">{{x.slogan}}</div>
+                            <div class="limit">{{x.professionNum}}个职位在招</div>
                         </div>
                     </div>
-
+                    
                     <div class="cpy-btm">
-                        <span class="limit info-tab"><span ng-repeat="y in x.industryList" style="background-color: #2e6da4">{{y|industrytype}}</span></span>
+                        <span class="limit info-tab"><span ng-repeat="y in x.industryList">{{y|industrytype}}</span></span>
                         <span class="info-tab">{{x.financing|financingtype}}</span>
                         <span class="info-tab">{{x.city-0|province}}</span>
                     </div>
                 </div>
             </div>
-
         </div>
         <div ng-show="vm.no" class=" m-no">
             <img src="images/404.png">
@@ -63,7 +62,7 @@
             </div>
         </div>
         <div ng-show="!vm.no" >
-            <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" ng-change="vm.pageChanged()" class="pull-right"></ul>
+            <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" previous-text="上一页" next-text="下一页" ng-change="vm.pageChanged()" class="pull-right"></ul>
         </div>
 
     </div>
