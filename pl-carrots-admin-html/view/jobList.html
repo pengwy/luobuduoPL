@@ -77,16 +77,16 @@
             <tr ng-repeat="x in vm.res">
                 <td>{{$index +1}}</td>
                 <td>{{ x.companyName}}</td>
-                <td>{{ x.category }}</td>
-                <td>{{ x.subCategory }}</td>
-                <td>{{ x.compensation}}</td>
+                <td>{{ x.name }}</td>
+                <td>{{ x.subCategory|category }}</td>
+                <td>{{ x.compensation|compensation}}</td>
                 <td>{{ x.education| education }}</td>
-                <td>{{ x.experience }}</td>
+                <td>{{ x.experience|experience }}</td>
                 <td>{{ x.updateAt|date:"yy-MM-dd"}}</td>
-                <td>{{ x.status }}</td>
+                <td>{{ x.status|status }}</td>
                 <td>
                     <ul>
-                        <li style="display: inline-block; min-width: 40px;margin: 5px" ><button ng-click="vm.changeStatus(x)"   ng-class="{true:'dis'}[x.status==0]" class="btn btn-default">{{x.status}}</button></li>
+                        <li style="display: inline-block; min-width: 40px;margin: 5px" ><button ng-click="vm.changeStatus(x)"   class="btn btn-default">{{x.status|statusOp}}</button></li>
                         <li style="display: inline-block; min-width: 40px;margin: 5px" ><button  class="btn btn-default" ui-sref="app.jobDetail({id:x.id})">编辑</button></li>
                         <li style="display: inline-block; min-width: 40px;margin: 5px" ><button ng-click="vm.deleteJob(x)"   class="btn btn-defaul1t">删除</button></li>
                     </ul>
@@ -94,7 +94,7 @@
             </tr>
         </table>
         <div>
-            <ul uib-pagination total-items="vm.totalItems"  previous-text="上一页" next-text="下一页" ng-model="vm.currentPage" ng-change="vm.pageChanged()" class="pull-right"></ul>
+            <ul uib-pagination total-items="vm.totalItems"  previous-text="上一页" next-text="下一页"  ng-model="vm.currentPage" ng-change="vm.pageChanged()" class="pull-right"></ul>
         </div><!--pagigation-->
     </div>
 </div>

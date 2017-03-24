@@ -3,15 +3,15 @@
  */
 
 //薪资
-app.filter('compensation',function (compensationtype) {
+app.filter('compensation',function (compensationType) {
     return function (type) {
-        for(var i=0;i<compensationtype.length;i++){
-            if(type ===  compensationtype[i].type){
-                return compensationtype[i].name
+        for(var i=0;i<compensationType.length;i++){
+            if(type ===  compensationType[i].type){
+                return compensationType[i].name
             }
         }
     }
-})
+});
 //融资规模
 app.filter('financingtype',function (financingtype) {
     return function (type) {
@@ -21,9 +21,7 @@ app.filter('financingtype',function (financingtype) {
             }
         }
     }
-})
-
-
+});
 app.filter('industrytype',function (industrytype) {
     return function (type) {
             for(var i=0;i<industrytype.length;i++){
@@ -34,14 +32,12 @@ app.filter('industrytype',function (industrytype) {
 
     }
 });
-
-
 //经验
-app.filter('experience',function (experiencetype) {
+app.filter('experience',function (experienceType) {
     return function (type) {
-        for(var i=0;i<experiencetype.length;i++){
-            if(type ===  experiencetype[i].type){
-                return experiencetype[i].name
+        for(var i=0;i<experienceType.length;i++){
+            if(type ===  experienceType[i].type){
+                return experienceType[i].name
             }}
     }});
 //学历
@@ -112,7 +108,7 @@ app.filter('approvText',function () {
             return '认证'
         }
     }
-})
+});
 
 
 //冻结，解冻
@@ -125,7 +121,7 @@ app.filter('freezText',function () {
         }
     }
 
-})
+});
 
 
 //artic上下线
@@ -189,4 +185,29 @@ app.filter('managerList',function () {
     }
 });
 
-
+app.filter('statusOp',function () {
+    return function (type) {
+        if(type==1){
+            return '下架'
+        }else if(type==0) {
+            return '上架'
+        }
+    }
+})
+app.filter('status',function () {
+    return function (type) {
+        if(type==0){
+            return '下架'
+        }else if(type==1) {
+            return '上架'
+        }
+    }
+})
+ app.filter('category',function (subcategoryType) {
+    return function (type) {
+        for(var i=0;i<subcategoryType.length;i++){
+            if(type ===  subcategoryType[i].type){
+                return subcategoryType[i].name
+            }}
+    }
+});

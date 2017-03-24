@@ -139,7 +139,7 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
                 companyName:vm.companyName,
                 education:vm.edu,
                 experience:vm.exp,
-                page: 1,
+                page:vm.currentPage,
                 subCategory:vm.subcate,
                 startAt:vm.startAt.valueOf(),
                 endAt:vm.endAt.valueOf(),
@@ -151,7 +151,6 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
             vm.res = response.data.data;
             vm.resp = response.data.total;
             vm.a();
-            console.log(vm.res);
             vm.totalItems = vm.resp
         })
     };
@@ -162,7 +161,7 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
     };
     vm.pageChanged = function () {
         vm.submit();
-    }
+    };
     vm.clearAll = function () {
         vm.companyName = '';
         vm.name = '';
@@ -181,7 +180,7 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
     vm.operate=function (e) {
         console.log(e)
     };
-    vm.changeStatus=function (x) {
+    vm.changeStatus = function (x) {
         bootbox.confirm({
             message: "下架后将不在前台展示，是否执行操作？",
             buttons: {
@@ -207,8 +206,9 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
               }
             }
         });
-    }
+    };
     vm.deleteJob = function (x) {
+        var id=x.id;
         bootbox.confirm({
             message: "确认删除吗？",
             buttons: {
@@ -221,12 +221,12 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
                     className: 'btn-danger'
                 }
             },
+
             callback: function (result) {
                 if(result==true){
                     return $http({
-                        url:"/carrots-admin-ajax/a/u/profession/status",
-                        method:'put',
-                        params:{id:x.id}
+                        url:"/carrots-admin-ajax/a/u/profession/"+id,
+                        method:'delete',
                     }).then(function (re) {
                             console.log(re);
                         }

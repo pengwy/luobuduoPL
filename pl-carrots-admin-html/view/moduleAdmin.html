@@ -1,6 +1,7 @@
 <div class="panel panel-default" style="margin: 40px">
     <div class="panel-heading">
         模块管理
+        <button ui-sref="app.moduleDetail({id:''})" class="btn btn-sm btn-primary pull-right">+新增</button>
     </div>
     <div class="panel-body row m-mdlist">
         <table class="col-xs-12">
@@ -28,7 +29,7 @@
                 <td>{{ x.createBy }}</td>
                 <td>
                     <button ui-sref="app.moduleDetail({id:x.id})">编辑</button>
-                    <button ng-click="deleteMd(x)">删除</button>
+                    <button ng-click="vm.deleteMd(x)">删除</button>
                 </td>
             </tr>
         </table>

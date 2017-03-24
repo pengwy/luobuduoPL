@@ -7,9 +7,7 @@
 app.controller('main',function ($scope,$state) {
     var vm = this;
     vm.statu =sessionStorage.getItem("statu");
-    console.log("hi"+vm.statu);
-
-
+/*    console.log("hi"+vm.statu);*/
     /*侧边栏面板*/
     $scope.oneAtATime = true;
     $scope.status = {
@@ -20,9 +18,12 @@ app.controller('main',function ($scope,$state) {
     /*获取本地存储*/
     //读取
     var str = sessionStorage.modules;
+    vm.manager = sessionStorage.getItem("manager");
+    vm.role = sessionStorage.getItem("role");
+    console.log(vm.manager);
     //重新转换为对象
     vm.modules = JSON.parse(str);
-    /*console.log(vm.modules);*/
+    console.log(vm.modules);
     vm.mainTab=[];
     vm.childTab = [];
     for(var i=0;i<vm.modules.length;i++){
