@@ -78,8 +78,8 @@ app.controller('jobDetail',function ($scope,$stateParams,$http,experienceType,ed
                 var id = vm.id;
                 return $http({
                     url:"/carrots-admin-ajax/a/u/profession/"+id,
-                    method:"PUT",
-                    params:$.param(params),
+                    method:"put",
+                    data:params,
                     headers:{ 'contentType':'Application/json'}
                 }).then(function (res) {
                       console.log(res)
@@ -96,6 +96,7 @@ app.controller('jobDetail',function ($scope,$stateParams,$http,experienceType,ed
     vm.cateType = category;
     vm.subType = subcategory;
     vm.subcateType = [];
+    vm.cate=1;
     $scope.$watch('vm.cate',function(){
         vm.subcateType = vm.subType[vm.cate-1].data;
     },true);

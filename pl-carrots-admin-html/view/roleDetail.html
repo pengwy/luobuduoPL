@@ -12,12 +12,13 @@
             <div class="form-group">
                 <label class="col-sm-2" for="checkAll" style="text-align:right">权限</label>
                 <input id="checkAll" type="checkbox">
-                <label for="checkAll">全选/全不选</label>
+                <label for="checkAll" ng-model="vm.all" >全选/全不选</label>
+                <div>{{vm.all}}</div>
             </div>
             <div class="row">
                 <div class="form-group">
                     <label class="col-sm-2 col-sm-offset-2" for="article" style="text-align: right">Article管理</label>
-                    <input id="article"  type="checkbox">
+                    <input id="article"  ng-checked="all"  type="checkbox">
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 col-sm-offset-3" for="articlelst" style="text-align: right">Article列表</label>
@@ -33,7 +34,7 @@
             <div class="row">
                 <div class="form-group">
                     <label class="col-sm-2 col-sm-offset-2" for="information" style="text-align: right">信息管理</label>
-                    <input id="information"  type="checkbox">
+                    <input id="information"  ng-checked="all"  type="checkbox">
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 col-sm-offset-3" for="jobilst" style="text-align: right">职位列表</label>
@@ -59,7 +60,7 @@
             <div class="row">
                 <div class="form-group">
                     <label class="col-sm-2 col-sm-offset-2" for="back" style="text-align: right">后台管理</label>
-                    <input id="back"  type="checkbox">
+                    <input id="back"  ng-checked="all"  type="checkbox">
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 col-sm-offset-3" for="acctlst" style="text-align: right">账户管理</label>

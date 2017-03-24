@@ -14,9 +14,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="example-navbar-collapse">
                     <ul class="nav navbar-nav pull-right lft-btn">
-                        <li><button class="btn btn-danger" ui-sref="login">注销登录</button></li>
-                        <li>超级管理员</li>
-                        <li><span class="glyphicon glyphicon-off"></span></li>
+                        <li>{{vm.role}}</li>
+                        <li>{{vm.manager}}</li>
+                        <li  ui-sref="login"><span class="glyphicon glyphicon-off"></span></li>
                     </ul>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <uib-accordion close-others="oneAtATime">
                     <div uib-accordion-group class="panel-default" heading="{{module.name}}" ng-if="module.parentID==0" ng-repeat="module in vm.modules">
                         <ul>
-                            <li class="tab-item"  ng-repeat="x in vm.modules" ui-sref="{{x.id|moduleurl}}"  ng-if="x.parentID==module.id" >{{x.name}}</li>
+                            <li class="tab-item" id="{{x.id}}"   ng-repeat="x in vm.modules" ui-sref="{{x.id|moduleurl}}"  ng-if="x.parentID==module.id" >{{x.name}}</li>
                         </ul>
                     </div>
                 </uib-accordion>

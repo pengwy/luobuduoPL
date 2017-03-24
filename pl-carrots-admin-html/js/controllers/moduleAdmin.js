@@ -39,7 +39,8 @@ app.controller('moduleAdminCtrl',function ($scope,$http,$state) {
         vm.a();
     };
     /****************模态框**********************/
-   /* vm.deleteMd = function (x) {
+    vm.deleteMd = function (x) {
+        var id = x.id;
         bootbox.confirm({
             message: "确认删除吗？",
             buttons: {
@@ -55,9 +56,8 @@ app.controller('moduleAdminCtrl',function ($scope,$http,$state) {
             callback: function (result) {
                 if(result==true){
                     return $http({
-                        url:"/carrots-admin-ajax/a/u/profession/status",
-                        method:'put',
-                        params:{id:x.id}
+                        url:"/carrots-admin-ajax/a/u/module/"+id,
+                        method:'delete',
                     }).then(function (re) {
                             console.log(re);
                         }
@@ -65,6 +65,6 @@ app.controller('moduleAdminCtrl',function ($scope,$http,$state) {
                 }
             }
         });
-    };*/
+    };
     
 });

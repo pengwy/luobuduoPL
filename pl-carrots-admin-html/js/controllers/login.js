@@ -14,18 +14,14 @@ app.controller('login',function ($state,$scope,$http) {
             method:'get',
             params:vm.data
         }).then(function (respon) {
-          /*  console.log(respon);*/
             $state.go('app.dashboard');
            vm.modules = respon.data.data.moduleList;
-        /*   console.log(vm.modules);*/
             vm.statu = true;
             sessionStorage.statu = vm.statu;
             sessionStorage.setItem("statu", vm.statu);
             var str = JSON.stringify(vm.modules);
-           /* console.log(str);*/
             //存入
             sessionStorage.modules = str;
-
         })
     };
     vm.a = function () {
@@ -33,16 +29,13 @@ app.controller('login',function ($state,$scope,$http) {
             url:"/carrots-admin-ajax/a/u/role/1",
             method:'get'
         }).then(function (resp) {
-           /* console.log(resp.data.data.role.permissionsSet);*/
             vm.permi = resp.data.data.role.permissionsSet;
             var ids=[];
-
             angular.forEach(vm.permi, function(ids, key) {
                 this.push( parseInt(key));
             },ids);
             vm.data={ids};
             vm.module();
-
         })
     };
     vm.login = function() {
@@ -56,9 +49,20 @@ app.controller('login',function ($state,$scope,$http) {
                 alert("密码错误，请核对后再输入")
             }else{
                 vm.a();
+                sessionStorage.setItem("manager", res.data.data.manager.name);
+                sessionStorage.setItem("role", res.data.data.role.name);
+
+
             }
         });
     };
+    /*回退禁止*/
+    if (vm.status==false){
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+    }
 
 
 

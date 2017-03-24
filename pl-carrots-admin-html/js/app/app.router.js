@@ -7,7 +7,7 @@ app.config(["$stateProvider","$urlRouterProvider",routeFn]);
 function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
     //加载文件的方法
     //文件配置
-    $urlRouterProvider.otherwise("/dashboard");
+    $urlRouterProvider.otherwise("/login");
     $stateProvider
         .state("app",{
             url:"",
