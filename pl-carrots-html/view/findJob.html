@@ -3,12 +3,11 @@
         <div class="row g-bn-fj">
             <div class="col-xs-12 row" >
                 <div class=" col-xs-3 m-sd">
-                    <div class="m-prdt">
+                        <div class="m-prdt">
                         <ul class="m-ltab">
                             <li><img id="icon1" src="images/zzz-jishu.png" height="18" width="21"/>产品类</li>
                             <li  ng-repeat = "(x,y) in vm.prdt" ng-click="vm.search(y)" >{{x}}</li>
                         </ul>
-
                         <div class="m-hvprdt">
                             <div>
                                 <span class="list-tt"> 产品</span>
@@ -151,7 +150,7 @@
     <!--推荐公司-->
 
         <div class="g-mn-fcpy">
-            <div class="reco-tt">推荐公司</div>
+            <div class="reco-tt"><span>推荐公司</span><span class="pull-right" ui-sref="app.searchCpy">更多公司></span></div>
         </div>
         <div class=" m-mn row">
             <div class="fst-item col-xs-12 col-sm-4">

@@ -24,10 +24,11 @@
 }
 .g-bn-fj .m-sd .m-prdt .m-ltab li {
   display: inline-block;
-  width: 33%;
+  width: 25%;
   height: 50px;
   line-height: 50px;
   cursor: pointer;
+  margin-left: 15px;
 }
 .g-bn-fj .m-sd .m-prdt :hover.m-hvprdt {
   background-color: white;
@@ -84,10 +85,11 @@
 }
 .g-bn-fj .m-sd .m-tech .m-ltab li {
   display: inline-block;
-  width: 33%;
+  width: 25%;
   height: 50px;
   line-height: 50px;
   cursor: pointer;
+  margin-left: 15px;
 }
 .g-bn-fj .m-sd .m-tech :hover.m-hvtech {
   background-color: white;
@@ -144,10 +146,11 @@
 }
 .g-bn-fj .m-sd .m-data .m-ltab li {
   display: inline-block;
-  width: 33%;
+  width: 25%;
   height: 50px;
   line-height: 50px;
   cursor: pointer;
+  margin-left: 15px;
 }
 .g-bn-fj .m-sd .m-data :hover.m-hvdata {
   background-color: white;
@@ -307,7 +310,7 @@
 }
 .g-mn-fj .m-newjob .box-item .des {
   display: inline-block;
-  margin: 2%;
+  margin: 4%;
   min-width: 30px;
   height: 100px;
 }

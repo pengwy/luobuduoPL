@@ -101,6 +101,12 @@
   margin-top: 10px;
   border: 1px solid lightgray !important;
 }
+.g-mn-list .job-item .f-jbdata .cpylogo img {
+  width: 100%;
+  padding: 6px 0;
+  height: 120px;
+  overflow: hidden;
+}
 .active4 {
   background-color: #e85662;
 }
