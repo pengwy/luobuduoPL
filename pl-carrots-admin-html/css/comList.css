@@ -3,22 +3,30 @@
   text-decoration: none;
   background-color: white;
 }
-.m-search {
-  display: flex;
-  justify-content: flex-end;
+.m-com-search label {
+  margin-right: 20px;
+  height: 50px;
+  line-height: 30px;
 }
-.m-search button {
-  height: 20px;
-  width: 54px;
-  font-size: 14px;
-  border: none;
-  margin: 0 10px;
+.m-com-search input,
+.m-com-search select {
+  height: 30px;
+  width: 50%;
 }
-.m-search .u-restting {
-  color: white;
-  background-color: #d9534f;
+.u-dif select {
+  width: 100% !important;
 }
-.m-search .u-search {
-  color: white;
-  background-color: #5cb85c;
+table,
+th,
+td {
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+  height: 4rem;
+}
+table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+table tr:nth-child(even) {
+  background-color: #f1f1f1;
 }

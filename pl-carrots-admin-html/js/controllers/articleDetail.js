@@ -6,6 +6,7 @@
 'use strict';
 app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,tt,$filter) {
     var vm =this;
+    vm.params = $state.params;
 
     //初始值
     vm.type=typeA.slice(1);
@@ -47,6 +48,7 @@ app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,
         url: '/carrots-admin-ajax/a/u/img/3'
     });
     // FILTERS
+   vm.qq=true;
     uploader.filters.push({
         name: 'imageFilter',
         fn: function(item) {
@@ -54,13 +56,15 @@ app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,
             return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
         }
     });
-    $scope.uploader.onSuccessItem = function (fileItem, response, status) {
+    $scope.uploader.onSuccessItem = function (fileItem, response, status,$scope) {
         if (status === 200) {
-            console.log(response);
             vm.article.img= response.data.url;
         }
     };
 
+    vm.move=function () {
+        vm.article.img=''
+    }
     //获取上传信息
     var inf;
     var get=function () {
@@ -71,9 +75,6 @@ app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,
             img:vm.article.img
         };
     };
-
-
-
 
     //上传
     vm.promptly=function () {

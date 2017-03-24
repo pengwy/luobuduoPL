@@ -72,7 +72,7 @@ body {
   height: 2px;
   background-color: #e85662;
 }
-.active {
+.active10 {
   color: red !important;
 }
 .active2 {
@@ -154,13 +154,10 @@ body {
 }
 .m-flex {
   display: flex;
-  height: 186px;
-  flex-direction: column;
-  justify-content: space-between;
+  /*height: 186px;*/
+  /*flex-direction: column;*/
+  /*justify-content: space-between;*/
   border-left: 1px solid #f6f7f8;
-}
-.m-flex div {
-  text-align: center;
 }
 .m-flex div span {
   text-align: center;
@@ -234,16 +231,22 @@ body {
   .m-server-box {
     display: none;
   }
+  .box {
+    /* div:active{
+      color: black !important;
+    }*/
+  }
   .box div {
     border: none;
     width: 80%;
+    color: black !important;
   }
 }
-.home .carousel-control.left,
-.home .carousel-control.right {
+.carousel-control.left,
+.carousel-control.right {
   background-image: none!important;
 }
-.home .carousel-control {
+.carousel-control {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -257,6 +260,9 @@ body {
   filter: alpha(opacity=50);
   opacity: 0.5;
 }
-.home .carousel-indicators {
+.carousel-indicators {
   display: none;
+}
+.active3 {
+  color: #000 !important;
 }

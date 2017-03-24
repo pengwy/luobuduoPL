@@ -25,10 +25,12 @@
                 <li><a ui-sref="app.findJob" ng-class="{active: $state.includes('app.findJob')||$state.includes('app.searchCpy')||$state.includes('app.searchJob')
                 ||$state.includes('app.moreCompany')||$state.includes('app.companyDetail')
                 ||$state.includes('app.jobDetail')}"  >找职位</a>
-                    <span class="under-line" ui-sref=".findJob"  ></span>
+                    <span class="under-line" ui-sref=".findJob" ng-class="{active2: $state.includes('app.findJob')||$state.includes('app.searchCpy')||$state.includes('app.searchJob')
+                ||$state.includes('app.moreCompany')||$state.includes('app.companyDetail')
+                ||$state.includes('app.jobDetail')}"  ></span>
                 </li>
                 <li><a ui-sref="app.findPeople" ng-class="{active: $state.includes('app.findPeople')}">找精英</a>
-                    <span class="under-line" ui-sref=".findPeople"  ui-sref-active="active2"></span>
+                    <span class="under-line" ui-sref=".findPeople"  ng-class="{active2: $state.includes('app.findPeople')}"></span>
                 </li>
                 <li><a ui-sref="app.aboutUs"  ui-sref-active="active">关于我们</a>
                     <span class="under-line" ui-sref=".aboutUs"  ui-sref-active="active2"> </span>

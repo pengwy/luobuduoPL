@@ -5,14 +5,14 @@
 
 
 "use strict";
-app.controller('homeCtrl',function ($http,$timeout,$location,$state) {
+app.controller('homeCtrl',function ($http,$timeout,$location,$state,information) {
 
 
     var vm = this;
     vm.params = $state.params;
     vm.sh=localStorage.show;
     vm.kk=function () {
-        $location.path('/jobDetail');
+        $state.go('app.searchJob');
     }
     //加载图片
     var img  = $timeout(
@@ -603,32 +603,33 @@ app.controller('homeCtrl',function ($http,$timeout,$location,$state) {
     ]
 
 
-    var id =[]
+    var name =[]
     var logo=[]
     var companyName=[]
+    var id =[] 
     angular.forEach(num,function (i) {
-        id.push(i.name)
+        name.push(i.name)
         logo.push(i.logo)
+        id.push(i.id)
         companyName.push(i.companyName)
         return(id)
-    })
+    });
     var lo1=logo.slice(0,5);
     var lo2=logo.slice(5,10);
     var lo3=logo.slice(10,15);
     var lo4=logo.slice(15,20);
-    var id1=id.slice(0,5);
-    var id2=id.slice(5,10);
-    var id3=id.slice(10,15);
-    var id4=id.slice(15,20);
+    var name1=name.slice(0,5);
+    var name2=name.slice(5,10);
+    var name3=name.slice(10,15);
+    var name4=name.slice(15,20);
     var cName1=companyName.slice(0,5);
     var cName2=companyName.slice(5,10);
     var cName3=companyName.slice(10,15);
     var cName4=companyName.slice(15,20);
-
-
-
-
-
+    var id1=id.slice(0,5);
+    var id2=id.slice(5,10);
+    var id3=id.slice(10,15);
+    var id4=id.slice(15,20);
 
            vm.addSlide = function() {
                 var newWidth = 600 + slides.length + 1;
@@ -637,14 +638,18 @@ app.controller('homeCtrl',function ($http,$timeout,$location,$state) {
                     logo2:lo2[slides.length % 4],
                     logo3:lo3[slides.length % 4],
                     logo4:lo4[slides.length % 4],
-                    id1:id1[slides.length % 4],
-                    id2:id2[slides.length % 4],
-                    id3:id3[slides.length % 4],
-                    id4:id4[slides.length % 4],
+                    name1:name1[slides.length % 4],
+                    name2:name2[slides.length % 4],
+                    name3:name3[slides.length % 4],
+                    name4:name4[slides.length % 4],
                     cName1:cName1[slides.length % 4],
                     cName2:cName2[slides.length % 4],
                     cName3:cName3[slides.length % 4],
                     cName4:cName4[slides.length % 4],
+                    id1:id1[slides.length % 4],
+                    id2:id2[slides.length % 4],
+                    id3:id3[slides.length % 4],
+                    id4:id4[slides.length % 4],
                     image: '//unsplash.it/' + newWidth + '/300',
                     text: ['Nice image','Awesome photograph','That is so cool','I love that'][slides.length % 4],
                     id: currIndex++
@@ -654,9 +659,52 @@ app.controller('homeCtrl',function ($http,$timeout,$location,$state) {
            for (var i = 0; i < 4; i++) {
                 vm.addSlide();
             }
-            vm.con=function (gg) {
-                console.log(gg)
+            vm.con1=function (gg) {
+               var id =id1[gg]
+                $state.go('app.jobDetail',{id:id})
             }
+    vm.con2=function (gg) {
+        var id =id2[gg]
+        $state.go('app.jobDetail',{id:id})
+    }
+    vm.con3=function (gg) {
+        var id =id3[gg]
+        $state.go('app.jobDetail',{id:id})
+    }
+    vm.con4=function (gg) {
+        var id =id4[gg]
+        $state.go('app.jobDetail',{id:id})
+    }
+
+
+
+
+//获取伙伴之言
+    var arr;
+    vm.comId=[];
+    var people=function () {
+        vm.com={
+            page:1,
+            size:16
+        };
+        information.company(vm.com).then(function (res){
+                 arr =res.data.data;
+
+                for(var i=0;i<arr.length;i++){
+                    vm.comId.push(arr[i].id)
+            }
+
+            })
+        information.companyDetailM(vm.comId).then(function (res) {
+            console.log9(res)
+        })
+
+    };
+    people();
+//获取公司详情
+
+
+
 
 });
 

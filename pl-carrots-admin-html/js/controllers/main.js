@@ -4,8 +4,9 @@
 
 'use strict';
 
-app.controller('main',function ($scope,$state) {
+app.controller('main',function ($scope,$state,$rootScope) {
     var vm = this;
+    $rootScope.$state = $state;
     vm.statu =sessionStorage.getItem("statu");
     console.log("hi"+vm.statu);
 

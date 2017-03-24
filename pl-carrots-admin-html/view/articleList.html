@@ -25,7 +25,7 @@
             <!-- Default panel contents -->
             <div class="panel-heading">
                 <span>Article管理</span>
-                <button type="button" ng-click="vm.goArticleDetail()" class="right">新增</button>
+                <button type="button" ng-click="vm.goArticleDetail()" class="right add-btn" >新增</button>
             </div>
             <!-- Table -->
             <table class="table">
@@ -51,15 +51,15 @@
                     <td>{{s.status|articleTypeA}}</td>
 
                     <td class="u-operate">
-                        <button ng-click="vm.artA(this)">{{s.status|articleTypeA|articleAtatusT}}</button>
-                        <button ng-click="vm.artE(this)">编辑</button>
-                        <button ng-click='vm.articleDelete(this)'>删除</button>
+                        <button ng-click="vm.artA(this)" class=" btn  btn-success">{{s.status|articleTypeA|articleAtatusT}}</button>
+                        <button ng-click="vm.artE(this)" class=" btn  btn-default" >编辑</button>
+                        <button ng-click='vm.articleDelete(this)' class=" btn  btn-danger">删除</button>
                     </td>
                 </tr>
             </table>
 
         </div>
-        <div>
+        <div style="float: right">
             <ul uib-pagination  ng-change="vm.pageChanged(vm.page)"    items-per-page="10"   ng-model="vm.page"  boundary-links="true"   total-items="vm.total"  class="pagination-sm" first-text="首页" last-text="尾页" rotate="true" ></ul>
         </div>
 

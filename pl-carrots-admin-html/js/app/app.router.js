@@ -69,7 +69,7 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/comDetail.js',"js/constant/district.js","js/constant/constant.js",'js/directive/directive.js','css/comDetail.css']})
+                    files:['js/controllers/comDetail.js',"js/constant/district.js","js/constant/constant.js",'js/directive/directive.js','css/comDetail.css','js/service/service.js']})
             }]}
         })
         .state("app.jobDetail",{

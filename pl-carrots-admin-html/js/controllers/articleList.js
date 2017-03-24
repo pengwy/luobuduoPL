@@ -4,7 +4,7 @@
 'use strict';
 app.controller('articleList',function (statusTypeA,typeA,tt,$scope,$state) {
     var vm =this;
-
+    vm.params = $state.params;
 
 
 

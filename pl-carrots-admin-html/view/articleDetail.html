@@ -1,77 +1,74 @@
 
 <div class="bg-grey padding-big">
-    <form class="panel panel-default">
+    <form class="panel panel-default " name="form" novalidate="novalidate">
         <div class="panel-heading">
             <span class="big-font">{{vm.text}}</span>
         </div>
-        <div class="form-group">
-        <label class="col-md-2"><span>类型</span></label><select ng-model="vm.article.type"   ng-options="s.name for s in vm.type"></select>
+        <div class="form-group row">
+        <label class="col-md-2"><span>类型</span></label><select class="col-md-4" ng-model="vm.article.type"   ng-options="s.name for s in vm.type"></select>
         </div>
 
-        <div class="form-group">
-            <label class="col-md-2"><span>标题名称</span></label><input ng-model="vm.article.title">
+        <div class="form-group row ">
+            <label class="col-md-2"><span>标题名称</span></label><input  class="col-md-8" ng-model="vm.article.title">
         </div>
-        <div class="form-group" ng-show="!vm.show">
-            <label  class="col-md-2"><span>跳转链接</span></label><input ng-model="vm.article.url">
+        <div class="form-group row" ng-show="!vm.show">
+            <label  class="col-md-2"><span>跳转链接</span></label><input name="gggg"   class="col-md-8" ng-model="vm.article.url">
         </div>
-        <div class="form-group" ng-show="vm.show">
-            <label class="col-md-2"><span >行业</span></label><select ng-model="vm.article.industry" ng-options="s.name for s in vm.industry"></select>
+        <div class="form-group row" ng-show="vm.show">
+            <label class="col-md-2"><span>行业</span></label><select  ng-model="vm.article.industry" class="col-md-4" ng-options="s.name for s in vm.industry"></select>
         </div>
+        <div  class="form-group row" style="display: block">
+            <label class="col-md-2"><span class="right" style="line-height: 50px">产品logo</span></label>
+            <input type="file" id="file1" nv-file-select="" required uploader="uploader" multiple  /><br/>
+            <img name="img" class="col-md-4 col-md-offset-2"  style="width: 300px;display: block;padding-left: 0" src="{{vm.article.img}}" alt="图片预览区" >
 
-        <label>
-           <label>产品logo</label>
-            <img style="width: 300px" src="{{vm.article.img}}" alt="图片预览区">
-            <div  nv-file-drop="" uploader="uploader">
+            <div  nv-file-drop="" uploader="uploader" class="col-md-6 col-md-offset-2" style="padding-left: 0">
+                <table class="table ">
+                    <thead>
+                    <tr>
+                        <th width="50%">名称</th>
+                        <th ng-show="uploader.isHTML5">大小</th>
+                        <th ng-show="uploader.isHTML5">进度</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in uploader.queue">
+                        <td>
+                            <strong>{{ item.file.name }}</strong>
+                        </td>
+                        <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                        <td ng-show="uploader.isHTML5">
+                            <div class="progress" style="margin-bottom: 0;">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                            <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                            <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                        </td>
+                        <td nowrap>
+                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                <span class="glyphicon glyphicon-upload"></span> 上传
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                <span class="glyphicon glyphicon-trash"  ng-click="vm.move()"></span> 移除
+                            </button>
 
-
-                     <input type="file" id="file1" nv-file-select="" uploader="uploader" multiple  /><br/>
-
-                     <table class="table">
-                         <thead>
-                         <tr>
-                             <th width="50%">名称</th>
-                             <th ng-show="uploader.isHTML5">大小</th>
-                             <th ng-show="uploader.isHTML5">进度</th>
-                             <th>状态</th>
-                             <th>操作</th>
-                         </tr>
-                         </thead>
-                         <tbody>
-                         <tr ng-repeat="item in uploader.queue">
-                             <td>
-                                 <strong>{{ item.file.name }}</strong>
-                             </td>
-                             <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
-                             <td ng-show="uploader.isHTML5">
-                                 <div class="progress" style="margin-bottom: 0;">
-                                     <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
-                                 </div>
-                             </td>
-                             <td class="text-center">
-                                 <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                 <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                 <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                             </td>
-                             <td nowrap>
-                                 <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                                     <span class="glyphicon glyphicon-upload"></span> 上传
-                                 </button>
-                                 <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                                     <span class="glyphicon glyphicon-trash"></span> 移除
-                                 </button>
-                             </td>
-                         </tr>
-                         </tbody>
-                     </table>
-
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
         </div>
-        <div>
-            <button  type="button"  ng-click="vm.promptly()">立即上线</button>
-            <button type="button"  ng-click="vm.waitTime()">存为草稿</button>
-            <button type="button" ng-click="vm.goBack()">取消</button>
         </div>
-        </label>
+        <div class="row" style="padding: 20px 0">
+            <div class="col-md-4 col-md-offset-2" style="padding-left: 0" >
+                <button  type="button"  ng-click="vm.promptly()" class="btn btn-success" ng-disabled="!vm.article.img">立即上线</button>
+                <button type="button"  ng-click="vm.waitTime()" class="btn btn-default margin-sm" ng-disabled="!vm.article.img">存为草稿</button>
+                <button type="button" ng-click="vm.goBack()" class="btn btn-danger margin-sm" >取消</button>
+            </div>
+        </div>
     </form>
-
-
 </div>

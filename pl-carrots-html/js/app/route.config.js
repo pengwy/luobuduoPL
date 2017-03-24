@@ -25,7 +25,7 @@ function routeFn($stateProvider,$urlRouterProvider,$ocLazyLoad){
             controllerAs:"vm",
             resolve:{deps:["$ocLazyLoad",function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                    files:['js/controllers/home.js','css/home.css',"js/constant/constant.js"]})
+                    files:['js/controllers/home.js','css/home.css',"js/constant/constant.js","js/service/service.js"]})
             }]}
         })
         .state("app.findJob",{

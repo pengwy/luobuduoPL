@@ -3,7 +3,7 @@
  */
 
 'use strict';
-var app = angular.module('app', ["isteven-multi-select","ui.router", "oc.lazyLoad",'ngAnimate', 'ngSanitize', 'ui.bootstrap','ngBootbox',"isteven-multi-select"]);
+var app = angular.module('app', ["isteven-multi-select","ui.router", "oc.lazyLoad",'ngAnimate', 'ngSanitize', 'ui.bootstrap','ngBootbox',"isteven-multi-select",'angularFileUpload']);
 app.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider",
     function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
         app.controller = $controllerProvider.register;

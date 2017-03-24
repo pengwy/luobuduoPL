@@ -121,3 +121,16 @@ td {
 .big-font {
   font-weight: 700;
 }
+.margin-sm {
+  margin: 20px;
+}
+.add-btn {
+  border: 1px solid;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.clearfix {
+  overflow: auto;
+  _height: 1%;
+}

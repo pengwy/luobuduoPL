@@ -4,7 +4,7 @@
 app.controller('searchJobCtrl',function ($scope,$http,$stateParams,$state,$rootScope) {
         /*进入页面*/
         var vm = this;
-    vm.params = $state.params;
+        vm.params = $state.params;
         vm.flev = '';
         vm.slev ='';
         vm.thlev ='';

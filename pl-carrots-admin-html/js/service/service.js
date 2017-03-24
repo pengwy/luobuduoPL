@@ -68,7 +68,7 @@ app.service('tt',function ($http,$state) {
                     $http({
                         method: 'PUT',
                         url: '/carrots-admin-ajax/a/u/company/status',
-                        params:{id:id, type:ty, status:1}
+                        params:{id:id, type:0, status:ty}
                     }).then(function () {
                         $state.reload('app.comList')
                     })
@@ -107,7 +107,7 @@ app.service('tt',function ($http,$state) {
                             $http({
                                 method: 'PUT',
                                 url: '/carrots-admin-ajax/a/u/company/status',
-                                params:{id:id, type:ty, status:0}
+                                params:{id:id, type:1, status:ty}
                             }).then(function () {
                               $state.reload('app.comList')
                             })
@@ -383,7 +383,9 @@ app.service('tt',function ($http,$state) {
        localStorage.account=JSON.stringify(g.s);
         $state.go('app.accountDetail')
     }
-
-
+    //新增公司
+    this.addCompany = function(params){
+        return $http.post("/carrots-admin-ajax/a/u/company",params)
+        }
 
 });

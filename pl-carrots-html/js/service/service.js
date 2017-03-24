@@ -61,6 +61,9 @@ app.service('information',function ($http) {
     this.companyDetail=function (id) {
         return  $http.get("/carrots-ajax/a/company/"+id)
     }
+    this.companyDetailM=function (params) {
+        return  $http.get("/carrots-ajax/a/company/",{params:params})
+    }
 
     //获取公司在招职位
    this.companyJob=function (params) {

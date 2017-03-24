@@ -12,7 +12,7 @@
         <label class="col-md-12"><span>角色</span><select ng-model="vm.account.roleID" ng-selected="vm.account.roleID"   ng-options="s.name for s in vm.list" required></select></label>
 
         <div class="m-button col-md-12">
-        <button type="submit" ng-disabled="!form.$valid||vm.g"  >保存</button>
+        <button type="submit" ng-disabled="!form.$valid||vm.g">保存</button>
         <button type="button" ng-click="vm.goBack()">取消</button>
         </div>
 

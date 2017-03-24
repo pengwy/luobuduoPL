@@ -47,30 +47,30 @@
                 <div></div>
                 <span>SERVICE FLOW</span>
             </div>
-            <span ng-click="vm.kk()">更多</span>
+            <a ng-click="vm.kk()" class="cursor" style="float: right; padding-right: 100px;"><span >更多</span></a>
             <div  class="row ">
                 <div class="col-md-12">
-                    <div uib-carousel active="active" interval="vm.myInterval" no-wrap="vm.noWrapSlides" >
+                    <div uib-carousel active="active3"  interval="vm.myInterval" no-wrap="vm.noWrapSlides" >
                         <div uib-slide ng-repeat="s in vm.slides track by s.id " index="s.id">
-                            <div class="box " ng-click="vm.con(this)">
-                                <div class="bg-white">
+                            <div class="box" style="color: black">
+                                <div class="bg-white cursor"    ng-click="vm.con1($index)"  >
                                     <img ng-src="{{s.logo1}}" style="margin:auto;">
-                                    <p class="big-font">{{s.id1}}</p>
+                                    <p class="big-font">{{s.name1}}</p>
                                     <P class="small-font">{{s.cName1}}</P>
                                 </div>
-                                <div class="bg-white">
+                                <div class="bg-white cursor"  ng-click="vm.con2($index)">
                                     <img ng-src="{{s.logo2}}" style="margin:auto;">
-                                    <p class="big-font">{{s.id2}}</p>
+                                    <p class="big-font">{{s.name2}}</p>
                                     <P class="small-font">{{s.cName2}}</P>
                                 </div>
-                                <div class="bg-white">
+                                <div class="bg-white cursor"  ng-click="vm.con3($index)">
                                     <img ng-src="{{s.logo3}}" style="margin:auto;">
-                                    <p class="big-font">{{s.id3}}</p>
+                                    <p class="big-font">{{s.name3}}</p>
                                     <P class="small-font">{{s.cName3}}</P>
                                 </div>
-                                <div class="bg-white">
+                                <div class="bg-white cursor"  ng-click="vm.con4($index)">
                                     <img ng-src="{{s.logo4}}" style="margin:auto;">
-                                    <p class="big-font">{{s.id4}}</p>
+                                    <p class="big-font">{{s.name4}}</p>
                                     <P class="small-font">{{s.cName4}}</P>
                                 </div>
                             </div>
@@ -134,7 +134,45 @@
     </div>
 
 
-
+    <div class="bg-grey">
+        <div class="container">
+            <div class="row m-title">
+                <p>伙伴之言</p>
+                <div></div>
+                <span>SERVICE FLOW</span>
+            </div>
+            <div  class="row ">
+                <div class="col-md-12">
+                    <div uib-carousel active="active3"  interval="vm.myInterval" no-wrap="vm.noWrapSlides" >
+                        <div uib-slide ng-repeat="s in vm.slides track by s.id " index="s.id">
+                            <div class="box" style="color: black">
+                                <div class="bg-white cursor"    ng-click="vm.con1($index)"  >
+                                    <img ng-src="{{s.logo1}}" style="margin:auto;">
+                                    <p class="big-font">{{s.name1}}</p>
+                                    <P class="small-font">{{s.cName1}}</P>
+                                </div>
+                                <div class="bg-white cursor"  ng-click="vm.con2($index)">
+                                    <img ng-src="{{s.logo2}}" style="margin:auto;">
+                                    <p class="big-font">{{s.name2}}</p>
+                                    <P class="small-font">{{s.cName2}}</P>
+                                </div>
+                                <div class="bg-white cursor"  ng-click="vm.con3($index)">
+                                    <img ng-src="{{s.logo3}}" style="margin:auto;">
+                                    <p class="big-font">{{s.name3}}</p>
+                                    <P class="small-font">{{s.cName3}}</P>
+                                </div>
+                                <div class="bg-white cursor"  ng-click="vm.con4($index)">
+                                    <img ng-src="{{s.logo4}}" style="margin:auto;">
+                                    <p class="big-font">{{s.name4}}</p>
+                                    <P class="small-font">{{s.cName4}}</P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </div>

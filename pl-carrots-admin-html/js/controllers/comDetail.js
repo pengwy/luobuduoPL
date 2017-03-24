@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.controller('comDetail',function ($scope,approvedStatus,industrytype,financingtype,province,city,country,FileUploader) {
+app.controller('comDetail',function ($scope,approvedStatus,industrytype,financingtype,province,city,country,FileUploader,tt) {
     var vm =this;
     vm.com={};
      vm.se={
@@ -13,7 +13,6 @@ app.controller('comDetail',function ($scope,approvedStatus,industrytype,financin
          province:province,
          city:[{"cityId": '', "cityName": "请选择城市"}],
          country:[{"countryId": '',"countryName": "请选择地区"}],
-        /* companyTag:companyTag*/
     };
     vm.com.company={
         approved:vm.se.approved[0],
@@ -21,13 +20,12 @@ app.controller('comDetail',function ($scope,approvedStatus,industrytype,financin
         solgan:'',
         totalNum:'',
         financing:vm.se.financing[0],
-        industry:vm.se.industry[0],
         province:vm.se.province[0],
         city:vm.se.city[0],
         country:vm.se.country[0],
-        companyTag :[],
         summary:''
     };
+    vm.com.industryList=vm.se.industry[0];
     vm.com.productList={
         name:'',
         solgan:'',
@@ -35,6 +33,17 @@ app.controller('comDetail',function ($scope,approvedStatus,industrytype,financin
         logo:''
     };
     vm.com.tagList=[];
+
+    //发送数据
+    var ok = function () {
+        vm.com.company.financing= vm.com.company.financing.type;
+        vm.com.industryList=vm.com.industryList.type;
+        vm.com.company.province=vm.com.company.province.proId;
+        vm.com.company.city=vm.com.company.city.cityId;
+        vm.com.company.country=vm.com.company.country.id;
+        vm.com.company.approved=vm.com.company.approved.type;
+    };
+
 
     //省的变化
     $scope.$watch('vm.com.company.province',function () {
@@ -63,55 +72,49 @@ app.controller('comDetail',function ($scope,approvedStatus,industrytype,financin
 
 
 
+
+    //上传图片
     var uploader = $scope.uploader = new FileUploader({
-        url: 'carrots-admin-ajax/a/u/img/test'
+        url:"/carrots-admin-ajax/a/u/img/3"
     });
+    //公司logo
+    uploader.onSuccessItem = function(fileItem,response) {
+        vm.com.company.logo = response.data.url;
 
-    // FILTERS
+    };
+    var uploader1 = $scope.uploader1 = new FileUploader({
+        url:"/carrots-admin-ajax/a/u/img/3"
+    });
+    //产品logo
+    uploader1.onSuccessItem = function(fileItem,response) {
+        vm.com.productList.logo = response.data.url;
+    };
 
-    uploader.filters.push({
-        name: 'imageFilter',
-        fn: function(item /*{File|FileLikeObject}*/, options) {
-            var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-            return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+    var uploader2 = $scope.uploader2 = new FileUploader({
+        url:"/carrots-admin-ajax/a/u/img/3"
+    });
+    //地图
+    uploader2.onSuccessItem = function(fileItem,response) {
+        vm.com.company.map = response.data.url;
+    };
+    //移除图片
+    $scope.moveImg=function (g) {
+        if (g=='uploader'){
+            vm.com.company.logo=''
+        }else if(g=='uploader1'){
+            vm.com.productList.logo=''
+        }else {
+            vm.com.company.map=''
         }
-    });
+    }
 
-    // CALLBACKS
 
-   /* uploader.onWhenAddingFileFailed = function(item /!*{File|FileLikeObject}*!/, filter, options) {
-        console.info('onWhenAddingFileFailed', item, filter, options);
-    };
-    uploader.onAfterAddingFile = function(fileItem) {
-        console.info('onAfterAddingFile', fileItem);
-    };
-    uploader.onAfterAddingAll = function(addedFileItems) {
-        console.info('onAfterAddingAll', addedFileItems);
-    };
-    uploader.onBeforeUploadItem = function(item) {
-        console.info('onBeforeUploadItem', item);
-    };
-    uploader.onProgressItem = function(fileItem, progress) {
-        console.info('onProgressItem', fileItem, progress);
-    };
-    uploader.onProgressAll = function(progress) {
-        console.info('onProgressAll', progress);
-    };
-    uploader.onSuccessItem = function(fileItem, response, status, headers) {
-        console.info('onSuccessItem', fileItem, response, status, headers);
-    };
-    uploader.onErrorItem = function(fileItem, response, status, headers) {
-        console.info('onErrorItem', fileItem, response, status, headers);
-    };
-    uploader.onCancelItem = function(fileItem, response, status, headers) {
-        console.info('onCancelItem', fileItem, response, status, headers);
-    };
-    uploader.onCompleteItem = function(fileItem, response, status, headers) {
-        console.info('onCompleteItem', fileItem, response, status, headers);
-    };
-    uploader.onCompleteAll = function() {
-        console.info('onCompleteAll');
-    };*/
+    vm.gg=function () {
+        history.back(-1)
+    }
+
+
+
 //添加标签
     var tag=new Set();
     vm.addTag=function () {
@@ -124,11 +127,14 @@ app.controller('comDetail',function ($scope,approvedStatus,industrytype,financin
         tag.delete(g.tag)
         vm.com.tagList=[...tag]
     }
-  /*  $scope.$watch('tag',function () {
-        console.log(11)
-        vm.com.tagList=[...tag]
-    },true)*/
-vm.h=function () {
 
-}
+//新建公司
+
+    vm.addCom=function () {
+        ok();
+        console.log(vm.com)
+        tt.addCompany(vm.com).then(function (res) {
+            console.log(res)
+        })
+    }
 });
