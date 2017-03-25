@@ -292,7 +292,7 @@ app.service('tt',function ($http,$state) {
 
 //返回上级页面
     this.goBack=function () {
-        localStorage.account=''
+        localStorage.clear()
         history.go(-1)
     };
 //提交Account
@@ -311,7 +311,7 @@ app.service('tt',function ($http,$state) {
                     message:text,
                     callback: function () {
                         if(text=='success'){
-                            localStorage.account=''
+                            localStorage.clear();
                             history.back(-1)
                         }
                     }

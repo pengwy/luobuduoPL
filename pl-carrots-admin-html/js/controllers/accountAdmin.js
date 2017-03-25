@@ -2,7 +2,7 @@
  * Created by py on 2017/3/14.
  */
 'use strict';
-app.controller('accountAdmin',function ($http,tt,$filter,$scope,$state) {
+app.controller('accountAdmin',function ($http,tt,$filter,$scope,$state,$timeout) {
     var vm =this;
 
     //先请求所有数据，取得获取下拉选项的值。
@@ -25,14 +25,15 @@ app.controller('accountAdmin',function ($http,tt,$filter,$scope,$state) {
 
     vm.getManger();
    //获取选项卡的值
+
     var roleList=JSON.parse(localStorage.roleList);
     var managerList=JSON.parse(localStorage.managerList);
-
-    console.log(roleList,managerList)
     roleList.unshift({id:'',name:'全部'});
 
     vm.roleList=roleList;
     vm.role=vm.roleList[0];
+
+
 //搜索
     var pe =tt.parent
     pe()
@@ -50,6 +51,7 @@ app.controller('accountAdmin',function ($http,tt,$filter,$scope,$state) {
             vm.managerList=res.data.data.managerList
         });
     }
+    vm.sleep()
     //删除
     vm.accountDelete=tt.accountDelete;
 

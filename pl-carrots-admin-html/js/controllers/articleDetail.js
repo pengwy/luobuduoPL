@@ -6,7 +6,7 @@
 'use strict';
 app.controller('articleDetail',function (typeA,industrytype,$scope,FileUploader,tt,$filter) {
     var vm =this;
-    vm.params = $state.params;
+
 
     //初始值
     vm.type=typeA.slice(1);

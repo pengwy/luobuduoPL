@@ -46,6 +46,7 @@ app.controller('moduleDetailCtrl',function ($scope,$stateParams,$http) {
     }
 
     vm.submitMd = function () {
+        console.log($scope.form)
         if(id){
             return $http({
                 url:"/carrots-admin-ajax/a/u/module/"+id,

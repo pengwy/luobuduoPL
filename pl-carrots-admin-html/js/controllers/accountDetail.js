@@ -9,7 +9,7 @@ app.controller('accountDetail',function ($scope,tt,$filter) {
     //获取下拉框的值
     vm.list = JSON.parse(localStorage.roleList);
 //判断新增还是编辑
-    if(localStorage.account.length>2){
+    if(localStorage.account){
         //数据绑定
          var account=JSON.parse(localStorage.account);
          var id=account.id;

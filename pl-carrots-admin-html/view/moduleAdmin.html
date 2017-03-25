@@ -28,8 +28,8 @@
                 <td>{{ x.createAt|date:"yyyy-MM-dd" }}</td>
                 <td>{{ x.createBy }}</td>
                 <td>
-                    <button ui-sref="app.moduleDetail({id:x.id})">编辑</button>
-                    <button ng-click="vm.deleteMd(x)">删除</button>
+                    <button ui-sref="app.moduleDetail({id:x.id})" class="btn btn-success btn-sm">编辑</button>
+                    <button ng-click="vm.deleteMd(x)" class="btn btn-danger btn-sm">删除</button>
                 </td>
             </tr>
         </table>
