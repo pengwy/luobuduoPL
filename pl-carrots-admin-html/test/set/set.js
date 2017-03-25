@@ -3,19 +3,17 @@
  */
 
 
-
-
 var app=angular.module('app',[]);
 app.controller('con',function ($scope) {
 
-    $scope.go=function () {
-        var arr=[1,2,3,4,5,6];
-        var ob={};
-        var bb=[]
-        for(i=0;i<arr.length;i++){
-            ob={tag:arr[i]};
-            bb.push(ob)
-        }
-        console.log(bb)
-    }
+
+    var a = [1,2,4,5,4];
+    var b = a.slice(1);
+
+
+    console.log(a,b)
+
+
+
+
 });

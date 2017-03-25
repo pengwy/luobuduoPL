@@ -66,8 +66,9 @@ app.controller('comList',function ($http,$state,industrytype,financingtype,$scop
             city:vm.se.city[0],
             country:vm.se.country[0],
         };
+        vm.gg();
+        vm.kk()
     };
-
 
     //新增公司跳转
     vm.newCom=function () {

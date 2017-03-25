@@ -31,7 +31,6 @@
 }
 .login .g-mn form img {
   width: 5%;
-  height: 40px;
   vertical-align: middle;
 }
 .login .g-mn .btn-ft {
@@ -45,4 +44,5 @@
   font-size: 2rem;
   line-height: 60px;
   background-color: #f5c97b;
+  border: none;
 }
