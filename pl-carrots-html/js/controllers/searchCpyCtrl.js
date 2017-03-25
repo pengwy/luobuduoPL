@@ -133,6 +133,7 @@ app.controller('searchCpyCtrl',function ($scope,$http,$stateParams,$state,$rootS
         vm.jdgFin = [true,false,false,false,false,false,false,false];
         vm.cityArr = [];
         vm.jdgCity = [true,false];
+        vm.submit();
     };
     vm.totalItems = '';
     vm.currentPage = 1;

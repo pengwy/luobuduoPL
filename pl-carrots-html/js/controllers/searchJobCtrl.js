@@ -305,7 +305,6 @@ app.controller('searchJobCtrl',function ($scope,$http,$stateParams,$state,$rootS
                 vm.subCategory=null;
             }
 
-
             vm.education = vm.eduArr.toString();
             vm.experience = vm.expArr.toString();
             vm.compensation = vm.compenArr.toString();
@@ -366,6 +365,7 @@ app.controller('searchJobCtrl',function ($scope,$http,$stateParams,$state,$rootS
                     vm.jdgCompen = [true,false,false,false,false];
                     vm.updateAt ="";
                     vm.jdgUpdate = [true,false,false,false,false];
+                    vm.submit();
                 };
         vm.totalItems = '';
         vm.currentPage = 1;

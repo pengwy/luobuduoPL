@@ -17,8 +17,6 @@ app.controller('login',function ($state,$scope,$http) {
             $state.go('app.dashboard');
            vm.modules = respon.data.data.moduleList;
             vm.statu = true;
-            sessionStorage.statu = vm.statu;
-            sessionStorage.setItem("statu", vm.statu);
             var str = JSON.stringify(vm.modules);
             //存入
             sessionStorage.modules = str;
@@ -57,7 +55,7 @@ app.controller('login',function ($state,$scope,$http) {
         });
     };
     /*回退禁止*/
-    if (vm.status==false){
+    if (vm.statu==false){
         history.pushState(null, null, document.URL);
         window.addEventListener('popstate', function () {
             history.pushState(null, null, document.URL);

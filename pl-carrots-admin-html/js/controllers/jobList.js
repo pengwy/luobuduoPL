@@ -173,6 +173,7 @@ app.controller('jobList',function ($scope,$http,industrytype,experienceType,educ
         vm.compen = '';
         vm.startAt='';
         vm.endAt ='';
+        vm.submit();
     };
     vm.submit();
 
